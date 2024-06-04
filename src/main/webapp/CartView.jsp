@@ -24,7 +24,7 @@ if (cart != null) {
                 for (ProdottoCarrello pc : prodotti) {
                     Prodotto p = pc.getProdotto();
      %>
-    <h1 align="center">Prodotti nel carrello (<%= prodotti.size() %>)</h1>
+    <h1 align="center">Prodotti nel carrello(<%= prodotti.size() %>)</h1>
     <table class="table table-striped">
         <thead class="table-primary">
             <tr>
