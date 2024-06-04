@@ -19,6 +19,11 @@ if (cart != null) {
     <title>Catalogo AltaFrequenza</title>
 </head>
 <body>
+	<% // Itera sui prodotti e popola la tabella HTML
+            if (prodotti != null && !prodotti.isEmpty()) {
+                for (ProdottoCarrello pc : prodotti) {
+                    Prodotto p = pc.getProdotto();
+     %>
     <h1 align="center">Prodotti nel carrello (<%= prodotti.size() %>)</h1>
     <table class="table table-striped">
         <thead class="table-primary">
@@ -35,11 +40,6 @@ if (cart != null) {
             </tr>
         </thead>
         <tbody>
-            <% // Itera sui prodotti e popola la tabella HTML
-            if (prodotti != null && !prodotti.isEmpty()) {
-                for (ProdottoCarrello pc : prodotti) {
-                    Prodotto p = pc.getProdotto();
-            %>
             <tr>
                 <td scope="row"><a href="./DettaglioPageServlet?Product_ID=<%= p.getProduct_ID() %>"><%= p.getProduct_Name() %></a></td>
                 <td><%= p.getBrand() %></td>
