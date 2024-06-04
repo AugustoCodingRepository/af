@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,model.*, control.*"%>
 
 <%
@@ -14,7 +14,8 @@ if (cart != null) {
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/cartView.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="IMG/Finale.png">
     <title>Catalogo AltaFrequenza</title>
 </head>
@@ -51,13 +52,17 @@ if (cart != null) {
                 <td><img src="./GetPictureServlet?Product_ID=<%= p.getProduct_ID() %>" onerror="this.src='./imgs/nophoto.png'" style="width:100px"></td>
                 <td>
                     <form action="./RemoveFromCart?Product_ID=<%=p.getProduct_ID()%>" method="post" >
-                        <button type="submit">X</button>
+                        <button type="submit" class="btn">-</button>
                     </form>
                 </td>
             </tr>
+            <form action="" method="post">
+                <button type="submit">Acquista</button>
+            </form>
             <% } %>
             <% } else { %>
             <tr><td colspan="9">Nessun prodotto nel carrello</td></tr>
+            <ahref="catalogo.jsp">Torna al carrello</a>
             <% } %>
         </tbody>
     </table>

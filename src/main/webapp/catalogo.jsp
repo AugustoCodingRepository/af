@@ -11,23 +11,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Catalogo AltaFrequenza</title>
     <link rel="icon" type="image/png" href="IMG/Finale.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        /* Stile per il pulsante */
-        .btn {
-            padding: 15px 20px;
-            font-size: 16px;
-            border: none;
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        /* Stile per il pulsante al passaggio del mouse */
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/catalogo.css" rel="stylesheet">
 </head>
 <body>
 <h1 align="center">Catalogo dei Prodotti (<%= prodotti.size() %>)</h1>
@@ -84,8 +69,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
             </form>
         </td>
         <td>
-            <form action="./DeleteProductServlet?Product_ID=<%=p.getProduct_ID()%>" method="post" >
-                <button type="submit">X</button>
+            <form action="./DeleteProductServlet?Product_ID=<%=p.getProduct_ID()%>" method="post">
+                <button type="submit" class="btn">-</button>
             </form>
         </td>
     </tr>

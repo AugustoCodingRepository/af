@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ordine DAO</title>
+    <title>Pagina degli ordini</title>
 </head>
 <body>
     <%
