@@ -8,7 +8,7 @@ public class ConnectToDB
 {
 	private static final String URL = "jdbc:mysql://localhost:3306/altafrequenza";
 	private static final String USER = "root";
-	private static final String PASSWORD = "Team4project!!";
+	private static final String PASSWORD = "root";
 	
 	// Metodo per ottenere la connessione al database
 	public static Connection getConnection() throws SQLException{
