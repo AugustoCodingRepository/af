@@ -1,0 +1,35 @@
+body {
+    background-color: slategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.divTable {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.divCell {
+    padding: 10px;
+    text-align: center;
+}
+.divCell a {
+    color: white;
+    text-decoration: none;
+}
+
+td a[href='photoUpload.jsp'] {
+    margin: 15px;
+}
+
+td a[href='Login.html'] {
+    margin-left: 15px;
+}
+
+@media (min-width: 600px) {
+    .divTable {
+        flex-direction: row;
+    }
+}
