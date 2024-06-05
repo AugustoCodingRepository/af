@@ -145,5 +145,9 @@ public class User {
 	public void setRuolo(String ruolo) {
 		Ruolo = ruolo;
 	}
+	
+	public boolean isAmministratore() {
+		return this.getRuolo().equals("Admin");
+	}
 
 }

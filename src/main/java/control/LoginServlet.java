@@ -31,15 +31,15 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			User u = UserDAO.LoginCheck(request.getParameter("username"), request.getParameter("password"));
-			if ("Amministratore".equals(u.getRuolo()))
-				request.setAttribute("Role", "admin");
-			else
-				request.setAttribute("Role", "user");
-			HttpSession session = request.getSession(true);
-			session.setAttribute("Carrello", new Carrello());
-			RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
-			view.forward(request, response);
+			if(UserDAO.LoginCheck(request.getParameter("email"), request.getParameter("password"))){
+				HttpSession session = request.getSession(true);
+				session.setAttribute("Carrello", new Carrello());
+				RequestDispatcher view = request.getRequestDispatcher("./index.jsp");
+				view.forward(request, response);
+			}else{
+				RequestDispatcher view = request.getRequestDispatcher("./LoginAndRegistration.html");
+				view.forward(request, response);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
