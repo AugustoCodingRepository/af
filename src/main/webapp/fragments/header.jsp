@@ -1,4 +1,5 @@
 <%@ page import="model.*"%>
+<head>
 <div class="container">
         <div class="navbar">
         <img src="./IMG/logo.png" class="logo">
@@ -18,3 +19,4 @@
         </nav>
         <img src="./IMG/menu.png" class="menu-icon">
 </div>
+</head>
