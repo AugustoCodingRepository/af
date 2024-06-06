@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
-	
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="./RegistrationServlet" method="post">

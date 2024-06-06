@@ -1,12 +1,11 @@
 <html>
 <head>
-    <jsp:include page="./fragments/header.jsp"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta Frequenza </title>
     <link rel="stylesheet" href="./CSS/style.css">
 </head>  
 <body>  
-
+	<jsp:include page="./fragments/header.jsp"/>
     <div class="row">
         <div class="col">
             <h1>Alta Frequenza</h1>
