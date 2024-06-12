@@ -43,4 +43,19 @@ public class UserDAO {
 		}
 		return false;
 	}
+
+	public static User getUserByEmail(String email) {
+		final String query = "SELECT * FROM utente WHERE email = ?";
+		try {
+			Connection con = ConnectToDB.getConnection();
+			PreparedStatement pstm = con.prepareStatement(query);
+			pstm.setString(1, email);
+			ResultSet rs = pstm.executeQuery();
+			if (rs.next()) {
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

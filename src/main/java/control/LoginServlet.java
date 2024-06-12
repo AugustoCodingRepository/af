@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 			if(UserDAO.LoginCheck(request.getParameter("email"), request.getParameter("password"))){
 				HttpSession session = request.getSession(true);
 				session.setAttribute("Carrello", new Carrello());
+				session.setAttribute("currentSessionUser", UserDAO.getUserByEmail(request.getParameter("email")));
 				RequestDispatcher view = request.getRequestDispatcher("./index.jsp");
 				view.forward(request, response);
 			}else{

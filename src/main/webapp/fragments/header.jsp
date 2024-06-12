@@ -13,7 +13,8 @@
 				if(user != null){ %>
             <%if(user.isAmministratore()){ %>
             <li><a href="./catalogo.jsp">GESTIONE CATALOGO</a>
-            <%}}else{%>
+            <%}else{}>
+            }
             <li><a href="./LoginAndRegistration.jsp">LOGIN</a></li>
             <%}%>
             </ul>
