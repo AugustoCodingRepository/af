@@ -12,15 +12,13 @@
             <% User user = (User) request.getSession().getAttribute("currentSessionUser");
 				if(user != null){ %>
             <%if(user.isAmministratore()){ %>
-            <li><a href="./catalogo.jsp">Catalogo</a>
-            <li><a href="./catalogo.jsp">AdminPanel</a>
+            <li><a href="./adminPanel.jsp">AdminPanel</a>
             <%}else{%>
-            <li><a href="./AccountManagement.jsp">MyAccount</a>
+            <li><a href="./userPanel.jsp">MyAccount</a>
             <%}}else{%>
             <li><a href="./LoginAndRegistration.jsp">Login</a></li>
             <%}%>
             </ul>
         </nav>
-        <img src="./IMG/menu.png" class="menu-icon">
 </div>
 </head>

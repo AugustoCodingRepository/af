@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 	<title>My Account</title>
-	<link rel="stylesheet" type="text/css" href="CSS/accountmanagement.css">
+	<link rel="stylesheet" type="text/css" href="CSS/userPanel.css">
 </head>
 <body>
 	<%User user = (User) request.getSession().getAttribute("currentSessionUser");%>
@@ -30,11 +30,11 @@
 			</div>
 		</div>
 		<div class="card">
-			<img src="IMG/MyDatas.jpg">
+			<img src=IMG/Logout.jpg>
 			<div class="info">
-				<h1></h1>
-				<p>Qui sono presenti i tuoi dati, accedi a questa pagina per visualizzarli o modificarli</p>
-				<a href="#" class="btn">I tuoi dati</a>
+				<h1>Logout</h1>
+				<p>Premi il pulsante qui sotto per uscire dal tuo account</p>
+				<a href="<%= request.getContextPath() %>/Logout" class="btn">Logout</a>
 			</div>
 		</div>
 	</div>
