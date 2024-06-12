@@ -16,10 +16,9 @@ public class User {
 	private String Telefono;
 	private String Ruolo;
 
-	public User(int user_ID, String nomeUtente, String email, String password, String nome, String cognome, String via,
+	public User(int user_ID, String email, String password, String nome, String cognome, String via,
 			int civico, int cAP, String citta, String provincia, String nazione, String telefono, String ruolo) {
 		User_ID = user_ID;
-		NomeUtente = nomeUtente;
 		Email = email;
 		Password = password;
 		Nome = nome;
@@ -40,14 +39,6 @@ public class User {
 
 	public void setUser_ID(int user_ID) {
 		User_ID = user_ID;
-	}
-
-	public String getNomeUtente() {
-		return NomeUtente;
-	}
-
-	public void setNomeUtente(String nomeUtente) {
-		NomeUtente = nomeUtente;
 	}
 
 	public String getEmail() {

@@ -6,16 +6,18 @@
         <img src="./IMG/logo.png" class="logo">
         <nav>
             <ul>
-            <li><a href="./index.jsp">HOME</a></li>
-            <li><a href="">NEGOZIO</a></li>
-            <li><a href="">ABOUT US</a></li>
+            <li><a href="./index.jsp">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">About Us</a></li>
             <% User user = (User) request.getSession().getAttribute("currentSessionUser");
 				if(user != null){ %>
             <%if(user.isAmministratore()){ %>
-            <li><a href="./catalogo.jsp">GESTIONE CATALOGO</a>
-            <%}else{}>
-            }
-            <li><a href="./LoginAndRegistration.jsp">LOGIN</a></li>
+            <li><a href="./catalogo.jsp">Catalogo</a>
+            <li><a href="./catalogo.jsp">AdminPanel</a>
+            <%}else{%>
+            <li><a href="./AccountManagement.jsp">MyAccount</a>
+            <%}}else{%>
+            <li><a href="./LoginAndRegistration.jsp">Login</a></li>
             <%}%>
             </ul>
         </nav>

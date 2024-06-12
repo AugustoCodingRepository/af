@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ page import="model.*"%>
 <jsp:include page="fragments/header.jsp"/>
 <html>
 <head>
@@ -7,6 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="CSS/accountmanagement.css">
 </head>
 <body>
+	<%User user = (User) request.getSession().getAttribute("currentSessionUser");%>
+	<div class="name">
+		<h1>Ciao <%=user.getNome()%>, sei nella tua area personale.</h1>
+	</div>
 	<div class="wrapper">
 		<div class="card">
 			<img src="IMG/MyDatas.jpg">

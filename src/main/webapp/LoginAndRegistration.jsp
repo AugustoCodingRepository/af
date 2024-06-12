@@ -14,8 +14,8 @@
                 <h1>Crea il tuo account</h1>
                 <input type="text" name="nome" placeholder="Nome">
                 <input type="text" name="cognome" placeholder="Cognome">
-                <input type="email" name="password" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
                 <button>Registrati</button>
             </form>
         </div>
