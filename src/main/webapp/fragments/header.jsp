@@ -1,5 +1,6 @@
 <%@ page import="model.*"%>
 <head>
+<link rel="stylesheet" href="./CSS/style.css">
 <div class="container">
         <div class="navbar">
         <img src="./IMG/logo.png" class="logo">
