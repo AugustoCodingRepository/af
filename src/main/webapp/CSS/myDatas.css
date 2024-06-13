@@ -1,0 +1,75 @@
+@charset "ISO-8859-1";
+
+body{
+	background-color: black;
+}
+
+.card {
+    background-color: white;
+    height: 80%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Aggiungi un'ombra leggera */
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    max-height: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    background-color: white;
+    padding: 10px;
+    width: 250px;
+    height: 95%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-right: auto;
+    margin-left: 5px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Centra il contenuto della lista orizzontalmente */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Centra il contenuto della lista orizzontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Altezza massima della lista */
+}
+
+.sidebar nav ul li {
+    margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    padding: 10px 20px;
+    font-size: 18px; /* Ingrandisce il font degli elementi <li> */
+}
+
+.card img {
+    width: 150px; /* Imposta la larghezza dell'immagine */
+    height: 150px; /* Imposta l'altezza dell'immagine */
+    border-radius: 50%; /* Rende l'immagine rotonda */
+    object-fit: cover; /* Per mantenere l'aspetto proporzionato dell'immagine */
+    object-position: center; /* Posiziona l'immagine al centro */
+}
+
+.sidebar nav ul li.active a {
+    color: #007BFF;
+}

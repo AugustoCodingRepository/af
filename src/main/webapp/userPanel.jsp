@@ -18,7 +18,7 @@
 			<div class="info">
 				<h1>I tuoi dati</h1>
 				<p>Qui sono presenti i tuoi dati, accedi a questa pagina per visualizzarli o modificarli</p>
-				<a href="#" class="btn">I tuoi dati</a>
+				<a href="./myDatas.jsp" class="btn">I tuoi dati</a>
 			</div>
 		</div>
 		<div class="card">
