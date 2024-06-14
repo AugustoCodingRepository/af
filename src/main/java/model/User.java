@@ -136,6 +136,10 @@ public class User {
 		Ruolo = ruolo;
 	}
 	
+	public boolean isRegistered() {
+	    return this.getUser_ID() > 0;
+	}
+	
 	public boolean isAmministratore() {
 		return this.getRuolo().equals("Admin");
 	}

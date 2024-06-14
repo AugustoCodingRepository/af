@@ -8,9 +8,6 @@ public class Ordine {
     private Date Order_Data;
     private Date Delivery_Data;
 
-    public Ordine() {
-    }
-
     public Ordine(int Order_ID, int User_ID, Date Order_Data, Date Delivery_Data) {
         this.Order_ID = Order_ID;
         this.User_ID = User_ID;
