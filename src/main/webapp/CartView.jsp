@@ -15,19 +15,15 @@ if (cart != null) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="CSS/cartView.css" rel="stylesheet">
+    <link href="CSS/catalogo.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="IMG/Finale.png">
     <title>Catalogo AltaFrequenza</title>
 </head>
 <body>
-	<% // Itera sui prodotti e popola la tabella HTML
-            if (prodotti != null && !prodotti.isEmpty()) {
-                for (ProdottoCarrello pc : prodotti) {
-                    Prodotto p = pc.getProdotto();
-     %>
-    <h1 align="center">Prodotti nel carrello(<%= prodotti.size() %>)</h1>
-    <table class="table table-striped">
-        <thead class="table-primary">
+	<% if (prodotti != null && !prodotti.isEmpty()) { %>
+	<h1 align="center">Prodotti nel carrello(<%= prodotti.size() %>)</h1>
+    <table class="table table-striped table-custom">
+        <thead class="table-primary table-head-custom">
             <tr>
                 <th scope="col">Nome Prodotto</th>
                 <th scope="col">Brand</th>
@@ -40,13 +36,16 @@ if (cart != null) {
                 <th scope="col">Delete Product</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-body-custom">
+            <% for (ProdottoCarrello pc : prodotti) {
+                Prodotto p = pc.getProdotto();
+            %>
             <tr>
                 <td scope="row"><a href="./DettaglioPageServlet?Product_ID=<%= p.getProduct_ID() %>"><%= p.getProduct_Name() %></a></td>
                 <td><%= p.getBrand() %></td>
                 <td><%= p.getModel() %></td>
                 <td><%= pc.getQuantita() %></td>
-                <td>&euro; <%= p.getPrice() %></td>
+                <td>€ <%= p.getPrice() %></td>
                 <td><%= p.getIVA() %></td>
                 <td><%= p.getCategoria_ID() %></td>
                 <td><img src="./GetPictureServlet?Product_ID=<%= p.getProduct_ID() %>" onerror="this.src='./imgs/nophoto.png'" style="width:100px"></td>
@@ -56,14 +55,16 @@ if (cart != null) {
                     </form>
                 </td>
             </tr>
+            <% } %>
             <form action="" method="post">
                 <button type="submit">Acquista</button>
             </form>
-            <% } %>
-            <% } else { %>
-            <tr><td colspan="9">Nessun prodotto nel carrello</td></tr>
-            <ahref="catalogo.jsp">Torna al carrello</a>
-            <% } %>
+        </tbody>
+    	</table>
+    	<% } else { %>
+    	<tr><td colspan="9">Nessun prodotto nel carrello</td></tr>
+    	<a href="catalogo.jsp">Torna al carrello</a>
+    	<% } %>
         </tbody>
     </table>
 </body>

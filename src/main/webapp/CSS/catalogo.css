@@ -3,12 +3,25 @@
     padding: 15px 20px;
     font-size: 16px;
     border: none;
-    background-color: #007bff;
-    color: #fff;
+    background-color: orange;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     border-radius: 5px;
 }
 /* Stile per il pulsante al passaggio del mouse */
 .btn:hover {
-    background-color: #0056b3;
+    background-color: orange;
+}
+
+body,
+.table-body-custom td{
+	background-color: slategray;
+}
+
+.table-head-custom th{
+	background-color: orange;
+}
+
+a{
+	color: orange;
 }

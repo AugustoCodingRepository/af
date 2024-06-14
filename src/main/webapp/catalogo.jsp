@@ -21,8 +21,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
         <button type="submit" class="btn">Carrello</button>
     </form>
 </h2>
-<table class="table table-striped">
-    <thead class="table-primary">
+<table class="table table-striped table-custom">
+    <thead class="table-primary table-head-custom">
     <tr>
         <th scope="col">Nome Prodotto</th>
         <th scope="col">Brand</th>
@@ -45,11 +45,11 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
             <th scope="col"><input class="form-control" type="number" name="IVA" placeholder="IVA" min="3" max="100" value="0.00" step="0.25" required /></th>
             <th scope="col"><input class="form-control" type="number" name="idCat" placeholder="id categoria" min="0" value="0" required /></th>
             <th scope="col"><input class="form-control" type="text" name="description" placeholder="descrizione" required /></th>
-            <th scope="col"><input class="form-control" type="submit" placeholder="+" required /></th>
+            <th scope="col" colspan="2"><input class="form-control" type="submit" required /></th>
         </form>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="table-body-custom">
     <% // Itera sui prodotti e popola la tabella HTML
     if (prodotti != null && prodotti.size() > 0) {
         for (Prodotto p : prodotti) {

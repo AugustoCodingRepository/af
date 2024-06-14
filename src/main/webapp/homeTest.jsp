@@ -22,7 +22,7 @@
                 <font color="#081826" size="4"><b></b></font>
             </td>
             <td>
-                <a href="LoginAndRegistration.html" target="contenuto"><font color="white" size="4"><b>Login</b></font></a>
+                <a href="LoginAndRegistration.jsp" target="contenuto"><font color="white" size="4"><b>Login</b></font></a>
             </td>
             <td>
                 <a href="" target="contenuto"><font color="white" size="4"><b></b></font></a>

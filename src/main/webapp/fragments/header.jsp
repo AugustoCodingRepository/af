@@ -7,7 +7,7 @@
         <nav>
             <ul>
             <li><a href="./index.jsp">Home</a></li>
-            <li><a href="">Shop</a></li>
+            <li><a href="./catalogo.jsp">Shop</a></li>
             <li><a href="">About Us</a></li>
             <% User user = (User) request.getSession().getAttribute("currentSessionUser");
 				if(user != null){ %>
