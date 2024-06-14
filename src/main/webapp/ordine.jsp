@@ -21,7 +21,10 @@ if (user != null) {
     <title>I tuoi ordini</title>
 </head>
 <body>
-	<% if (ordini != null && !ordini.isEmpty()) { %>
+	<% if (user == null) { %>
+	<p>Per favore, effettua il login per visualizzare i tuoi ordini.</p>
+	<a href="LoginAndRegistration.jsp">Vai alla pagina di login</a>
+	<% } else if (ordini != null && !ordini.isEmpty()) { %>
 	<h1 align="center">I tuoi ordini(<%= ordini.size() %>)</h1>
     <table class="table table-striped table-custom">
         <thead class="table-primary table-head-custom">

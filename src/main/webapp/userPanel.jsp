@@ -26,7 +26,7 @@
 			<div class="info">
 				<h1>I tuoi ordini</h1>
 				<p>Qui sono presenti i tuoi ordini, accedi a questa pagina per visualizzarli</p>
-				<a href="#" class="btn">I tuoi ordini</a>
+				<a href="./ordine.jsp" class="btn">I tuoi ordini</a>
 			</div>
 		</div>
 		<div class="card">
