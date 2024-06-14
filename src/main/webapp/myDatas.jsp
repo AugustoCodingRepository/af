@@ -8,21 +8,19 @@
     <meta charset="ISO-8859-1">
     <title>Account Settings</title>
     <link rel="stylesheet" type="text/css" href="./CSS/myDatas.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="card">
-       <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li class="active"><img src="./IMG/profile.jpg"></li>
-                    <li><a href="#">Notifications</a></li>
-                    <li><a href="#">Password</a></li>
-                    <li><a href="#">Integrations</a></li>
-                    <li><a href="#">Social Profiles</a></li>
-                    <li><a href="#">Log Out</a></li>
-                </ul>
-            </nav>
-        </aside>
-    </div>
+<div class="container">
+	<nav class="sidebar">
+		<header>
+			<div class="image-text">
+				<span class="image">
+					<img src="" alt=""/>
+				</span>
+			</div>		
+		</header>
+	</nav>
+</div>
 </body>
 </html>
