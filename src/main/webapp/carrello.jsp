@@ -2,6 +2,7 @@
 <%@ page import="java.util.*,model.*, control.*"%>
 
 <%
+User user = (User) request.getSession().getAttribute("currentSessionUser");
 Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 Collection<ProdottoCarrello> prodotti = null;
 if (cart != null) {
@@ -20,7 +21,7 @@ if (cart != null) {
     <title>Catalogo AltaFrequenza</title>
 </head>
 <body>
-	<% if (prodotti != null && !prodotti.isEmpty()) { %>
+	<% if (user != null && prodotti != null && !prodotti.isEmpty()) { %>
 	<h1 align="center">Prodotti nel carrello(<%= prodotti.size() %>)</h1>
     <table class="table table-striped table-custom">
         <thead class="table-primary table-head-custom">
@@ -56,11 +57,13 @@ if (cart != null) {
                 </td>
             </tr>
             <% } %>
-            <form action="" method="post">
+            <form action="./EffettuaOrdineServlet" method="post">
                 <button type="submit">Acquista</button>
             </form>
         </tbody>
     	</table>
+    	<% } else if (user == null) { %>
+    	<p><a href="LoginAndRegistration.jsp">Per favore, effettua il login per acquistare i prodotti.</a></p>
     	<% } else { %>
     	<tr><td colspan="9">Nessun prodotto nel carrello</td></tr>
     	<a href="catalogo.jsp">Torna al catalogo</a>

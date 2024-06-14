@@ -2,9 +2,9 @@
 <%@ page import="java.util.*,model.*, control.*"%>
 
 <%
-User user = (User) request.getSession().getAttribute("user");
+User user = (User) request.getSession().getAttribute("currentSessionUser");
 Collection<Ordine> ordini = null;
-if (user != null && user.isRegistered()) {
+if (user != null) {
     OrdineDAO ordineDAO = new OrdineDAO();
     ordini = ordineDAO.getOrdiniByUser(user);
 }

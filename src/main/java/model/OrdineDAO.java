@@ -10,7 +10,7 @@ import java.util.List;
 public class OrdineDAO {
 
     public void insert(Ordine ordine, User user) throws SQLException {
-        if (user != null && user.isRegistered()) {
+        if (user != null) {
             Connection connection = ConnectToDB.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data) VALUES (?, ?, ?, ?)");
             statement.setInt(1, ordine.getOrder_ID());
@@ -42,7 +42,7 @@ public class OrdineDAO {
 
     public List<Ordine> getOrdiniByUser(User user) throws SQLException {
         List<Ordine> ordini = new ArrayList<>();
-        if (user != null && user.isRegistered()) {
+        if (user != null) {
             Connection connection = ConnectToDB.getConnection();
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM Ordine WHERE User_ID = ?");
             statement.setInt(1, user.getUser_ID());
