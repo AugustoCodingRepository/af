@@ -23,7 +23,7 @@ public class DeleteProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ProdottoDAO.deleteProdottoByID(request.getParameter("Product_ID"));
-		RequestDispatcher view = request.getRequestDispatcher("./catalogo.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/catalogo.jsp");
 		view.forward(request, response);
 	}
 

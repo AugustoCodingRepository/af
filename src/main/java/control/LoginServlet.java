@@ -34,10 +34,10 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("Carrello", new Carrello());
 				session.setAttribute("currentSessionUser", UserDAO.getUserByEmail(request.getParameter("email")));
-				RequestDispatcher view = request.getRequestDispatcher("./index.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
 				view.forward(request, response);
 			}else{
-				RequestDispatcher view = request.getRequestDispatcher("./LoginAndRegistration.html");
+				RequestDispatcher view = request.getRequestDispatcher("/LoginAndRegistration.jsp");
 				view.forward(request, response);
 			}
 		} catch (Exception e) {

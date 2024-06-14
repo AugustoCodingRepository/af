@@ -25,7 +25,7 @@ public class AddingProduct extends HttpServlet {
 				request.getParameter("model"), Integer.parseInt(request.getParameter("qt")),
 				Double.parseDouble(request.getParameter("prize")), Integer.parseInt(request.getParameter("IVA")),
 				Integer.parseInt(request.getParameter("idCat")), request.getParameter("description"), null);
-		RequestDispatcher view = request.getRequestDispatcher("./catalogo.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/catalogo.jsp");
 		view.forward(request, response);
 	}
 
