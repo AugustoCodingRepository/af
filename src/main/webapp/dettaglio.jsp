@@ -2,7 +2,7 @@
 <%@page import="model.*" %>
 <!DOCTYPE html>
 <% Prodotto prodotto = ProdottoDAO.getProductByID(request.getParameter("Product_ID"));%>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -40,7 +40,7 @@ public class AddToCartServlet extends HttpServlet {
         }
 
         // Reindirizza alla pagina del catalogo dopo l'aggiunta del prodotto
-        response.sendRedirect(request.getContextPath() + "./catalogo.jsp");
+        response.sendRedirect(request.getContextPath() + "/catalogo.jsp");
     }
 
     @Override
