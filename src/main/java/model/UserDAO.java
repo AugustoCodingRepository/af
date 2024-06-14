@@ -52,7 +52,7 @@ public class UserDAO {
 			pstm.setString(1, email);
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
-				return new User(rs.getInt("User_ID"), rs.getString("NomeUtente"),
+				return new User(rs.getInt("User_ID"),
 						rs.getString("Email"), rs.getString("Password"), 
 						rs.getString("Nome"), rs.getString("Cognome"),
 						rs.getString("Via"), rs.getInt("Civico"),

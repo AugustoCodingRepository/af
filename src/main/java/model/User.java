@@ -2,7 +2,6 @@ package model;
 
 public class User {
 	private int User_ID;
-	private String NomeUtente;
 	private String Email;
 	private String Password;
 	private String Nome;
@@ -16,10 +15,9 @@ public class User {
 	private String Telefono;
 	private String Ruolo;
 
-	public User(int user_ID, String nomeUtente, String email, String password, String nome, String cognome, String via,
+	public User(int user_ID, String email, String password, String nome, String cognome, String via,
 			int civico, int cAP, String citta, String provincia, String nazione, String telefono, String ruolo) {
 		User_ID = user_ID;
-		NomeUtente = nomeUtente;
 		Email = email;
 		Password = password;
 		Nome = nome;
@@ -42,14 +40,6 @@ public class User {
 		User_ID = user_ID;
 	}
 	
-	public String getNomeUtente() {
-		return NomeUtente;
-	}
-	
-	public void setNomeUtente(String nomeUtente) {
-		NomeUtente = nomeUtente;
-	}
-
 	public String getEmail() {
 		return Email;
 	}
