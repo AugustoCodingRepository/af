@@ -63,7 +63,7 @@ if (cart != null) {
     	</table>
     	<% } else { %>
     	<tr><td colspan="9">Nessun prodotto nel carrello</td></tr>
-    	<a href="catalogo.jsp">Torna al carrello</a>
+    	<a href="catalogo.jsp">Torna al catalogo</a>
     	<% } %>
         </tbody>
     </table>
