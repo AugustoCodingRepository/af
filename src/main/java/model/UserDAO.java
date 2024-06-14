@@ -52,13 +52,13 @@ public class UserDAO {
 			pstm.setString(1, email);
 			ResultSet rs = pstm.executeQuery();
 			if (rs.next()) {
-				return new User(rs.getInt("User_ID"), rs.getString("Email"),
-						rs.getString("Password"), rs.getString("Nome"),
-						rs.getString("Cognome"), rs.getString("Via"),
-						rs.getInt("Civico"), rs.getInt("CAP"),
-						rs.getString("Citta"), rs.getString("Provincia"),
-						rs.getString("Nazione"), rs.getString("Telefono"),
-						rs.getString("Ruolo"));
+				return new User(rs.getInt("User_ID"), rs.getString("NomeUtente"),
+						rs.getString("Email"), rs.getString("Password"), 
+						rs.getString("Nome"), rs.getString("Cognome"),
+						rs.getString("Via"), rs.getInt("Civico"),
+						rs.getInt("CAP"), rs.getString("Citta"),
+						rs.getString("Provincia"), rs.getString("Nazione"), 
+						rs.getString("Telefono"), rs.getString("Ruolo"));
 			}} catch (Exception e) {
 			e.printStackTrace();
 		}

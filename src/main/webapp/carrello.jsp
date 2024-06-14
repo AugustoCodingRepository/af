@@ -15,7 +15,7 @@ if (cart != null) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="CSS/catalogo.css" rel="stylesheet">
+    <link href="CSS/catalogoAndCarrello.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="IMG/Finale.png">
     <title>Catalogo AltaFrequenza</title>
 </head>

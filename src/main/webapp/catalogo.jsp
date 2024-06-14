@@ -12,7 +12,7 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     <title>Catalogo AltaFrequenza</title>
     <link rel="icon" type="image/png" href="IMG/Finale.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="CSS/catalogo.css" rel="stylesheet">
+    <link href="CSS/catalogoAndCarrello.css" rel="stylesheet">
 </head>
 <body>
 <h1 align="center">Catalogo dei Prodotti (<%= prodotti.size() %>)</h1>

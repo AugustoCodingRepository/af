@@ -29,7 +29,7 @@ public class RemoveFromCartServlet extends HttpServlet {
 
 	    // Se il carrello non esiste, non c'è nulla da rimuovere
 	    if (cart == null) {
-	        response.sendRedirect(request.getContextPath() + "/catalogo.jsp");
+	        response.sendRedirect(request.getContextPath() + "./catalogo.jsp");
 	        return;
 	    }
 

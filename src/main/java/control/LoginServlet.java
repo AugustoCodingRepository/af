@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Carrello;
-import model.User;
 import model.UserDAO;
 
 @WebServlet("/LoginServlet")
