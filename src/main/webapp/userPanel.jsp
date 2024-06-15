@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <%@ page import="model.*"%>
-<jsp:include page="fragments/header.jsp"/>
+<jsp:include page="./fragments/header.jsp"/>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 	<title>My Account</title>
-	<link rel="stylesheet" type="text/css" href="CSS/userPanel.css">
+	<link rel="stylesheet" type="text/css" href="./CSS/userPanel.css">
 </head>
 <body>
 	<%User user = (User) request.getSession().getAttribute("currentSessionUser");%>
