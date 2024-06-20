@@ -3,6 +3,7 @@ package model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDAO {
 
@@ -65,4 +66,44 @@ public class UserDAO {
 		return null;
 		
 	}
+
+	public static boolean UpdateUser(int ID, String nome, String cognome, String via, int civico,
+	                                 int cap, String citta, String provincia, String nazione, String telefono) {
+	    final String query = "UPDATE utente SET nome = ?, cognome = ?, via = ?, civico = ?, cap = ?, citta = ?, provincia = ?, nazione = ?, telefono = ? WHERE User_ID = ?;";
+	    Connection con = null;
+	    PreparedStatement pstm = null;
+	    
+	    try {
+	        con = ConnectToDB.getConnection();
+	        pstm = con.prepareStatement(query);
+	        pstm.setString(1, nome);
+	        pstm.setString(2, cognome);
+	        pstm.setString(3, via);
+	        pstm.setInt(4, civico);
+	        pstm.setInt(5, cap);
+	        pstm.setString(6, citta);
+	        pstm.setString(7, provincia);
+	        pstm.setString(8, nazione);
+	        pstm.setString(9, telefono);
+	        pstm.setInt(10, ID);
+
+	        if (pstm.executeUpdate() > 0) {
+	            System.out.println("Query executed successfully.");
+	            return true;
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("SQL exception occurred: " + e.getMessage());
+	    } catch (Exception e) {
+	        System.err.println("Exception occurred: " + e.getMessage());
+	    } finally {
+	        try {
+	            if (pstm != null) pstm.close();
+	            if (con != null) con.close();
+	        } catch (SQLException e) {
+	            System.err.println("Failed to close resources: " + e.getMessage());
+	        }
+	    }
+	    return false;
+	}
+
 }

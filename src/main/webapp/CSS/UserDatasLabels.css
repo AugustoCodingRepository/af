@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+
+body {
+	display: flex;
+	flex-wrap: wrap;
+    gap: 20px; /* Spazio tra le colonne e le righe */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 80vh;
+    flex-direction: column;
+    background: #01003f;
+}
+
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-group .icon{
+    min-width: 20px;
+    border-radius: 6px;
+    height: 100%;
+    font-size: 40px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: aqua;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-group input {
+    width: 360px;
+    height: 40px;
+    font-size: 16px;
+    color: aqua;
+    padding: 0 15px;
+    background: transparent;
+    border: 1.2px solid black;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: 0;
+    font-size: 14px;
+    border-radius: 10px;
+    background: aqua;
+}
+
+.button {
+	display: inline-block;
+	padding: 0 24px;
+	justify-content: center; /* Centra il contenuto orizzontalmente */
+    align-items: center; /* Centra il contenuto verticalmente */
+	height: 40px;
+	margin-top: -10px;
+	padding: 0;
+	background: #009578;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	overflow: hidden;
+	font-family: "Quicksand", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	text-decoration:none;
+}
+
+.button:hover {
+	background: #008168;
+}
+
+.button:active {
+	background: #006e58;
+}
+
+.button__text,
+.button__icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 24px;
+	color: black;
+	height: 100%;
+}
+
+.button__icon {
+	font-size: 1.5em;
+	background: rgba(0, 0, 0, 0.08);
+}
+

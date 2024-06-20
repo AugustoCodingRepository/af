@@ -1,0 +1,98 @@
+@charset "ISO-8859-1";
+
+*{
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-padding-top: 4rem;
+	scroll-behavior: smooth;
+	list-style: none;
+	text-decoration: none;
+}
+
+:root{
+	--main-color: white;
+	--second-color: #edeae3;
+	--text-color: #1b1b1b;
+	--bg-color: #fff;
+}
+
+img{
+	width: 100%;
+}
+
+body{
+color: white;
+}
+
+.heading{
+	text-align: center;
+}
+
+.heading h2{
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	color: var(--main-color);
+}
+
+.products_container{
+	display: grid;
+	width: 80%;
+	grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+	gap: 1.5rem;
+	margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.products_container box{
+	position: relative;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 0.5rem;
+	box-shadow: black;
+	border: 1px solid var(--main-color);
+}
+
+.products_container img{
+	width: 100%;
+	height: 250px;
+	object-fit: contain;
+	object-position: center;
+	padding: 20px;
+	background: #f1f1f1;
+	border-radius: 0.5rem;
+}
+
+.products_container .box h3{
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin: 0.5rem 0 0.5rem;
+	color: white;
+}
+
+.products_container .box .content{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.products_container .box .content span{
+	padding: 0 1rem;
+	color: black;
+	background: var(--main-color);
+	border-radius: 4px;
+	font-weight: 500;
+}
+
+.products_container .box .content a{
+	padding: 0 1rem;
+	color: var(--bg-color);
+	border: 2px solid var(--main-color);
+	border-radius: 4px;
+	font-weight: 500;
+}
