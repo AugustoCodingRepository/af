@@ -11,11 +11,8 @@
             <li><a href="">About Us</a></li>
             <% User user = (User) request.getSession().getAttribute("currentSessionUser");
 				if(user != null){ %>
-            <%if(user.isAmministratore()){ %>
-            <li><a href="./adminPanel.jsp">AdminPanel</a>
+            <li><a href="./PersonalArea.jsp">MyAccount</a>
             <%}else{%>
-            <li><a href="./userPanel.jsp">MyAccount</a>
-            <%}}else{%>
             <li><a href="./LoginAndRegistration.jsp">Login</a></li>
             <%}%>
             </ul>
