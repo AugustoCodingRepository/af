@@ -9,8 +9,9 @@
 <link rel="stylesheet" href="./CSS/shopcss.css">
 </head>
 <body>
-	<jsp:include page="./fragments/header.jsp"/>
+	
 	<section class="products" id="products">
+		<jsp:include page="./fragments/header.jsp"/>
     <div class="heading">
         <h2>Our popular products</h2>
     </div>

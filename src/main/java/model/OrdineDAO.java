@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OrdineDAO {
 
-    public void insert(Ordine ordine, User user) throws SQLException {
+    public static void insert(Ordine ordine, User user) throws SQLException {
         if (user != null) {
             Connection connection = ConnectToDB.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data) VALUES (?, ?, ?, ?)");
@@ -23,7 +23,7 @@ public class OrdineDAO {
         }
     }
 
-    public List<Ordine> getAll() throws SQLException {
+    public static List<Ordine> getAll() throws SQLException {
         Connection connection = ConnectToDB.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM Ordine");
         ResultSet resultSet = statement.executeQuery();
@@ -33,14 +33,15 @@ public class OrdineDAO {
                 resultSet.getInt("Order_ID"),
                 resultSet.getInt("User_ID"),
                 resultSet.getDate("Order_Data"),
-                resultSet.getDate("Delivery_Data")
+                resultSet.getDate("Delivery_Data"),
+                resultSet.getInt("Cost")
             );
             ordini.add(ordine);
         }
         return ordini;
     }
 
-    public List<Ordine> getOrdiniByUser(User user) throws SQLException {
+    public static List<Ordine> getOrdiniByUser(User user) throws SQLException {
         List<Ordine> ordini = new ArrayList<>();
         if (user != null) {
             Connection connection = ConnectToDB.getConnection();
@@ -52,7 +53,8 @@ public class OrdineDAO {
                     resultSet.getInt("Order_ID"),
                     resultSet.getInt("User_ID"),
                     resultSet.getDate("Order_Data"),
-                    resultSet.getDate("Delivery_Data")
+                    resultSet.getDate("Delivery_Data"),
+                    resultSet.getInt("Cost")
                 );
                 ordini.add(ordine);
             }

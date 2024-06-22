@@ -46,7 +46,7 @@ if (user != null) {
     	</table>
     	<% } else { %>
     	<tr><td colspan="3">Nessun ordine effettuato</td></tr>
-    	<a href="catalogo.jsp">Torna al catalogo</a>
+    	<a href="shop.jsp">Torna al negozio</a>
     	<% } %>
         </tbody>
     </table>

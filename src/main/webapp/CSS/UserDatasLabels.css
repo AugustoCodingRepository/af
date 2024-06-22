@@ -18,7 +18,7 @@ body {
     min-height: 100vh;
     max-height: 80vh;
     flex-direction: column;
-    background: #01003f;
+    background-color: white;
 }
 
 .input-group {
@@ -39,7 +39,7 @@ body {
     left: 15px;
     transform: translateY(-50%);
     font-size: 16px;
-    color: aqua;
+    color: rgb(0, 0, 0);
     padding: 0 5px;
     pointer-events: none;
     transition: .5s;
@@ -49,7 +49,7 @@ body {
     width: 360px;
     height: 40px;
     font-size: 16px;
-    color: aqua;
+    color: rgb(0, 0, 0)k;
     padding: 0 15px;
     background: transparent;
     border: 1.2px solid black;
@@ -62,7 +62,7 @@ body {
     top: 0;
     font-size: 14px;
     border-radius: 10px;
-    background: aqua;
+    background:linear-gradient(45deg, blueviolet, lightgreen);
 }
 
 .button {

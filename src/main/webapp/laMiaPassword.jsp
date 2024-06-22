@@ -2,6 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import="model.*"%>
 <% User user = (User) request.getSession().getAttribute("currentSessionUser"); %>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./CSS/UserDatasLabels.css">
+</head>
+<body>
 <h1>La mia password</h1>
 <form id="updatePassword" action="./UpdateUserPassword" method="post">
 <div class="input-group">
@@ -16,7 +21,7 @@
     <input type="text" name="ConfirmNewPassword" disabled>
     <label>Confirm New Password</label>
 </div> 
-<button type="button" class="button" id="activateButton">
+<button type="button" class="button" onclick="enableInputs()">
     <span class="button__text">Modifica</span>
     <span class="button__icon">
         <i class='bx bx-pencil'></i>
@@ -29,3 +34,6 @@
     </span>
 </button>
 </form>
+	<script defer src="./JS/scriptInput.js"></script>
+</body>
+</html>

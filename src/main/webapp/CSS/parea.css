@@ -57,7 +57,7 @@
 .container .box-container .box .btn{
     margin-top: 10px;
     display: inline-block;
-    background:#333;
+    background:linear-gradient(45deg, blueviolet, lightgreen);
     color:#fff;
     font-size: 17px;
     border-radius: 5px;

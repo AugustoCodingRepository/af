@@ -1,12 +1,13 @@
 <%@ page import="model.*"%>
-    <div class="container">
+<link href="./CSS/index.css" rel="stylesheet" type="text/css">
+
             <div class="navbar">
             <img src="logo.png" class="logo">
             <nav>
                <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">NEGOZIO</a></li>
-                <li><a href="">ABOUT US</a></li>
+                <li><a href="./index.jsp">Home</a></li>
+                <li><a href="./shop.jsp">Shop</a></li>
+                <li><a href="#">About Us</a></li>
              <% User user = (User) request.getSession().getAttribute("currentSessionUser");
 				if(user != null){ %>
             	<li><a href="./PersonalArea.jsp">MyAccount</a>
@@ -18,11 +19,4 @@
             <img src="menu.png" class="menu-icon">
             </div>
         
-            <video class="video-bg" src="video.mp4" autoplay muted loop></video>
-        
-            <!--SCROLL CON VIDEO2-->
-            <div class="section watch in-page">       
-                <h1 class="title">UNA NUOVA ERA<br>SUONI SENZA CONFINI
-                </h1>
-            </div>
-    </div>
+            

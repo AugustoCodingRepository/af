@@ -7,12 +7,14 @@ public class Ordine {
     private int User_ID;
     private Date Order_Data;
     private Date Delivery_Data;
+    private int Cost;
 
-    public Ordine(int Order_ID, int User_ID, Date Order_Data, Date Delivery_Data) {
+    public Ordine(int Order_ID, int User_ID, Date Order_Data, Date Delivery_Data, int cost) {
         this.Order_ID = Order_ID;
         this.User_ID = User_ID;
         this.Order_Data = Order_Data;
         this.Delivery_Data = Delivery_Data;
+        this.Cost = cost;
     }
 
     public int getOrder_ID() {
@@ -46,4 +48,14 @@ public class Ordine {
     public void setDelivery_Data(Date Delivery_Data) {
         this.Delivery_Data = Delivery_Data;
     }
+
+	public int getCost() {
+		return Cost;
+	}
+
+	public void setCost(int cost) {
+		this.Cost = cost;
+	}
+    
+    
 }

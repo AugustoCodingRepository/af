@@ -12,10 +12,10 @@
 
 </head>
 <body>
-	<!--<jsp:include page="./fragments/header.jsp"/>-->
+
     
 <div class="container">
-
+		<jsp:include page="./fragments/header.jsp"/>
     <h1 class="heading">our services</h1>
 
     <div class="box-container">
@@ -31,14 +31,14 @@
             <img src="image/icon-2.png" alt="">
             <h3>La tua password</h3>
             <p>In questa sezione puoi visualizzare e modificare la tua password.</p>
-            <a href="./laMiaPassword" class="btn">Apri</a>
+            <a href="./laMiaPassword.jsp" class="btn">Apri</a>
         </div>
 
         <div class="box">
             <img src="image/icon-3.png" alt="">
             <h3>I tuoi ordini</h3>
             <p>Qui puoi visualizzare i tuoi ordini e i dettagli.</p>
-            <a href="./iTuoiOrdini" class="btn">Apri</a>
+            <a href="./ordine.jsp" class="btn">Apri</a>
         </div>
 	<% if(user.isAmministratore()){%>
         <div class="box">
@@ -52,16 +52,22 @@
             <img src="image/icon-6.png" alt="">
             <h3>Utenti del sito</h3>
             <p>Qui troverai tutti gli utenti iscritti al sito e modificarne il ruolo.</p>
-            <a href="#" class="btn">Apri</a>
+            <a href="users.jsp" class="btn">Apri</a>
         </div>
         
         <div class="box">
             <img src="image/icon-6.png" alt="">
             <h3>Ordini del sito</h3>
             <p>Qui troverai tutti gli ordini degli utenti iscritti al sito.</p>
-            <a href="#" class="btn">Apri</a>
+            <a href="orders.jsp" class="btn">Apri</a>
         </div>
 	<% }%>
+		<div class="box">
+            <img src="image/icon-6.png" alt="">
+            <h3>Logout</h3>
+            <p>Clicca qui per effettuare il logout</p>
+            <a href="Logout" class="btn">Esci</a>
+        </div>
     </div>
 
 </div>

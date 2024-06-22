@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 public class UserDAO {
 
@@ -66,7 +68,30 @@ public class UserDAO {
 		return null;
 		
 	}
-
+	
+	public static Collection<User> getAllUsers() {
+		Collection<User> users = new LinkedList<>();
+		final String query = "SELECT * FROM utente";
+		try {
+			Connection con = ConnectToDB.getConnection();
+			PreparedStatement pstm = con.prepareStatement(query);
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				users.add(new User(rs.getInt("User_ID"),
+						rs.getString("Email"), rs.getString("Password"), 
+						rs.getString("Nome"), rs.getString("Cognome"),
+						rs.getString("Via"), rs.getInt("Civico"),
+						rs.getInt("CAP"), rs.getString("Citta"),
+						rs.getString("Provincia"), rs.getString("Nazione"), 
+						rs.getString("Telefono"), rs.getString("Ruolo")));
+			}
+			} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return users;
+		
+	}
+	
 	public static boolean UpdateUser(int ID, String nome, String cognome, String via, int civico,
 	                                 int cap, String citta, String provincia, String nazione, String telefono) {
 	    final String query = "UPDATE utente SET nome = ?, cognome = ?, via = ?, civico = ?, cap = ?, citta = ?, provincia = ?, nazione = ?, telefono = ? WHERE User_ID = ?;";
