@@ -268,10 +268,3 @@ h1{
     overflow: hidden;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
-
-footer{
-    height: 50vh;
-    background: #eee;
-    position: relative;
-    z-index: 3;
-}

@@ -16,9 +16,7 @@
     <body> 
 		
 <div class="container">
-           <jsp:include page="./fragments/header.jsp"/>
-
-<!-- <div class="navbar">
+	<div class="navbar">
             <img src="logo.png" class="logo">
             <nav>
                 <ul>
@@ -133,6 +131,7 @@
             {
                 observer.observe(element);
             });
-        </script>   
+        </script>  
+        <jsp:include page="./fragments/footer.html"/> 
     </body>
 </html>    
