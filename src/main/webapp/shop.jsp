@@ -28,7 +28,7 @@
         <p class="text-light">Qui troverai tutti i prodotti marchiati AltaFrequenza.</p>
         <div class="filters">
             <select class="category" id="categories" name="options">
-                <option value="" disabled selected hidden>Categoria</option>
+                <option value="all" disabled selected hidden>Categoria</option>
                 <option value="Amplificatori">Amplificatori</option>
                 <option value="Cuffie">Cuffie</option>
                 <option value="Mixer">Mixer</option>

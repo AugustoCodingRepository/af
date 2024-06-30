@@ -3,25 +3,25 @@ function filter() {
     var minPrice = document.getElementById("minPrice").value;
     var maxPrice = document.getElementById("maxPrice").value;
     var sort = document.getElementById("sort").value;
-
-    if (minPrice > maxPrice) {
+	
+    if (maxPrice == 0 || maxPrice=="") {
+        maxPrice = 10000000;
+    }
+    
+    
+    if (minPrice == 0 || minPrice=="") {
+        minPrice = 0;
+    }
+    
+     if (maxPrice < minPrice) {
         var temp = minPrice;
         minPrice = maxPrice;
         maxPrice = temp;
     }
-    if (minPrice == "") {
-        minPrice = 0;
-    }
-    if (maxPrice == "") {
-        maxPrice = 999999999;
-    }
+    
     if (sort == "") {
         sort = "AZ";
     }
-    if (category == "") {
-        category = "all";  // Utilizziamo 'all' come valore predefinito per la categoria
-    }
-
     console.log(`Category: ${category}, Min Price: ${minPrice}, Max Price: ${maxPrice}, Sort: ${sort}`);
 
     const xhr = new XMLHttpRequest();
