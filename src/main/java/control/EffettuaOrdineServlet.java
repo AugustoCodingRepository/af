@@ -15,7 +15,9 @@ import java.util.Calendar;
 
 @WebServlet("/EffettuaOrdineServlet")
 public class EffettuaOrdineServlet extends HttpServlet {
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");

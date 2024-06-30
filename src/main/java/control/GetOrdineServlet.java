@@ -13,10 +13,13 @@ import java.util.List;
 
 @WebServlet("/GetOrdineServlet")
 public class GetOrdineServlet extends HttpServlet {
-    @Override
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         if (user != null) {
+			@SuppressWarnings("unused")
 			OrdineDAO ordineDAO = new OrdineDAO();
             try {
                 List<Ordine> ordini = OrdineDAO.getOrdiniByUser(user);
