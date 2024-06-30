@@ -13,7 +13,7 @@ import java.util.List;
 
 @WebServlet("/GetOrdineServlet")
 public class GetOrdineServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -8804646627200807947L;
 
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

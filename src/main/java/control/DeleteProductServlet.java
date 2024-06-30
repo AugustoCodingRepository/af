@@ -13,7 +13,7 @@ import model.ProdottoDAO;
 
 @WebServlet("/DeleteProductServlet")
 public class DeleteProductServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5182237897783167276L;
 
 	public DeleteProductServlet() {
 		// TODO Auto-generated constructor stub

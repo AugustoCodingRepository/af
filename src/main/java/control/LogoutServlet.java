@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/Logout")
 public class LogoutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
- 
+	private static final long serialVersionUID = -8371287884655714793L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getSession().removeAttribute("currentSessionUser");

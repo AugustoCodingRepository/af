@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 @WebServlet("/EffettuaOrdineServlet")
 public class EffettuaOrdineServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5807495226920968083L;
 
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/CartViewServlet")
 public class CartViewServlet extends HttpServlet {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 690689228892344626L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

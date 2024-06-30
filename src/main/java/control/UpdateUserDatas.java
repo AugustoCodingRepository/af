@@ -14,7 +14,7 @@ import model.UserDAO;
 
 @WebServlet("/UpdateUserDatas")
 public class UpdateUserDatas extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5217655590787849786L;
 
 	public UpdateUserDatas() {
 	}
