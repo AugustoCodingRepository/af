@@ -7,9 +7,9 @@ public class Ordine {
     private int User_ID;
     private Date Order_Data;
     private Date Delivery_Data;
-    private int Cost;
+    private double Cost;
 
-    public Ordine(int Order_ID, int User_ID, Date Order_Data, Date Delivery_Data, int cost) {
+    public Ordine(int Order_ID, int User_ID, Date Order_Data, Date Delivery_Data, double cost) {
         this.Order_ID = Order_ID;
         this.User_ID = User_ID;
         this.Order_Data = Order_Data;
@@ -49,7 +49,7 @@ public class Ordine {
         this.Delivery_Data = Delivery_Data;
     }
 
-	public int getCost() {
+	public double getCost() {
 		return Cost;
 	}
 

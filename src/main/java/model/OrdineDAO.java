@@ -17,7 +17,7 @@ public class OrdineDAO {
 	        statement.setInt(2, ordine.getUser_ID());
 	        statement.setDate(3, ordine.getOrder_Data());
 	        statement.setDate(4, ordine.getDelivery_Data());
-	        statement.setInt(5, ordine.getCost());
+	        statement.setDouble(5, ordine.getCost());
 	        statement.executeUpdate();
 	    } else {
 	        throw new SQLException("Solo gli utenti registrati possono effettuare un ordine.");

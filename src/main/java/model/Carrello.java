@@ -31,7 +31,15 @@ public class Carrello {
     public Collection<ProdottoCarrello> getProductsInCart() {
         return cart;
     }
-
+    
+    public double getCosto() {
+        double totale = 0;
+        for (ProdottoCarrello pq : cart) {
+            totale += pq.getCosto();
+        }
+        return totale;
+    }
+    
     public void delCart() {
         cart.clear();
     }

@@ -17,9 +17,9 @@ public class GetOrdineServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         if (user != null) {
-            OrdineDAO ordineDAO = new OrdineDAO();
+			OrdineDAO ordineDAO = new OrdineDAO();
             try {
-                List<Ordine> ordini = ordineDAO.getOrdiniByUser(user);
+                List<Ordine> ordini = OrdineDAO.getOrdiniByUser(user);
                 request.setAttribute("ordini", ordini);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ordine.jsp");
                 dispatcher.forward(request, response);
