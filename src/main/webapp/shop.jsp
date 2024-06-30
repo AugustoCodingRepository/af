@@ -1,42 +1,123 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.Collection, model.*" %>
-<%
-// Ottieni la lista dei prodotti utilizzando ProdottoDAO
-Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="model.*, control.*"%>
+<% 
+    Collection<Prodotto> prodotti = (Collection<Prodotto>) request.getAttribute("prodotti");
+    if (prodotti == null) {
+        // Ottieni la lista dei prodotti utilizzando ProdottoDAO
+        prodotti = ProdottoDAO.getAllProducts();
+    }
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<meta charset="ISO-8859-1">
-<title>Shop</title>
-<link rel="stylesheet" href="./CSS/parea.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./CSS/shopcss.css">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	    
-	<div class="container">
-		<jsp:include page="./fragments/header.jsp"/>
-    <h1 class="heading">our products</h1>
 
-    <div class="box-container">
-<% // Itera sui prodotti e popola la tabella HTML
-    if (prodotti != null && prodotti.size() > 0) {
-        for (Prodotto p : prodotti) {
-    %>
-        <div class="box">
-            <img src="./GetPictureServlet?Product_ID=<%=p.getProduct_ID() %>" alt="">
-            <h3><%= p.getProduct_Name() %></h3>
-            <p><%= p.getPrice() %></p>
-            <a href="./DettaglioShopPageServlet?Product_ID=<%= p.getProduct_ID() %>" class="btn">Scopri di pi�</a>
-            <form action="./AddToCartServlet?Product_ID=<%= p.getProduct_ID() %>" method="post">
-                <button type="submit" class="btn"><i class='bx bx-cart-add'></i></button>
-            </form>
-        </div><% }
-    } else { %>
-    Nessun prodotto disponibile
-    <% } %>
-	</div>
-	</div>
-	
+<div class="products" id="products">
+    <div class="container" id="container">
+        <h1 class="lg-title">I nostri prodotti</h1>
+        <p class="text-light">Qui troverai tutti i prodotti marchiati AltaFrequenza.</p>
+        <div class="filters">
+            <select class="category" id="categories" name="options">
+                <option value="" disabled selected hidden>Categoria</option>
+                <option value="Amplificatori">Amplificatori</option>
+                <option value="Cuffie">Cuffie</option>
+                <option value="Mixer">Mixer</option>
+                <option value="Tastiere">Tastiere</option>
+                <option value="Chitarre Elettriche">Chitarre Elettriche</option>
+            </select>
+
+            <input type="number" class="category" id="minPrice" min="0" max="10000" placeholder="Min Price">
+            <input type="number" class="category" id="maxPrice" min="0" max="10000" placeholder="Max Price">
+
+            <select class="category" id="sort" name="sorts">
+                <option value="" disabled selected hidden>Sort By</option>
+                <option value="AZ">Alfabetico - A..Z</option>
+                <option value="ZA">Alfabetico - Z..A</option>
+                <option value="MaxMin">Prezzo - Max..Min</option>
+                <option value="MinMax">Prezzo - Min..Max</option>
+            </select>
+            <button type="submit" onclick="filter()" class="category">FILTRA</button>
+        </div>
+        <% 
+            if (prodotti != null && prodotti.size() > 0) {
+                int cont = 0;
+                for (Prodotto p : prodotti) {
+                    if (cont % 3 == 0) {
+        %>
+                        <div class="product-items"> <!-- Open new row -->
+        <% 
+                    } 
+        %>
+                    <!-- single product -->
+                    <div class="product">
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="./GetPictureServlet?Product_ID=<%= p.getProduct_ID() %>"/>
+                            </div>
+                            <div class="product-btns">
+                                <button type="button" class="btn-cart"> add to cart
+                                    <span><i class="fas fa-plus"></i></span>
+                                </button>
+                                <button type="button" class="btn-buy"> buy now
+                                    <span><i class="fas fa-shopping-cart"></i></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="product-info">
+                            <div class="product-info-top">
+                                <h2 class="sm-title">Extreme Sound</h2>
+                                <div class="rating">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="far fa-star"></i></span>
+                                </div>
+                            </div>
+                            <a href="#" class="product-name"><%= p.getProduct_Name() %></a>
+                            <p class="product-price">€ <%= p.getPrice() + 20 %></p>
+                            <p class="product-price">€ <%= p.getPrice() %></p>
+                        </div>
+
+                        <div class="off-info">
+                            <h2 class="sm-title">25% off</h2>
+                        </div>
+                    </div>
+                    <!-- end of single product -->
+        <% 
+                    cont++;
+                    if (cont % 3 == 0) { 
+        %>
+                        </div> <!-- Close row -->
+        <% 
+                    }
+                } 
+
+                // Close the last row if it was not closed
+                if (cont % 3 != 0) { 
+        %>
+                    </div> <!-- Close the last row -->
+        <% 
+                }
+            } else { 
+        %>
+            <p>Nessun prodotto disponibile</p>
+        <% 
+            } 
+        %>
+    </div>
+
+<script src="./JS/shopScript.js"></script>
+</body>
 </html>

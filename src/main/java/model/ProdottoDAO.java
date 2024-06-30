@@ -100,4 +100,78 @@ public class ProdottoDAO {
 			e.printStackTrace();
 		}
 	}
-}
+
+	public static Collection<Prodotto> getFilteredProducts(String category, Double minPrice, Double maxPrice, String sort) {
+	    String query = "SELECT * FROM prodotto WHERE Price > ? AND Price < ?";
+	    if (!"all".equals(category)) {
+	        query += " AND Categoria_ID = ?";
+	    }
+	    switch (sort) {
+	        case "AZ":
+	            query += " ORDER BY Product_Name ASC";
+	            break;
+	        case "ZA":
+	            query += " ORDER BY Product_Name DESC";
+	            break;
+	        case "MinMax":
+	            query += " ORDER BY Price ASC";
+	            break;
+	        case "MaxMin":
+	            query += " ORDER BY Price DESC";
+	            break;
+	        default:
+	            query += " ORDER BY Product_Name ASC";
+	    }
+
+	    try {
+	        Collection<Prodotto> prodotti = new LinkedList<>();
+	        Connection con = ConnectToDB.getConnection();
+	        if (con == null) {
+	            System.out.println("Connessione NON riuscita");
+	            return prodotti;
+	        } else {
+	            System.out.println("Connessione riuscita");
+	        }
+
+	        System.out.println("Query: " + query);
+	        PreparedStatement st = con.prepareStatement(query);
+
+	        int paramIndex = 1;
+	        st.setDouble(paramIndex++, minPrice);
+	        st.setDouble(paramIndex++, maxPrice);
+	        if (!"all".equals(category)) {
+	            switch (category) {
+	                case "Amplificatori":
+	                    st.setInt(paramIndex, 1);
+	                    break;
+	                case "Mixer":
+	                    st.setInt(paramIndex, 2);
+	                    break;
+	                case "Cuffie":
+	                    st.setInt(paramIndex, 3);
+	                    break;
+	                case "Tastiere":
+	                    st.setInt(paramIndex, 4);
+	                    break;
+	                case "Chitarre Elettriche":
+	                    st.setInt(paramIndex, 5);
+	                    break;
+	            }
+	        }
+
+	        ResultSet rs = st.executeQuery();
+	        while (rs.next()) {
+	            prodotti.add(new Prodotto(rs.getInt("Product_ID"), rs.getString("Product_Name"), rs.getString("Brand"),
+	                    rs.getString("model"), rs.getInt("quantity"), rs.getDouble("price"), rs.getInt("IVA"),
+	                    rs.getInt("categoria_ID"), rs.getString("descrizione"), null));
+	        }
+	        System.out.println("Numero di prodotti trovati: " + prodotti.size());
+	        return prodotti;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
+
+
+	}

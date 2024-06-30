@@ -20,13 +20,13 @@
             <img src="logo.png" class="logo">
             <nav>
                 <ul>
-                <li><a href="">HOME</a></li>
+                <li><a href="#">HOME</a></li>
                 <li><a href="">NEGOZIO</a></li>
                 <li><a href="">ABOUT US</a></li>
                 </ul>
             </nav>
             <img src="menu.png" class="menu-icon">
-            </div>-->
+            </div>
         
             <video class="video-bg" src="video.mp4" autoplay muted loop></video> 
         
@@ -132,6 +132,6 @@
                 observer.observe(element);
             });
         </script>  
-        <jsp:include page="./fragments/footer.html"/> 
+
     </body>
 </html>    
