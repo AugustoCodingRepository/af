@@ -36,8 +36,7 @@ public class OrdineDAO {
                 resultSet.getInt("User_ID"),
                 resultSet.getDate("Order_Data"),
                 resultSet.getDate("Delivery_Data"),
-                resultSet.getInt("Cost")
-            );
+                resultSet.getDouble("Cost"));
             ordini.add(ordine);
         }
         return ordini;
@@ -56,7 +55,7 @@ public class OrdineDAO {
                     resultSet.getInt("User_ID"),
                     resultSet.getDate("Order_Data"),
                     resultSet.getDate("Delivery_Data"),
-                    resultSet.getInt("Cost")
+                    resultSet.getDouble("Cost")
                 );
                 ordini.add(ordine);
             }
