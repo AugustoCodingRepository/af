@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Ordine {
 	public static int cont=0;
-    private int Order_ID;
+    private int Order_ID; 
     private int User_ID;
     private Date Order_Data;
     private Date Delivery_Data;
