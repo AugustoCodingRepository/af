@@ -16,6 +16,10 @@ public class ProdottoCarrello {
     public int getQuantita() {
         return quantita;
     }
+    
+    public double getCosto() {
+        return prodotto.getPrice() * quantita;
+    }
 
     public void incrementQuantity() {
         quantita++;

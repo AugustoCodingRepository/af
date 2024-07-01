@@ -15,10 +15,7 @@ import model.ProdottoDAO;
 
 @WebServlet("/RemoveFromCart")
 public class RemoveFromCartServlet extends HttpServlet {
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 4211190023883602391L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

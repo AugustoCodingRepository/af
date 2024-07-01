@@ -14,9 +14,9 @@ import model.PhotoDB;
 
 @WebServlet("/GetPictureServlet")
 public class GetPictureServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    public GetPictureServlet() {
+	private static final long serialVersionUID = 4048590170987642422L;
+
+	public GetPictureServlet() {
         super();
     }
 

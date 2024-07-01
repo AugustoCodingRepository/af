@@ -15,9 +15,9 @@ import model.ProdottoDAO;
 
 @WebServlet("/AddToCartServlet")
 public class AddToCartServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1920842350992762268L;
 
-    @Override
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Ottieni il carrello dalla sessione, se esiste

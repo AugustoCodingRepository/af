@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/DettaglioPageServlet")
 public class DettaglioPageServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5208589160603468886L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

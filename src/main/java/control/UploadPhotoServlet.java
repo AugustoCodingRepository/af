@@ -20,8 +20,9 @@ import model.PhotoDB;
 @MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
                  maxFileSize=1024*1024*10,      // 10MB
                  maxRequestSize=1024*1024*50)   // 50MB
+
 public class UploadPhotoServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4634979589789663936L;
 	static String SAVE_DIR ="/uploadTemp";
        
     public UploadPhotoServlet() {

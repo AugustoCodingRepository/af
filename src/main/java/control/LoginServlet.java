@@ -15,7 +15,7 @@ import model.UserDAO;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -8697651045570564505L;
 
 	public LoginServlet() {
 	}

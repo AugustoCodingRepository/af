@@ -18,7 +18,7 @@ import model.UserDAO;
  */
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 8165726057755259956L;
 
 	public RegistrationServlet() {
 		super();

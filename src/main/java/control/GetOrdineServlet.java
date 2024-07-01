@@ -13,13 +13,16 @@ import java.util.List;
 
 @WebServlet("/GetOrdineServlet")
 public class GetOrdineServlet extends HttpServlet {
-    @Override
+	private static final long serialVersionUID = -8804646627200807947L;
+
+	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         if (user != null) {
-            OrdineDAO ordineDAO = new OrdineDAO();
+			@SuppressWarnings("unused")
+			OrdineDAO ordineDAO = new OrdineDAO();
             try {
-                List<Ordine> ordini = ordineDAO.getOrdiniByUser(user);
+                List<Ordine> ordini = OrdineDAO.getOrdiniByUser(user);
                 request.setAttribute("ordini", ordini);
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ordine.jsp");
                 dispatcher.forward(request, response);

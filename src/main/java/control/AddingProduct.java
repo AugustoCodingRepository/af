@@ -13,7 +13,7 @@ import model.ProdottoDAO;
 
 @WebServlet("/AddingProduct")
 public class AddingProduct extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -1403035274707421053L;
 
 	public AddingProduct() {
 	}
