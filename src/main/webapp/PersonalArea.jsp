@@ -40,6 +40,12 @@
             <p>Qui puoi visualizzare i tuoi ordini e i dettagli.</p>
             <a href="./ordine.jsp" class="btn">Apri</a>
         </div>
+        <div class="box">
+            <img src="image/icon-6.png" alt="">
+            <h3>I tuoi preferiti</h3>
+            <p>Qui troverai tutti i tuoi prodotti preferiti.</p>
+            <a href="WhishList.jsp" class="btn">Apri</a>
+        </div>
 	<% if(user.isAmministratore()){%>
         <div class="box">
             <img src="image/icon-5.png" alt="">

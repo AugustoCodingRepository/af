@@ -21,11 +21,11 @@ public class EffettuaOrdineServlet extends HttpServlet {
             OrdineDAO ordineDAO = new OrdineDAO();
             // Imposta la data di consegna prevista a 3 giorni dalla data corrente
             Calendar calendar = Calendar.getInstance();
-            calendar.add(Calendar.DATE, 3);
+            calendar.add(Calendar.DATE, 5);
             Date deliveryDate = new Date(calendar.getTimeInMillis());
-            Ordine ordine = new Ordine(0, user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate);
+            Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, Double.parseDouble(request.getParameter("Total")));
             try {
-                ordineDAO.insert(ordine, user);
+                OrdineDAO.insert(ordine, user);
                 response.sendRedirect("ordine.jsp");
             } catch (SQLException e) {
                 throw new ServletException(e);

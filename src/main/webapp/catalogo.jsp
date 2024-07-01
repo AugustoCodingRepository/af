@@ -11,16 +11,16 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Catalogo AltaFrequenza</title>
     <link rel="icon" type="image/png" href="IMG/Finale.png">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="CSS/catalogoAndCarrello.css" rel="stylesheet">
+    <link href="./CSS/carrello.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<h1 align="center">Catalogo dei Prodotti (<%= prodotti.size() %>)</h1>
+<h1 align="center" >Catalogo dei Prodotti (<%= prodotti.size() %>)</h1>
 <h2 align="center">
-    <form action="./CartViewServlet" method="post">
-        <button type="submit" class="btn">Carrello</button>
-    </form>
+   
 </h2>
+<div class="container">
 <table class="table table-striped table-custom">
     <thead class="table-primary table-head-custom">
     <tr>
@@ -30,9 +30,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
         <th scope="col">Quantità</th>
         <th scope="col">Prezzo</th>
         <th scope="col">IVA</th>
-        <th scope="col">Catetoria</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Immagine</th>
-        <th scope="col">Cart Adding</th>
         <th scope="col">Delete Product</th>
     </tr>
     <tr>
@@ -64,13 +63,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
         <td><%= p.getCategoria_ID() %></td>
         <td><img src="./GetPictureServlet?Product_ID=<%= p.getProduct_ID() %>" onerror="this.src='./imgs/nophoto.png'" style="width:100px"></td>
         <td>
-            <form action="./AddToCartServlet?Product_ID=<%= p.getProduct_ID() %>" method="post">
-                <button type="submit" class="btn">+</button>
-            </form>
-        </td>
-        <td>
             <form action="./DeleteProductServlet?Product_ID=<%=p.getProduct_ID()%>" method="post">
-                <button type="submit" class="btn">-</button>
+                <button type="submit" class="btn"><i class='bx bxs-message-square-x'></i></button>
             </form>
         </td>
     </tr>
@@ -80,5 +74,6 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     <% } %>
     </tbody>
 </table>
+</div>
 </body>
 </html>

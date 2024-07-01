@@ -46,7 +46,7 @@ public class RemoveFromCartServlet extends HttpServlet {
 	    }
 
 	    // Reindirizza alla pagina del catalogo dopo la rimozione
-	    RequestDispatcher view = request.getServletContext().getRequestDispatcher("/catalogo.jsp");
+	    RequestDispatcher view = request.getServletContext().getRequestDispatcher("/carrello.jsp");
 	    view.forward(request, response);
 	}
 

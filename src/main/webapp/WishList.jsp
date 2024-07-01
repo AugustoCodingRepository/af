@@ -2,11 +2,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="model.*, control.*"%>
 <% 
-    Collection<Prodotto> prodotti = (Collection<Prodotto>) request.getAttribute("prodotti");
-    if (prodotti == null) {
-        // Ottieni la lista dei prodotti utilizzando ProdottoDAO
-        prodotti = ProdottoDAO.getAllProducts();
-    }
+	List<String> favorites = (List<String>) session.getAttribute("favorites");
 %>
 <!DOCTYPE html>
 <html>
@@ -24,8 +20,8 @@
 
 <div class="products" id="products">
     <div class="container" id="container">
-        <h1 class="lg-title">I nostri prodotti</h1>
-        <p class="text-light">Qui troverai tutti i prodotti marchiati AltaFrequenza.</p>
+        <h1 class="lg-title">I miei preferiti</h1>
+        <p class="text-light">Qui troverai tutti i tuoi prodotti preferiti</p>
         <div class="filters">
             <select class="category" id="categories" name="options">
                 <option value="all" disabled selected hidden>Categoria</option>
@@ -49,9 +45,10 @@
             <button type="submit" onclick="filter()" class="category">FILTRA</button>
         </div>
         <% 
-            if (prodotti != null && prodotti.size() > 0) {
+            if (favorites != null && favorites.size() > 0) {
                 int cont = 0;
-                for (Prodotto p : prodotti) {
+                for (String s : favorites) {
+                	Prodotto p = ProdottoDAO.getProductByID(s);
                     if (cont % 3 == 0) {
         %>
                         <div class="product-items"> <!-- Open new row -->
@@ -65,11 +62,9 @@
                                 <img src="./GetPictureServlet?Product_ID=<%= p.getProduct_ID() %>"/>
                             </div>
                             <div class="product-btns">
-                            <form action="./AddToCartServlet?Product_ID=<%= p.getProduct_ID() %>" method="post">
-                                <button type="submit" class="btn-cart"> Add to Cart
+                                <button type="button" class="btn-cart"> Add to Cart
                                     <span><i class="fas fa-shopping-cart"></i></span>
                                 </button>
-                            </form>
                                 <button type="button" class="btn-buy"> <a href="./DettaglioPageServlet?Product_ID=<%= p.getProduct_ID() %>">Scopri</a>
 									<span><i class="fas fa-plus"></i></span>
                                 </button>
@@ -108,7 +103,7 @@
                 }
             } else { 
         %>
-            <p>Nessun prodotto disponibile</p>
+            <p>Nessun prodotto nei preferiti</p>
         <% 
             } 
         %>

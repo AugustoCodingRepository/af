@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Carrello;
 import model.Prodotto;
@@ -21,11 +22,12 @@ public class AddToCartServlet extends HttpServlet {
             throws ServletException, IOException {
         // Ottieni il carrello dalla sessione, se esiste
         Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
-
+        	
+        HttpSession session = request.getSession();
         // Se il carrello non esiste, creane uno nuovo e salvalo nella sessione
         if (cart == null) {
             cart = new Carrello();
-            request.getSession().setAttribute("carrello", cart);
+            session.setAttribute("carrello", cart);
         }
 
         // Ottieni l'ID del prodotto dalla richiesta
@@ -38,9 +40,9 @@ public class AddToCartServlet extends HttpServlet {
                 cart.addProduct(product);
             }
         }
-
+        System.out.println(cart.getProductsInCart().size());
         // Reindirizza alla pagina del catalogo dopo l'aggiunta del prodotto
-        response.sendRedirect(request.getContextPath() + "/catalogo.jsp");
+        response.sendRedirect(request.getContextPath() + "/shop.jsp");
     }
 
     @Override

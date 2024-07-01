@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class OrdineDAO {
@@ -60,5 +61,44 @@ public class OrdineDAO {
             }
         }
         return ordini;
+    }
+    
+    public Ordine getOrderByID(int orderID) {
+        Ordine ordine = null;
+
+        try {
+            // Connessione al database
+        	 Connection connection = ConnectToDB.getConnection();
+
+            // Query per recuperare l'ordine dato l'ID
+            String query = "SELECT * FROM ordini WHERE Order_ID = ?";
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, orderID);
+
+            // Esecuzione della query
+            ResultSet rs = pstmt.executeQuery();
+
+            // Verifica se l'ordine è stato trovato
+            if (rs.next()) {
+                // Recupera i dati dell'ordine dal ResultSet
+                int userID = rs.getInt("User_ID");
+                Date orderDate = rs.getDate("Order_Data");
+                Date deliveryDate = rs.getDate("Delivery_Data");
+                double cost = rs.getDouble("Cost");
+
+                // Crea un oggetto Ordine con i dati recuperati
+                ordine = new Ordine(orderID, userID, orderDate, deliveryDate, cost);
+            }
+
+            // Chiusura delle risorse
+            rs.close();
+            pstmt.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ordine;
     }
 }
