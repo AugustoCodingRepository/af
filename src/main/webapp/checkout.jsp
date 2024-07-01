@@ -23,29 +23,29 @@
 
                 <div class="inputBox">
                     <span>Nome Cognome :</span>
-                    <input type="text" placeholder="john deo" id="nome">
+                    <input type="text" placeholder="john deo" id="nome" required>
                 </div>
                 <div class="inputBox">
                     <span>Email :</span>
-                    <input type="email" placeholder="example@example.com" id="email">
+                    <input type="email" placeholder="example@example.com" id="email" required>
                 </div>
                 <div class="inputBox">
                     <span>Indirizzo :</span>
-                    <input type="text" placeholder="room - street - locality" id="indirizzo">
+                    <input type="text" placeholder="room - street - locality" id="indirizzo" required>
                 </div>
                 <div class="inputBox">
                     <span>Città:</span>
-                    <input type="text" placeholder="mumbai" id="citta">
+                    <input type="text" placeholder="mumbai" id="citta" required>
                 </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>Stato :</span>
-                        <input type="text" placeholder="india" id="stato">
+                        <input type="text" placeholder="india" id="stato" required>
                     </div>
                     <div class="inputBox">
                         <span>CAP :</span>
-                        <input type="text" placeholder="123 456" id="cap">
+                        <input type="text" placeholder="123 456" id="cap" required>
                     </div>
                 </div>
 
@@ -65,25 +65,25 @@
                 <div id="creditCardFields" style="display: none;">
                     <div class="inputBox">
                         <span>Nome sulla carta :</span>
-                        <input type="text" placeholder="mr. john deo" id="cardName">
+                        <input type="text" placeholder="mr. john deo" id="cardName" required>
                     </div>
                     <div class="inputBox">
                         <span>Numero carta :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444" id="cardNumber">
+                        <input type="number" placeholder="1111-2222-3333-4444" id="cardNumber" required>
                     </div>
                     <div class="inputBox">
                         <span>Mese Scadenza :</span>
-                        <input type="text" placeholder="january" id="monthExp">
+                        <input type="text" placeholder="january" id="monthExp" required>
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
                             <span>Anno Scadenza :</span>
-                            <input type="number" placeholder="2022" id="yearExp">
+                            <input type="number" placeholder="2022" id="yearExp"required>
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234" id="cvvExp">
+                            <input type="text" placeholder="1234" id="cvvExp"required>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div id="paypalFields" style="display: none;">
                     <div class="inputBox">
                         <span>Indirizzo email PayPal :</span>
-                        <input type="email" placeholder="example@paypal.com" id="paypalEmail">
+                        <input type="email" placeholder="example@paypal.com" id="paypalEmail"required>
                     </div>
                 </div>
 
