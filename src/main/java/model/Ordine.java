@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Ordine {
 	public static int cont=0;
@@ -16,9 +17,10 @@ public class Ordine {
         this.Order_Data = Order_Data;
         this.Delivery_Data = Delivery_Data;
         this.Cost = cost;
+        
     }
 
-	public Ordine(int orderID, int userID, java.util.Date orderDate, java.util.Date deliveryDate, double cost2) {
+	public Ordine(int orderID, int userID, java.util.Date orderDate, java.util.Date deliveryDate, double cost2, List<Prodotto> prodottiAcquistati) {
 		this.Order_ID = orderID;
         this.User_ID = userID;
         this.Order_Data = (Date) orderDate;
