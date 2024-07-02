@@ -1,3 +1,4 @@
+<%@ page import="java.util.*,model.*,control.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,15 @@
     
     <!-- custom css file link  -->
     <link rel="stylesheet" href="./CSS/checkout.css">
-
+    <%
+    Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+	%>
 </head>
 <body>
 
 <div class="container">
 
-    <form id="checkoutForm">
+ <form action=""> 
 
         <div class="row">
 
@@ -34,7 +37,7 @@
                     <input type="text" placeholder="room - street - locality" id="indirizzo" required>
                 </div>
                 <div class="inputBox">
-                    <span>Citt‡:</span>
+                    <span>Citt√†:</span>
                     <input type="text" placeholder="mumbai" id="citta" required>
                 </div>
 
@@ -59,7 +62,8 @@
                     <span>Seleziona il metodo di pagamento:</span>
                     <button type="button" onclick="selectPayment('creditCard')"><img src="./IMG/visa.png"></button>
                     <button type="button" onclick="selectPayment('paypal')"><img src="./IMG/paypal.jpg"></button>
-                    <button type="button" onclick="selectPayment('mastercard')"><img src="./IMG/mastercard.png"></button>
+                    <button type="button" onclick="selectPayment('creditCard')"><img src="./IMG/mastercard.png"></button>
+                    <input type="hidden" value="none" id="paymentBy">
                 </div>
 
                 <div id="creditCardFields" style="display: none;">
@@ -98,11 +102,11 @@
             </div>
     
         </div>
-		<input type="checkbox" id="fattura"> Vuoi la fattura?<br>
+		Vuoi la fattura? Puoi richiederla nella sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
 		<form action="/EffettuaOrdineServlet" method="post">
-       	<input type="submit" value="Procedi all'acquisto" class="submit-btn">
+       		<input type="submit" value="Procedi all'acquisto" class="submit-btn">
 		</form>
-
+	</form>
 </div>    
     
 <script>
@@ -116,6 +120,7 @@
             document.getElementById('yearExp').disabled = false;
             document.getElementById('cvvExp').disabled = false;
             document.getElementById('paypalEmail').disabled = true;
+            document.getElementById('PaymentBy').value = 'creditCard';
         } else if (method === 'paypal') {
             document.getElementById('creditCardFields').style.display = 'none';
             document.getElementById('paypalFields').style.display = 'block';
@@ -125,9 +130,9 @@
             document.getElementById('yearExp').disabled = true;
             document.getElementById('cvvExp').disabled = true;
             document.getElementById('paypalEmail').disabled = false;
+            document.getElementById('PaymentBy').value = 'PayPal';
         }
     }
 </script>
-
 </body>
 </html>
