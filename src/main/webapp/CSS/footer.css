@@ -1,60 +1,96 @@
-/*FOOTER*/
-.footer{
-  height: 40%;
-  width: 100%;
-  background: #1f1f1f;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Header CSS here */
+
+/* FOOTER */
+.footer {
+    background: #1f1f1f;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-logo {
-  flex: 1;
-  padding: 10px;
-  min-width: 150px;
-  box-sizing: border-box;
+    flex: 1;
+    padding: 10px;
+    min-width: 150px;
 }
 
 .footer-logo img {
-  max-width: 150px;
+    max-width: 150px;
 }
 
 .footer-section {
-  flex: 1;
-  padding: 10px;
-  min-width: 150px;
+    flex: 1;
+    padding: 10px;
+    min-width: 150px;
 }
+
+.footer-section h4 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon {
+    margin: 0 10px;
+    width: 24px;
+    height: 24px;
+}
+
 .footer-bottom {
-  text-align: center;
-  position: relative;
-  padding: 10px 0;
-  background-color: #222;
+    background-color: #222;
+    padding: 10px 0;
 }
 
 .footer-bottom p {
-  margin-top: 0;
-  font-size: 14px;
+    margin: 0;
+    font-size: 14px;
 }
 
 @media (max-width: 768px) {
-  .footer-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-  .footer-section, .footer-logo {
-      padding: 20px 0;
-  }
+    .footer-logo,
+    .footer-section {
+        padding: 20px 0;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
 }

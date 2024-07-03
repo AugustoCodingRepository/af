@@ -1,6 +1,17 @@
- <!--FOOTER-->
- <link href="./CSS/footer.css" type="text/css" rel="stylesheet">
-      <footer class="footer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./CSS/header.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/footer.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Header code here -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="./IMG/logo.png" alt="Logo">
@@ -22,15 +33,17 @@
             <div class="footer-section">
                 <h4>Seguici</h4>
                 <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook" height="5px" width="5px"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="./IMG/facebook-icon.png" alt="Facebook" class="social-icon"></a>
+                    <a href="#"><img src="./IMG/twitter-icon.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#"><img src="./IMG/instagram-icon.png" alt="Instagram" class="social-icon"></a>
                 </div>
             </div>
         </div>
-        <!--DA AGGIUSTARE STO SFACIMM
         <div class="footer-bottom">
             <p>&copy; 2024 Il Tuo Sito. Tutti i diritti riservati.</p>
         </div>
-        -->
     </footer>
+
+    <script src="./JS/header.js"></script>
+</body>
+</html>
