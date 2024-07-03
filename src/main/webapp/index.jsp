@@ -16,36 +16,7 @@
 
     <body> 
         
-        <header class="header">
-
-            <div class="header__content">
-              <a class="header__logo" href="">
-                <img src="./IMG/logo.png" class="logo">
-                </a>
-              <ul class="header__menu">
-                <li><a href="">Home</a></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">About us</a></li>
-                <li><a href="">Contatti</a></li>
-              </ul>
-              <div class="header__icons">
-                <img src="./IMG/shoppingbag.png" class="menu-icon">
-                 
-                  <div class="icon-hamburger">
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon">
-                  <div class="dropdown-menu" id="dropdownMenu">
-                      <ul>
-                          <li><a href="#">Accedi</a></li>
-                          <li><a href="#">Registrati</a></li>
-                      </ul>
-                  </div>
-              </div>
-            </div>
-        </header>
-            
+      <jsp:include page="./fragments/header.jsp"></jsp:include>
         
             <!--SCROLL CON VIDEO2-->
             <div class="section watch in-page"> 
@@ -135,9 +106,7 @@
                 <h3 class="card__heading">Mixer</h3>
               </div>
             </a>
-          <div>
       </div>
-    </div>
     </div>
       
       <!--separatore-->
@@ -181,42 +150,7 @@
     </div>
     </div>-->
 
-      <!--FOOTER-->
-      <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="./IMG/logo.png" alt="Logo">
-            </div>
-            <div class="footer-section">
-                <h4>Contattaci</h4>
-                <p>Email: altafrequenza27@gmail.com</p>
-                <p>Telefono: 081 2727 002</p>
-            </div>
-            <div class="footer-section">
-                <h4>Link Utili</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Chi Siamo</a></li>
-                    <li><a href="#">Servizi</a></li>
-                    <li><a href="#">Contatti</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Seguici</h4>
-                <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook" height="5px" width="5px"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-        <!--DA AGGIUSTARE STO SFACIMM
-        <div class="footer-bottom">
-            <p>&copy; 2024 Il Tuo Sito. Tutti i diritti riservati.</p>
-        </div>
-        -->
-    </footer>
-
+     
         <!--JAVA CODE-->
         <script>
 
@@ -275,6 +209,8 @@
 
 
             //FINE TENDINA
-        </script>   
+        </script> 
+        
+      <jsp:include page="./fragments/footer.jsp"></jsp:include>  
     </body>
 </html>    

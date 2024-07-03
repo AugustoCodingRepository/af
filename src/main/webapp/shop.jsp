@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<jsp:include page="./header.jsp"></jsp:include>
 <div class="products" id="products">
     <div class="container" id="container">
         <h1 class="lg-title">I nostri prodotti</h1>
