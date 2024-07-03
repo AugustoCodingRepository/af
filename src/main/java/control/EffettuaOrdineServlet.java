@@ -33,7 +33,6 @@ public class EffettuaOrdineServlet extends HttpServlet {
             calendar.add(Calendar.DATE, 5);
             Date deliveryDate = new Date(calendar.getTimeInMillis());
             Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, Double.parseDouble(request.getParameter("Total")));
-            
             //-- TRANSAZIONE --//
             if(request.getParameter("paymentBy").equals("PayPal")) {
             Transazione transazione = new Transazione(request.getParameter("PaymentBy"), user.getUser_ID(), );       

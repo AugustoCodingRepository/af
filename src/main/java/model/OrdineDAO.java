@@ -38,7 +38,7 @@ public class OrdineDAO {
                 resultSet.getInt("User_ID"),
                 resultSet.getDate("Order_Data"),
                 resultSet.getDate("Delivery_Data"),
-                resultSet.getInt("Cost"),
+                resultSet.getDouble("Cost"),
                 (ArrayList<String>) resultSet.getArray("ProductList")
             );
             ordini.add(ordine);
@@ -60,7 +60,7 @@ public class OrdineDAO {
                     resultSet.getInt("User_ID"),
                     resultSet.getDate("Order_Data"),
                     resultSet.getDate("Delivery_Data"),
-                    resultSet.getInt("Cost"),
+                    resultSet.getDouble("Cost"),
                     (ArrayList<String>) resultSet.getArray("ProductList")
                 );
                 ordini.add(ordine);
@@ -93,7 +93,7 @@ public class OrdineDAO {
                         resultSet.getInt("User_ID"),
                         resultSet.getDate("Order_Data"),
                         resultSet.getDate("Delivery_Data"),
-                        resultSet.getInt("Cost"),
+                        resultSet.getDouble("Cost"),
                         (ArrayList<String>) resultSet.getArray("ProductList"));
             }
 
