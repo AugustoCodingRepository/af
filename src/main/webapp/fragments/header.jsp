@@ -1,4 +1,5 @@
-		<link href="./CSS/header.css" rel="stylesheet" type="text/css">
+		<%@page import="model.*"%>
+<link href="./CSS/header.css" rel="stylesheet" type="text/css">
 		<header class="header">
             <div class="header__content">
               <a class="header__logo" href="">
@@ -20,8 +21,12 @@
                   <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon">
                   <div class="dropdown-menu" id="dropdownMenu">
                       <ul>
+                      	<% User user = (User) request.getSession().getAttribute("currentSessionUser"); 
+                      	   if(user != null){
+                      	%>
                           <li><a href="./LoginAndRegistration.html">Accedi</a></li>
                           <li><a href="./LoginAndRegistration.html">Registrati</a></li>
+                        <%} %>
                       </ul>
                   </div>
               </div>
