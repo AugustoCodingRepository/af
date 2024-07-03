@@ -210,7 +210,6 @@
 
             //FINE TENDINA
         </script> 
-        
       <jsp:include page="./fragments/footer.jsp"></jsp:include>  
     </body>
 </html>    

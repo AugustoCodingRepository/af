@@ -28,6 +28,7 @@
 </head>
 
 <body>
+<jsp:include page="./fragments/header.jsp"/>
   <section>
     <div class="container flex">
       <div class="left">
@@ -50,5 +51,6 @@
     </div>
   </section>
   <script src="./JS/detailPage.js" defer></script>
+  <jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

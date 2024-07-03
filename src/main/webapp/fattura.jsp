@@ -16,7 +16,6 @@
   <title>Fattura</title>
   <link rel="stylesheet" href="./CSS/fatturacss.css" type="text/css" media="all" />
 </head>
-
 <body>
   <div>
     <div class="py-4">

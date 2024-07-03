@@ -21,6 +21,7 @@ if (user != null) {
     <title>I tuoi ordini</title>
 </head>
 <body>
+<jsp:include page="./fragments/header.jsp"/>
     <% if (user == null) { %>
     <p>Per favore, effettua il login per visualizzare i tuoi ordini.</p>
     <a href="LoginAndRegistration.jsp">Vai alla pagina di login</a>
@@ -52,5 +53,6 @@ if (user != null) {
     </tr>
     <a href="shop.jsp">Torna al negozio</a>
     <% } %>
+    <jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

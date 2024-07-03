@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./CSS/shopcss.css">
 </head>
 <body>
+	<jsp:include page="./fragments/header.jsp"/>
     <div class="container">
         <div class="title">PRODUCT DETAIL</div>
         <div class="detail">
@@ -77,5 +78,6 @@
     }
 
     </script>
+    <jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

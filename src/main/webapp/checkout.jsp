@@ -13,7 +13,7 @@
 	%>
 </head>
 <body>
-
+<jsp:include page="./fragments/header.jsp"/>
 <div class="container">
 
  <form id="payment" action="/EffettuaOrdineServlet" method="post"> 
@@ -146,5 +146,6 @@
         }
     });
 </script>
+<jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

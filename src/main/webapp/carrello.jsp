@@ -18,6 +18,7 @@ if (cart != null) {
     <link href="./CSS/carrello.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="./fragments/header.jsp"></jsp:include>
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
@@ -119,5 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
     ricalcolaTotale();
 });
 </script>
+<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
+<jsp:include page="./fragments/header.jsp"/>
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form action="./RegistrationServlet" method="post">
@@ -47,6 +48,6 @@
     </div>
 
     <script src="JS/loginScript.js"></script>
-
+<jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

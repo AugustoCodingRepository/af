@@ -16,6 +16,7 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     <link href="./CSS/carrello.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="./fragments/header.jsp"></jsp:include>
 <h1 align="center" >Catalogo dei Prodotti (<%= prodotti.size() %>)</h1>
 <h2 align="center">
    
@@ -78,5 +79,6 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
     </tbody>
 </table>
 </div>
+<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>

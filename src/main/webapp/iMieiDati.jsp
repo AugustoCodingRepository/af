@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="./CSS/UserDatasLabels.css">
 </head>
 <body>
+<jsp:include page="./fragments/header.jsp"/>
 <h1>I miei dati</h1>
 <form id="updateForm" action="./UpdateUserDatas" method="post">
 <div class="input-group">
@@ -62,5 +63,6 @@
 </button>
 </form>
 	<script defer src="./JS/scriptInput.js"></script>
+	<jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>

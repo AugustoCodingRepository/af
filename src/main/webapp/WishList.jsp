@@ -17,7 +17,7 @@
     <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<jsp:include page="./fragments/header.jsp"/>
 <div class="products" id="products">
     <div class="container" id="container">
         <h1 class="lg-title">I miei preferiti</h1>
@@ -110,5 +110,6 @@
     </div>
 
 <script src="./JS/shopScript.js" defer></script>
+<jsp:include page="./fragments/footer.jsp"/>
 </body>
 </html>
