@@ -30,7 +30,6 @@ public class EffettuaOrdineServlet extends HttpServlet {
             Date deliveryDate = new Date(calendar.getTimeInMillis());
             Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, Double.parseDouble(request.getParameter("Total")));
             
-            Tr
             try {
                 OrdineDAO.insert(ordine, user);
                 // Dopo aver effettuato l'ordine, svuota il carrello
