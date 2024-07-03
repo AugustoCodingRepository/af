@@ -1,11 +1,11 @@
 package model;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class OrdineDAO {
@@ -13,19 +13,21 @@ public class OrdineDAO {
 	public static void insert(Ordine ordine, User user) throws SQLException {
 	    if (user != null) {
 	        Connection connection = ConnectToDB.getConnection();
-	        PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data, Cost) VALUES (?, ?, ?, ?, ?)");
+	        PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?)");
 	        statement.setInt(1, ordine.getOrder_ID());
 	        statement.setInt(2, ordine.getUser_ID());
 	        statement.setDate(3, ordine.getOrder_Data());
 	        statement.setDate(4, ordine.getDelivery_Data());
 	        statement.setDouble(5, ordine.getCost());
+	        statement.setArray(6, (Array)ordine.getProdottiAcquistati());
 	        statement.executeUpdate();
 	    } else {
 	        throw new SQLException("Solo gli utenti registrati possono effettuare un ordine.");
 	    }
 	}
 
-    public static List<Ordine> getAll() throws SQLException {
+    @SuppressWarnings("unchecked")
+	public static List<Ordine> getAll() throws SQLException {
         Connection connection = ConnectToDB.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM Ordine");
         ResultSet resultSet = statement.executeQuery();
@@ -36,7 +38,8 @@ public class OrdineDAO {
                 resultSet.getInt("User_ID"),
                 resultSet.getDate("Order_Data"),
                 resultSet.getDate("Delivery_Data"),
-                resultSet.getInt("Cost")
+                resultSet.getInt("Cost"),
+                (ArrayList<String>) resultSet.getArray("ProductList")
             );
             ordini.add(ordine);
         }
@@ -51,12 +54,14 @@ public class OrdineDAO {
             statement.setInt(1, user.getUser_ID());
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                Ordine ordine = new Ordine(
+                @SuppressWarnings("unchecked")
+				Ordine ordine = new Ordine(
                     resultSet.getInt("Order_ID"),
                     resultSet.getInt("User_ID"),
                     resultSet.getDate("Order_Data"),
                     resultSet.getDate("Delivery_Data"),
-                    resultSet.getInt("Cost")
+                    resultSet.getInt("Cost"),
+                    (ArrayList<String>) resultSet.getArray("ProductList")
                 );
                 ordini.add(ordine);
             }
@@ -64,7 +69,8 @@ public class OrdineDAO {
         return ordini;
     }
     
-    public Ordine getOrderByID(int orderID) {
+    @SuppressWarnings("unchecked")
+	public Ordine getOrderByID(int orderID) {
         Ordine ordine = null;
 
         try {
@@ -77,22 +83,22 @@ public class OrdineDAO {
             pstmt.setInt(1, orderID);
 
             // Esecuzione della query
-            ResultSet rs = pstmt.executeQuery();
+            ResultSet resultSet = pstmt.executeQuery();
 
             // Verifica se l'ordine è stato trovato
-            if (rs.next()) {
+            if (resultSet.next()) {
                 // Recupera i dati dell'ordine dal ResultSet
-                int userID = rs.getInt("User_ID");
-                Date orderDate = rs.getDate("Order_Data");
-                Date deliveryDate = rs.getDate("Delivery_Data");
-                double cost = rs.getDouble("Cost");
-
-                // Crea un oggetto Ordine con i dati recuperati
-                ordine = new Ordine(orderID, userID, orderDate, deliveryDate, cost);
+            	new Ordine(
+                        resultSet.getInt("Order_ID"),
+                        resultSet.getInt("User_ID"),
+                        resultSet.getDate("Order_Data"),
+                        resultSet.getDate("Delivery_Data"),
+                        resultSet.getInt("Cost"),
+                        (ArrayList<String>) resultSet.getArray("ProductList"));
             }
 
             // Chiusura delle risorse
-            rs.close();
+            resultSet.close();
             pstmt.close();
             connection.close();
 

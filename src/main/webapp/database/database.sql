@@ -59,14 +59,6 @@ CREATE TABLE `ordine` (
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-CREATE TABLE `preferenza` (
-  `Product_ID` int NOT NULL,
-  `User_ID` int NOT NULL,
-  PRIMARY KEY (`Product_ID`,`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
 DROP TABLE IF EXISTS `prodotto`;
 CREATE TABLE `prodotto` (
   `Product_ID` int NOT NULL AUTO_INCREMENT,

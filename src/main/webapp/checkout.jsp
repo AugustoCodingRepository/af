@@ -16,7 +16,7 @@
 
 <div class="container">
 
- <form action=""> 
+ <form id="payment" action="/EffettuaOrdineServlet" method="post"> 
 
         <div class="row">
 
@@ -26,29 +26,29 @@
 
                 <div class="inputBox">
                     <span>Nome Cognome :</span>
-                    <input type="text" placeholder="john deo" id="nome" required>
+                    <input type="text" placeholder="john deo" id="nome" name="nome" required>
                 </div>
                 <div class="inputBox">
                     <span>Email :</span>
-                    <input type="email" placeholder="example@example.com" id="email" required>
+                    <input type="email" placeholder="example@example.com" id="email" name="email" required>
                 </div>
                 <div class="inputBox">
                     <span>Indirizzo :</span>
-                    <input type="text" placeholder="room - street - locality" id="indirizzo" required>
+                    <input type="text" placeholder="room - street - locality" id="indirizzo" name="indirizzo" required>
                 </div>
                 <div class="inputBox">
                     <span>Città:</span>
-                    <input type="text" placeholder="mumbai" id="citta" required>
+                    <input type="text" placeholder="mumbai" id="citta" name="citta" required>
                 </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>Stato :</span>
-                        <input type="text" placeholder="india" id="stato" required>
+                        <input type="text" placeholder="india" id="stato" name="stato" required>
                     </div>
                     <div class="inputBox">
                         <span>CAP :</span>
-                        <input type="text" placeholder="123 456" id="cap" required>
+                        <input type="text" placeholder="123 456" id="cap" name="cap" required>
                     </div>
                 </div>
 
@@ -63,31 +63,31 @@
                     <button type="button" onclick="selectPayment('creditCard')"><img src="./IMG/visa.png"></button>
                     <button type="button" onclick="selectPayment('paypal')"><img src="./IMG/paypal.jpg"></button>
                     <button type="button" onclick="selectPayment('creditCard')"><img src="./IMG/mastercard.png"></button>
-                    <input type="hidden" value="none" id="paymentBy">
+                    <input type="hidden" value="none" id="paymentBy" name="PaymentBy">
                 </div>
 
                 <div id="creditCardFields" style="display: none;">
                     <div class="inputBox">
                         <span>Nome sulla carta :</span>
-                        <input type="text" placeholder="mr. john deo" id="cardName" required>
+                        <input type="text" placeholder="mr. john deo" id="cardName" name="cardName" required>
                     </div>
                     <div class="inputBox">
                         <span>Numero carta :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444" id="cardNumber" required>
+                        <input type="number" placeholder="1111-2222-3333-4444" id="cardNumber" name="cardNumber" required>
                     </div>
                     <div class="inputBox">
                         <span>Mese Scadenza :</span>
-                        <input type="text" placeholder="january" id="monthExp" required>
+                        <input type="text" placeholder="january" id="monthExp" name="monthExp" required>
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
                             <span>Anno Scadenza :</span>
-                            <input type="number" placeholder="2022" id="yearExp"required>
+                            <input type="number" placeholder="2022" id="yearExp" name="yearExp"required>
                         </div>
                         <div class="inputBox">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234" id="cvvExp"required>
+                            <input type="text" placeholder="1234" id="cvvExp" name="cvvExp"required>
                         </div>
                     </div>
                 </div>
@@ -95,17 +95,19 @@
                 <div id="paypalFields" style="display: none;">
                     <div class="inputBox">
                         <span>Indirizzo email PayPal :</span>
-                        <input type="email" placeholder="example@paypal.com" id="paypalEmail"required>
+                        <input type="email" placeholder="example@paypal.com" id="paypalEmail" name="paypalEmail" required>
                     </div>
                 </div>
 
             </div>
     
         </div>
+        <input type="checkbox" id="paymentSave">Vuoi salvare il tuo metodo di pagamento?<br><br>
+        <input type="hidden" value="none" id="paymentSaved" name="paymentSaved">
 		Vuoi la fattura? Puoi richiederla nella sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
-		<form action="/EffettuaOrdineServlet" method="post">
+		
        		<input type="submit" value="Procedi all'acquisto" class="submit-btn">
-		</form>
+
 	</form>
 </div>    
     
@@ -133,6 +135,16 @@
             document.getElementById('PaymentBy').value = 'PayPal';
         }
     }
+    document.getElementById('payment').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenire l'invio del form per visualizzare il risultato
+        var isChecked = document.getElementById('paymentSave').checked;
+
+        if (isChecked) {
+        	 document.getElementById('paymentSaved').value = 'true';
+        } else {
+        	document.getElementById('paymentSaved').value = 'false';
+        }
+    });
 </script>
 </body>
 </html>

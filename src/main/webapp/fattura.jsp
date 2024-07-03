@@ -18,7 +18,7 @@
             <tr>
               <td class="w-full align-top">
                 <div>
-                  <img src="./IMG/logoblack.png" class="h-12" /> A L T A  F R E Q U E N Z A
+                  <img src="./IMG/logoblack.png" class="h-12" /> A L T A F R E Q U E N Z A
                 </div>
               </td>
 
@@ -92,9 +92,9 @@
             </tr>
           </thead>
           <tbody>
-          <%
+          <%--
           	for(Prodotto p : prodotti){
-          %>
+          --%>
             <tr>
               <td class="border-b py-3 pl-3">1.</td>
               <td class="border-b py-3 pl-2">Montly accountinc services</td>
@@ -104,7 +104,7 @@
               <td class="border-b py-3 pl-2 text-right">$150.00</td>
               <td class="border-b py-3 pl-2 pr-3 text-right">$180.00</td>
             </tr>
-            <%} %>
+            <%--} --%>
             <tr>
               <td colspan="7">
                 <table class="w-full border-collapse border-spacing-0">

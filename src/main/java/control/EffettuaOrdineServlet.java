@@ -2,6 +2,8 @@ package control;
 
 import model.Ordine;
 import model.OrdineDAO;
+import model.Transazione;
+import model.TransazioneDAO;
 import model.User;
 import model.Carrello;
 
@@ -22,6 +24,8 @@ public class EffettuaOrdineServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
         if (user != null && carrello != null) {
+        	
+        	//-- ORDINE --//
             // Calcola il costo totale del carrello
             double cost = carrello.getCosto();
             // Imposta la data di consegna prevista a 3 giorni dalla data corrente
@@ -30,7 +34,12 @@ public class EffettuaOrdineServlet extends HttpServlet {
             Date deliveryDate = new Date(calendar.getTimeInMillis());
             Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, Double.parseDouble(request.getParameter("Total")));
             
-            Tr
+            //-- TRANSAZIONE --//
+            if(request.getParameter("paymentBy").equals("PayPal")) {
+            Transazione transazione = new Transazione(request.getParameter("PaymentBy"), user.getUser_ID(), );       
+            }else {
+            	Transazione transazione = new Transazione();
+            }
             try {
                 OrdineDAO.insert(ordine, user);
                 // Dopo aver effettuato l'ordine, svuota il carrello
