@@ -5,6 +5,10 @@
 	Ordine ordine = OrdineDAO.getOrderByID(Integer.parseInt(request.getParameter("Order_ID")));
 	User user = UserDAO.getUserByID(ordine.getUser_ID());
 	ArrayList<String> prodotti= ordine.getProdottiAcquistati();
+	double totaleNetto = 0;
+	double totaleConIva = 0;
+	double prezzoCorrente = 0;
+	double totaleIva = 0;
 %>
 <head>
   <meta charset="UTF-8">
@@ -107,7 +111,11 @@
               <td class="border-b py-3 pl-2 text-right">€<%=p.getPrice() %></td>
               <td class="border-b py-3 pl-2 text-center"><%=p.getIVA() %>%</td>
               <td class="border-b py-3 pl-2 text-right"><%=p.getPrice() %></td>
+              <% totaleNetto =+ p.getPrice(); %>
               <td class="border-b py-3 pl-2 pr-3 text-right"><%=(p.getPrice()+(p.getIVA()*p.getPrice())) %></td>
+              <% 	prezzoCorrente = p.getPrice()+(p.getIVA()*p.getPrice());
+              		totaleIva += ((p.getIVA()*p.getPrice()));
+              		totaleConIva =+ prezzoCorrente; %>
             </tr>
             <%}%>
             <tr>
@@ -124,7 +132,7 @@
                                 <div class="whitespace-nowrap text-slate-400">Totale netto:</div>
                               </td>
                               <td class="border-b p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">$320.00</div>
+                                <div class="whitespace-nowrap font-bold text-main">€<%=totaleNetto %></div>
                               </td>
                             </tr>
                             <tr>
@@ -132,7 +140,7 @@
                                 <div class="whitespace-nowrap text-slate-400">Totale IVA:</div>
                               </td>
                               <td class="p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-main">$64.00</div>
+                                <div class="whitespace-nowrap font-bold text-main">€<%=totaleIva %></div>
                               </td>
                             </tr>
                             <tr>
@@ -140,7 +148,7 @@
                                 <div class="whitespace-nowrap font-bold text-white">Totale:</div>
                               </td>
                               <td class="bg-main p-3 text-right">
-                                <div class="whitespace-nowrap font-bold text-white">$384.00</div>
+                                <div class="whitespace-nowrap font-bold text-white">€<%=totaleConIva %></div>
                               </td>
                             </tr>
                           </tbody>
@@ -159,7 +167,7 @@
         <p class="text-main font-bold">DETTAGLI PAGAMENTO</p>
         <p>Intesa San Paolo</p>
         <p>Account numero: 78976 </p>
-        <p>Pagamento numero: </p>
+        <p>Pagamento numero: <%=ordine.getOrder_ID() %></p>
       </div>
 
       <div class="px-14 py-10 text-sm text-neutral-700">
