@@ -1,7 +1,11 @@
 <%@ page import="java.util.*,model.*,control.*"%>
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+	Ordine ordine = OrdineDAO.getOrderByID(Integer.parseInt(request.getParameter("Order_ID")));
+	User user = UserDAO.getUserByID(ordine.getUser_ID());
+	ArrayList<String> prodotti= ordine.getProdottiAcquistati();
+%>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +33,14 @@
                       <tr>
                         <td class="border-r pr-4">
                           <div>
-                            <p class="whitespace-nowrap text-slate-400 text-right">Date</p>
-                            <p class="whitespace-nowrap font-bold text-main text-right">April 26, 2023</p>
+                            <p class="whitespace-nowrap text-slate-400 text-right">Data</p>
+                            <p class="whitespace-nowrap font-bold text-main text-right"><%= ordine.getOrder_Data() %></p>
                           </div>
                         </td>
                         <td class="pl-4">
                           <div>
-                            <p class="whitespace-nowrap text-slate-400 text-right">Invoice #</p>
-                            <p class="whitespace-nowrap font-bold text-main text-right">BRA-00335</p>
+                            <p class="whitespace-nowrap text-slate-400 text-right">Fattura #</p>
+                            <p class="whitespace-nowrap font-bold text-main text-right"><%= ordine.getOrder_ID() %></p>
                           </div>
                         </td>
                       </tr>
@@ -66,11 +70,11 @@
               <td class="w-1/2 align-top text-right">
                 <div class="text-sm text-neutral-600">
                   <p class="font-bold">Cliente</p>
-                  <p>Nome: </p> 
-                  <p>Cognome: </p>
-                  <p>Indirizzo:</p>
-                  <p>Citt‡, CAP:</p>
-                  <p></p>
+                  <p> </p> 
+                  <p><%=user.getCognome() %> </p>
+                  <p><%=user.getNome() %></p>
+                  <p><%=user.getCitta() %>(<%=user.getProvincia() %>),<%=user.getCAP() %></p>
+                  <p><%=user.getNazione() %></p>
                 </div>
               </td>
             </tr>
@@ -85,26 +89,27 @@
               <td class="border-b-2 border-main pb-3 pl-3 font-bold text-main">#</td>
               <td class="border-b-2 border-main pb-3 pl-2 font-bold text-main">Prodotto</td>
               <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Prezzo</td>
-              <td class="border-b-2 border-main pb-3 pl-2 text-center font-bold text-main">Qty.</td>
               <td class="border-b-2 border-main pb-3 pl-2 text-center font-bold text-main">IVA</td>
               <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Subtotale</td>
               <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Subtotal + IVA</td>
             </tr>
           </thead>
           <tbody>
-          <%--
-          	for(Prodotto p : prodotti){
-          --%>
+          <%
+          	for(String pid : prodotti){
+          		int i=0;
+          		Prodotto p = ProdottoDAO.getProductByID(pid);
+          	
+          %>
             <tr>
-              <td class="border-b py-3 pl-3">1.</td>
-              <td class="border-b py-3 pl-2">Montly accountinc services</td>
-              <td class="border-b py-3 pl-2 text-right">$150.00</td>
-              <td class="border-b py-3 pl-2 text-center">1</td>
-              <td class="border-b py-3 pl-2 text-center">20%</td>
-              <td class="border-b py-3 pl-2 text-right">$150.00</td>
-              <td class="border-b py-3 pl-2 pr-3 text-right">$180.00</td>
+              <td class="border-b py-3 pl-3"><%=i++ %></td>
+              <td class="border-b py-3 pl-2"><%=p.getProduct_Name() %></td>
+              <td class="border-b py-3 pl-2 text-right">‚Ç¨<%=p.getPrice() %></td>
+              <td class="border-b py-3 pl-2 text-center"><%=p.getIVA() %>%</td>
+              <td class="border-b py-3 pl-2 text-right"><%=p.getPrice() %></td>
+              <td class="border-b py-3 pl-2 pr-3 text-right"><%=(p.getPrice()+(p.getIVA()*p.getPrice())) %></td>
             </tr>
-            <%--} --%>
+            <%}%>
             <tr>
               <td colspan="7">
                 <table class="w-full border-collapse border-spacing-0">
@@ -159,8 +164,8 @@
 
       <div class="px-14 py-10 text-sm text-neutral-700">
         <p class="text-main font-bold">Note</p>
-        <p class="italic">Questa fattura Ë un documento che attesta l'avvenuto pagamento presso la societ‡ Alta Frequenza S.P.A. ed
-        Ë valido come documento fiscale.</p>
+        <p class="italic">Questa fattura √® un documento che attesta l'avvenuto pagamento presso la societ√† Alta Frequenza S.P.A. ed
+        √® valido come documento fiscale.</p>
         </div>
 
         <footer class="fixed bottom-0 left-0 bg-slate-100 w-full text-neutral-600 text-center text-xs py-3">

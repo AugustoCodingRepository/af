@@ -1,11 +1,6 @@
 package control;
 
-import model.Ordine;
-import model.OrdineDAO;
-import model.Transazione;
-import model.TransazioneDAO;
-import model.User;
-import model.Carrello;
+import model.*;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,21 +21,27 @@ public class EffettuaOrdineServlet extends HttpServlet {
         if (user != null && carrello != null) {
         	
         	//-- ORDINE --//
-            // Calcola il costo totale del carrello
-            double cost = carrello.getCosto();
             // Imposta la data di consegna prevista a 3 giorni dalla data corrente
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DATE, 5);
             Date deliveryDate = new Date(calendar.getTimeInMillis());
             Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, Double.parseDouble(request.getParameter("Total")));
+            
             //-- TRANSAZIONE --//
-            if(request.getParameter("paymentBy").equals("PayPal")) {
-            Transazione transazione = new Transazione(request.getParameter("PaymentBy"), user.getUser_ID(), );       
-            }else {
-            	Transazione transazione = new Transazione();
+             Transazione transazione = new Transazione(ordine.getOrder_ID(), user.getUser_ID(), "APPROVATA");
+            
+            //-- SALVA IL METODO DI PAGAMENTO --//
+            if(request.getParameter("paymentSave").equals("true")) {
+            	MetodoDiPagamento paymentMethod = new MetodoDiPagamento(request.getParameter("PaymentBy"), user.getUser_ID(), request.getParameter("paypalEmail"), Integer.parseInt(request.getParameter("monthExp")), Integer.parseInt(request.getParameter("yearExp")),Long.parseLong(request.getParameter("cardNumber")), Integer.parseInt(request.getParameter("cvvExp")));       
+            	try {
+					MetodoDiPagamentoDAO.insert(paymentMethod);
+				} catch (SQLException e) {				
+					e.printStackTrace();
+				}
             }
             try {
                 OrdineDAO.insert(ordine, user);
+                TransazioneDAO.insert(transazione);
                 // Dopo aver effettuato l'ordine, svuota il carrello
                 carrello.delCart();
                 response.sendRedirect("ordine.jsp");

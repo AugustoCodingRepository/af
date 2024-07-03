@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS fff;
-CREATE DATABASE fff;
-USE fff;
+DROP DATABASE IF EXISTS altafrequenza;
+CREATE DATABASE altafrequenza;
+USE altafrequenza;
 
 
 DROP TABLE IF EXISTS `categoria`;
@@ -38,7 +38,8 @@ CREATE TABLE `metododipagamento` (
   `Payment_Type` enum('Paypal','Carta di credito/debito') DEFAULT NULL,
   `User_ID` int NOT NULL,
   `PayPal_Email` varchar(30) DEFAULT NULL,
-  `Card_Expiration` date DEFAULT NULL,
+  `Month_Expiration` int DEFAULT NULL,
+  `Year_Expiration` int DEFAULT NULL,
   `Card_Number` bigint DEFAULT NULL,
   `CVV` int DEFAULT NULL,
   PRIMARY KEY (`Payment_ID`),
@@ -58,6 +59,14 @@ CREATE TABLE `ordine` (
   KEY `User_ID` (`User_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `preferenza` (
+  `Product_ID` int NOT NULL,
+  `User_ID` int NOT NULL,
+  PRIMARY KEY (`Product_ID`,`User_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 DROP TABLE IF EXISTS `prodotto`;
 CREATE TABLE `prodotto` (

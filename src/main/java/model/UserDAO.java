@@ -130,5 +130,27 @@ public class UserDAO {
 	    }
 	    return false;
 	}
+	
+	public static User getUserByID(int userID) {
+        final String query = "SELECT * FROM utente WHERE User_ID = ?";
+        try {
+            Connection con = ConnectToDB.getConnection();
+            PreparedStatement pstm = con.prepareStatement(query);
+            pstm.setInt(1, userID);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt("User_ID"),
+                        rs.getString("Email"), rs.getString("Password"), 
+                        rs.getString("Nome"), rs.getString("Cognome"),
+                        rs.getString("Via"), rs.getInt("Civico"),
+                        rs.getInt("CAP"), rs.getString("Citta"),
+                        rs.getString("Provincia"), rs.getString("Nazione"), 
+                        rs.getString("Telefono"), rs.getString("Ruolo"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

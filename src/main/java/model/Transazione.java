@@ -1,52 +1,41 @@
 package model;
 
-import java.util.Date;
-
 public class Transazione {
-    private int paymentId;
-    private String paymentType;
+    private int transactionId;
+    private int orderId;
     private int userId;
-    private String paypalEmail;
-    private Date cardExpiration;
-    private long cardNumber;
-    private int cvv;
+    private String esito;
 
-    // Constructor without paymentId
-    public Transazione(String paymentType, int userId, String paypalEmail, Date cardExpiration, long cardNumber, int cvv) {
-        this.paymentType = paymentType;
+    // Constructor without transactionId (for new entries)
+    public Transazione(int orderId, int userId, String esito) {
+        this.orderId = orderId;
         this.userId = userId;
-        this.paypalEmail = paypalEmail;
-        this.cardExpiration = cardExpiration;
-        this.cardNumber = cardNumber;
-        this.cvv = cvv;
+        this.esito = esito;
     }
 
-    // Constructor with paymentId
-    public Transazione(int paymentId, String paymentType, int userId, String paypalEmail, Date cardExpiration, long cardNumber, int cvv) {
-        this.paymentId = paymentId;
-        this.paymentType = paymentType;
+    // Constructor with transactionId (for existing entries)
+    public Transazione(int transactionId, int orderId, int userId, String esito) {
+        this.transactionId = transactionId;
+        this.orderId = orderId;
         this.userId = userId;
-        this.paypalEmail = paypalEmail;
-        this.cardExpiration = cardExpiration;
-        this.cardNumber = cardNumber;
-        this.cvv = cvv;
+        this.esito = esito;
     }
 
     // Getters and setters
-    public int getPaymentId() {
-        return paymentId;
+    public int getTransactionId() {
+        return transactionId;
     }
 
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
-    public String getPaymentType() {
-        return paymentType;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getUserId() {
@@ -57,35 +46,12 @@ public class Transazione {
         this.userId = userId;
     }
 
-    public String getPaypalEmail() {
-        return paypalEmail;
+    public String getEsito() {
+        return esito;
     }
 
-    public void setPaypalEmail(String paypalEmail) {
-        this.paypalEmail = paypalEmail;
-    }
-
-    public Date getCardExpiration() {
-        return cardExpiration;
-    }
-
-    public void setCardExpiration(Date cardExpiration) {
-        this.cardExpiration = cardExpiration;
-    }
-
-    public long getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(long cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    public int getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(int cvv) {
-        this.cvv = cvv;
+    public void setEsito(String esito) {
+        this.esito = esito;
     }
 }
+
