@@ -78,28 +78,28 @@
         <!--Card-->
         <div class="panel">
           <div class="card-grid">
-            <a class="card" href="#">
+            <a class="card" href="shop.jsp">
               <div class="card__background" style="background-image: url(./IMG/img3.jpeg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Amplificatori</h3>
               </div>
             </a>
-            <a class="card" href="#">
+            <a class="card" href="shop.jsp">
               <div class="card__background" style="background-image: url(./IMG/img4.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Chitarre elettriche</h3>
               </div>
             </a>
-            <a class="card" href="#">
+            <a class="card" href="shop.jsp">
               <div class="card__background" style="background-image: url(./IMG/img2.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Tastiere</h3>
               </div>
             </li>
-            <a class="card" href="#">
+            <a class="card" href="shop.jsp">
               <div class="card__background" style="background-image: url(./IMG/img1\ \(2\).jfif)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
