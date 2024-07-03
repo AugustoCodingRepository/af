@@ -33,6 +33,7 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
         <th scope="col">Categoria</th>
         <th scope="col">Immagine</th>
         <th scope="col">Delete Product</th>
+        <th scope="col">Add product</th>
     </tr>
     <tr>
         <form action="./AddingProduct" method="get">
@@ -44,7 +45,8 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
             <th scope="col"><input class="form-control" type="number" name="IVA" placeholder="IVA" min="3" max="100" value="0.00" step="0.25" required /></th>
             <th scope="col"><input class="form-control" type="number" name="idCat" placeholder="id categoria" min="0" value="0" required /></th>
             <th scope="col"><input class="form-control" type="text" name="description" placeholder="descrizione" required /></th>
-            <th scope="col" colspan="2"><input class="form-control" type="submit" required /></th>
+			<th scope="col"><input class="form-control" type="file" name="talkPhoto" value="" maxlength="255"></th>
+            <th scope="col" colspan="2"><input class="form-control" type="submit" value="Aggiugni" required /></th>
         </form>
     </tr>
     </thead>
@@ -67,6 +69,7 @@ Collection<Prodotto> prodotti = ProdottoDAO.getAllProducts();
                 <button type="submit" class="btn"><i class='bx bxs-message-square-x'></i></button>
             </form>
         </td>
+        <td></td>
     </tr>
     <% }
     } else { %>
