@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./CSS/header.css" rel="stylesheet" type="text/css">
     <link href="./CSS/footer.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!-- Header code here -->
-
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
@@ -43,7 +40,5 @@
             <p>&copy; 2024 Il Tuo Sito. Tutti i diritti riservati.</p>
         </div>
     </footer>
-
-    <script src="./JS/header.js"></script>
 </body>
 </html>
