@@ -276,7 +276,7 @@ img{
     justify-content: space-between; /* Distribuisce uniformemente gli elementi lungo la riga */
     align-items: center; /* Allinea verticalmente gli elementi al centro */
     padding: 20px; /* Spaziatura interna */
-    background-color: #f0f0f0; /* Colore di sfondo */
+    background-color: slategray; /* Colore di sfondo */
     z-index: 10; /* Assicurati che il div .filters sia sopra gli altri elementi */  
 }
 

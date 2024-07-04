@@ -106,7 +106,7 @@
         <input type="hidden" value="none" id="paymentSaved" name="paymentSaved">
 		Vuoi la fattura? Puoi richiederla nella sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
 		
-       		<input type="submit" value="Procedi all'acquisto" class="submit-btn">
+       	<input type="submit" value="Procedi all'acquisto" class="submit-btn">
 
 	</form>
 </div>    
