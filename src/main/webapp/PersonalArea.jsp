@@ -1,7 +1,7 @@
 <%@ page import="model.*"%>
 <% User user = (User) request.getSession().getAttribute("currentSessionUser"); %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
