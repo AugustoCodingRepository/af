@@ -1,5 +1,6 @@
 <%@page import="javax.swing.text.Document"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,model.*,control.*"%>
 
 <%
@@ -7,15 +8,18 @@ Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
 Collection<ProdottoCarrello> prodotti = null;
 double total = 0;
 if (cart != null) {
-    prodotti = cart.getProductsInCart();
-    log(String.valueOf(prodotti.size()));
+	prodotti = cart.getProductsInCart();
+	log(String.valueOf(prodotti.size()));
 }
 %>
 <html>
 <head>
-    <title>Shopping Bag</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="./CSS/carrello.css" type="text/css" rel="stylesheet">
+<title>Shopping Bag</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	type="text/css" rel="stylesheet">
+<link href="./CSS/carrello.css" type="text/css" rel="stylesheet">
+<link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
 <jsp:include page="./fragments/header.jsp"></jsp:include>
@@ -23,6 +27,7 @@ if (cart != null) {
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="p-2">
+            	<br>
                 <h4>Shopping cart</h4>
             </div>
             <div class="settings">
@@ -66,60 +71,62 @@ if (cart != null) {
         <input type="text" class="form-control border-0 gift-card" placeholder="discount code/gift card" value="Il totale da pagare per il tuo ordine è di <%=total %> euro" style="text-align:center; font-weight: 900;" disabled>
     </div>
     <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-        <a href="./checkout.jsp"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" type="button">Proceed to Pay</button></a>
+        <a href="./checkout.jsp"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" id="payButton" type="button">Proceed to Pay</button></a>
     </div>
 </div>
-
 <!-- jQuery (necessario per Bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- Popper.js (necessario per alcuni componenti Bootstrap) -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<!-- Bootstrap Bundle JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<!-- Popper.js (necessario per alcuni componenti Bootstrap) -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<!-- Bootstrap Bundle JS -->
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
-<script>
-function aggiorna() {
-    location.reload();
-}
+	<script>
+		function aggiorna() {
+			location.reload();
+		}
 
-function svuotaCarrello() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "./SvuotaCarrelloServlet", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            location.reload();
-        }
-    };
-    xhr.send();
-}
+		function svuotaCarrello() {
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", "./SvuotaCarrelloServlet", true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					location.reload();
+				}
+			};
+			xhr.send();
+		}
 
-function ricalcolaTotale() {
-    let total = 0;
-    const quantities = document.querySelectorAll('.quantity');
-    
-    quantities.forEach(function(input) {
-        const quantity = parseInt(input.value);
-        const price = parseFloat(input.getAttribute('data-price'));
-        total += quantity * price;
-    });
-    
-    // Aggiorna il campo del totale
-    const totalField = document.querySelector('.gift-card');
-    totalField.value = "Il totale da pagare per il tuo ordine è di " + total.toFixed(2) + " euro";
-}
+		function ricalcolaTotale() {
+			let total = 0;
+			const quantities = document.querySelectorAll('.quantity');
 
-document.addEventListener('DOMContentLoaded', function() {
-    const quantities = document.querySelectorAll('.quantity');
-    
-    quantities.forEach(function(input) {
-        input.addEventListener('change', ricalcolaTotale);
-        input.addEventListener('input', ricalcolaTotale); // Aggiungi anche l'evento input per ricalcoli più immediati
-    });
-    
-    // Chiamare ricalcolaTotale inizialmente per calcolare il totale al caricamento della pagina
-    ricalcolaTotale();
-});
-</script>
-<jsp:include page="./fragments/footer.jsp"></jsp:include>
+			quantities.forEach(function(input) {
+				const quantity = parseInt(input.value);
+				const price = parseFloat(input.getAttribute('data-price'));
+				total += quantity * price;
+			});
+
+			// Aggiorna il campo del totale
+			const totalField = document.querySelector('.gift-card');
+			totalField.value = "Il totale da pagare per il tuo ordine è di "
+					+ total.toFixed(2) + " euro";
+		}
+
+		document.addEventListener('DOMContentLoaded', function() {
+			const quantities = document.querySelectorAll('.quantity');
+
+			quantities.forEach(function(input) {
+				input.addEventListener('change', ricalcolaTotale);
+				input.addEventListener('input', ricalcolaTotale); // Aggiungi anche l'evento input per ricalcoli più immediati
+			});
+
+			// Chiamare ricalcolaTotale inizialmente per calcolare il totale al caricamento della pagina
+			ricalcolaTotale();
+		});
+	</script>
+	<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>

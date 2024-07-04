@@ -113,6 +113,14 @@
     background-color: #333;
 }
 
+/* Desktop styles */
+@media (min-width: 769px) {
+    .header__menu {
+        display: flex;
+    }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
     .header__content {
         flex-direction: row;

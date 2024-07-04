@@ -1,96 +1,101 @@
-/* Header CSS here */
-
-/* FOOTER */
 .footer {
-    background: #1f1f1f;
+    background-color: #000;
     color: #fff;
-    text-align: center;
     padding: 20px 0;
     width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
 }
 
 .footer-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-logo {
-    flex: 1;
-    padding: 10px;
-    min-width: 150px;
+    align-items: flex-start;
+    padding: 0 15px;
 }
 
 .footer-logo img {
-    max-width: 150px;
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .footer-section {
-    flex: 1;
-    padding: 10px;
-    min-width: 150px;
+    flex: 1 1 200px;
+    margin-bottom: 20px;
 }
 
 .footer-section h4 {
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
+.footer-section p, .footer-section ul {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
 .footer-section ul {
-    list-style: none;
     padding: 0;
+    list-style: none;
 }
 
 .footer-section ul li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .footer-section ul li a {
     color: #fff;
     text-decoration: none;
+    opacity: 0.8;
 }
 
 .footer-section ul li a:hover {
-    text-decoration: underline;
+    opacity: 1;
 }
 
 .social-icons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
 }
 
 .social-icon {
-    margin: 0 10px;
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
 }
 
 .footer-bottom {
-    background-color: #222;
+    text-align: center;
     padding: 10px 0;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 14px;
+    border-top: 1px solid #444;
 }
 
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        margin-bottom: 20px;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
         text-align: center;
     }
 
-    .footer-logo,
-    .footer-section {
-        padding: 20px 0;
+    .social-icons {
+        justify-content: center;
     }
 
-    .social-icons {
-        margin-top: 10px;
+    .footer-bottom {
+        padding: 20px 0;
     }
 }
