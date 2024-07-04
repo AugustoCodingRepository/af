@@ -30,9 +30,9 @@
             <div class="footer-section">
                 <h4>Seguici</h4>
                 <div class="social-icons">
-                    <a href="#"><img src="./IMG/facebook-icon.png" alt="Facebook" class="social-icon"></a>
-                    <a href="#"><img src="./IMG/twitter-icon.png" alt="Twitter" class="social-icon"></a>
-                    <a href="#"><img src="./IMG/instagram-icon.png" alt="Instagram" class="social-icon"></a>
+                    <a href="#"><img src="./IMG/Facebook.png" alt="Facebook" class="social-icon"></a>
+                    <a href="#"><img src="./IMG/Twitter.png" alt="Twitter" class="social-icon"></a>
+                    <a href="#"><img src="./IMG/Instagram.png" alt="Instagram" class="social-icon"></a>
                 </div>
             </div>
         </div>
