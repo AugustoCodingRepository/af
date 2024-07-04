@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./CSS/header.css" rel="stylesheet" type="text/css">
+    <script src="./JS/header.js"></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -21,7 +22,9 @@
                 <li><a href="./contact.jsp">Contatti</a></li>
             </ul>
             <div class="header__icons">
-                <a href="./carrello.jsp"><img src="./IMG/shoppingbag.png" class="menu-icon" id="carrello" alt="Carrello"></a>
+                <a href="./carrello.jsp" aria-label="Visualizza il carrello">
+                    <img src="./IMG/shoppingbag.png" class="menu-icon" id="carrello" alt="Carrello">
+                </a>
                 <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon" alt="Menu">
                 <div class="dropdown-menu" id="dropdownMenu">
                     <ul>
@@ -43,25 +46,26 @@
         document.addEventListener("DOMContentLoaded", function() {
             var dropdownIcon = document.getElementById('dropdownIcon');
             var dropdownMenu = document.getElementById('dropdownMenu');
-            var headerMenu = document.querySelector('.header__menu');
 
             // Toggle dropdown menu
             dropdownIcon.addEventListener('click', function() {
-                if (dropdownMenu.style.display === "block") {
-                    dropdownMenu.style.display = "none";
-                } else {
-                    dropdownMenu.style.display = "block";
-                }
+                dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
             });
 
             // Close the dropdown and mobile menu if the user clicks outside of them
-            window.onclick = function(event) {
+            window.addEventListener('click', function(event) {
                 if (!event.target.closest('.header__icons')) {
-                    if (dropdownMenu.style.display === "block") {
-                        dropdownMenu.style.display = "none";
-                    }
+                    dropdownMenu.style.display = "none";
                 }
-            };
+            });
+
+            // Handle Enter or Space key for accessibility
+            dropdownIcon.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+                }
+            });
         });
     </script>
 </body>
