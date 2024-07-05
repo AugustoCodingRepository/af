@@ -67,14 +67,14 @@ User user = (User) request.getSession().getAttribute("currentSessionUser");
 				<h3>Utenti del sito</h3>
 				<p>Qui troverai tutti gli utenti iscritti al sito e modificarne
 					il ruolo.</p>
-				<a href="users.jsp" class="btn">Apri</a>
+				<a href="./users.jsp" class="btn">Apri</a>
 			</div>
 
 			<div class="box">
 				<img src="image/icon-6.png" alt="">
 				<h3>Ordini del sito</h3>
 				<p>Qui troverai tutti gli ordini degli utenti iscritti al sito.</p>
-				<a href="orders.jsp" class="btn">Apri</a>
+				<a href="./orders.jsp" class="btn">Apri</a>
 			</div>
 			<%
 			}
@@ -83,7 +83,7 @@ User user = (User) request.getSession().getAttribute("currentSessionUser");
 				<img src="image/icon-6.png" alt="">
 				<h3>Logout</h3>
 				<p>Clicca qui per effettuare il logout</p>
-				<a href="Logout" class="btn">Esci</a>
+				<a href="./Logout" class="btn">Esci</a>
 			</div>
 		</div>
 

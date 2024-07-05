@@ -9,6 +9,10 @@
 </head>
 <body>
 	<jsp:include page="./fragments/header.jsp" />
+	<br>
+	<br>
+		<br>
+	<br>
 	<div class="container" id="container">
 		<div class="form-container sign-up">
 			<form action="./RegistrationServlet" method="post">

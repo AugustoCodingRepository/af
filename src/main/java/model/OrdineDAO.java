@@ -17,6 +17,7 @@ public class OrdineDAO {
                 statement.setDouble(5, ordine.getCost());
                 statement.setArray(6, connection.createArrayOf("VARCHAR", ordine.getProdottiAcquistati().toArray()));
                 statement.executeUpdate();
+                System.out.println("Ordine registrato");
             }
         } else {
             throw new SQLException("Solo gli utenti registrati possono effettuare un ordine.");
