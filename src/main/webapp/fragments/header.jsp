@@ -1,11 +1,10 @@
-<%@ page import="java.util.*,model.*,control.*"%>
-<% User user = (User) request.getSession().getAttribute("currentSessionUser"); %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <%@ page import="model.User" %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>Document</title>
     <link href="./CSS/header.css" rel="stylesheet" type="text/css">
     <script src="./JS/header.js"></script>
 </head>
@@ -29,7 +28,7 @@
                 <img src="./IMG/menu2.png" class="menu-icon" id="dropdownIcon" alt="Menu">
                 <div class="dropdown-menu" id="dropdownMenu">
                     <ul>
-                        <% 
+                        <% User user = (User) request.getSession().getAttribute("currentSessionUser"); 
                            if (user == null) { %>
                             <li><a href="./LoginAndRegistration.jsp">Accedi</a></li>
                             <li><a href="./LoginAndRegistration.jsp">Registrati</a></li>

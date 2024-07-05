@@ -7,7 +7,7 @@
 
 <title>Home Page</title>
 <link href="./CSS/index.css" rel="stylesheet" type="text/css">
-<link REL="icon" HREF="./IMG/c++.png" TYPE="image/gif">
+<link rel="icon" type="image/png" href="IMG/Finale.png">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
 <link
@@ -53,9 +53,9 @@
             <div class="watch fade-in about-text">
                 <p class="watch fade-in">Augusto, Antonio, Federica e Francesco
                     si incontrarono per la prima volta durante il loro secondo anno di
-                    università. L'incontro avvenne durante una lezione di
+                    universit&agrave;. L'incontro avvenne durante una lezione di
                     progettazione di tecnologie e software per il web. La
-                    professoressa assegnò loro un progetto di gruppo: sviluppare un
+                    professoressa assegn&ograve; loro un progetto di gruppo: sviluppare un
                     sito web innovativo. La passione comune per la musica elettrica li
                     spinse a lavorare insieme, dando inizio a una collaborazione che
                     avrebbe cambiato le loro vite...</p>
@@ -69,8 +69,6 @@
     </div>
 </div>
 
-
-
 <!--separatore-->
 <div class="panel2">
     <div class="contenitore">
@@ -83,28 +81,28 @@
     <div class="card-grid">
         <a class="card" href="shop.jsp">
             <div class="card__background"
-                 style="background-image: url(./IMG/img3.jpeg)"></div>
+                 style="background-image: url(./IMG/Amplificatore.jpeg)"></div>
             <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Amplificatori</h3>
             </div>
         </a> <a class="card" href="shop.jsp">
         <div class="card__background"
-             style="background-image: url(./IMG/img4.jpg)"></div>
+             style="background-image: url(./IMG/Chitarra.jpg)"></div>
         <div class="card__content">
             <p class="card__category">Categoria</p>
             <h3 class="card__heading">Chitarre elettriche</h3>
         </div>
     </a> <a class="card" href="shop.jsp">
         <div class="card__background"
-             style="background-image: url(./IMG/img2.jpg)"></div>
+             style="background-image: url(./IMG/Tastiera.jpg)"></div>
         <div class="card__content">
             <p class="card__category">Categoria</p>
             <h3 class="card__heading">Tastiere</h3>
         </div>
         </li> <a class="card" href="shop.jsp">
             <div class="card__background"
-                 style="background-image: url(./IMG/img1\ \(2\).jfif)"></div>
+                 style="background-image: url(./IMG/Mixer.jfif)"></div>
             <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Mixer</h3>
