@@ -71,8 +71,9 @@ if (cart != null) {
         <input type="text" class="form-control border-0 gift-card" placeholder="discount code/gift card" value="Il totale da pagare per il tuo ordine è di <%=total %> euro" style="text-align:center; font-weight: 900;" disabled>
     </div>
     <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-        <a href="./checkout.jsp"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" id="payButton" type="button">Proceed to Pay</button></a>
-    </div>
+    <a href="./checkout.jsp" id="checkoutLink"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" id="payButton" type="button">Proceed to Pay</button></a>
+</div>
+
 </div>
 <!-- jQuery (necessario per Bootstrap) -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -126,6 +127,36 @@ if (cart != null) {
 			// Chiamare ricalcolaTotale inizialmente per calcolare il totale al caricamento della pagina
 			ricalcolaTotale();
 		});
+		
+		document.addEventListener('DOMContentLoaded', function() {
+		    const quantities = document.querySelectorAll('.quantity');
+		    const checkoutLink = document.getElementById('checkoutLink');
+
+		    function ricalcolaTotale() {
+		        let total = 0;
+		        quantities.forEach(function(input) {
+		            const quantity = parseInt(input.value);
+		            const price = parseFloat(input.getAttribute('data-price'));
+		            total += quantity * price;
+		        });
+
+		        // Aggiorna il campo del totale
+		        const totalField = document.querySelector('.gift-card');
+		        totalField.value = "Il totale da pagare per il tuo ordine è di " + total.toFixed(2) + " euro";
+
+		        // Imposta il link di checkout con il valore totale
+		        checkoutLink.href = "./checkout.jsp?total=" + total.toFixed(2);
+		    }
+
+		    quantities.forEach(function(input) {
+		        input.addEventListener('change', ricalcolaTotale);
+		        input.addEventListener('input', ricalcolaTotale);
+		    });
+
+		    // Chiamare ricalcolaTotale inizialmente per calcolare il totale al caricamento della pagina
+		    ricalcolaTotale();
+		});
+
 	</script>
 	<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
