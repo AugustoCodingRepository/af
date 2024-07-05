@@ -34,7 +34,7 @@
         <div class="panel2">
           <div class="contenitore">
             <h2 class="watch fade-in titolo">
-              La Nostra Storia
+              LA NOSTRA STORIA:
             </h2>
           </div>
           </div>
@@ -48,14 +48,13 @@
             </div>
             <div class="watch fade-in about-text">
                 <p class="watch fade-in">
-                  Augusto, Antonio, Federica e Francesco si incontrarono per la prima volta durante il loro secondo anno di università.
-                
-                  L'incontro avvenne durante una lezione di progettazione di tecnologie e software per il web. La professoressa assegnò loro un progetto di gruppo: 
+                  Augusto, Antonio, Federica e Francesco si incontrarono per la prima volta durante il loro secondo anno di universit&agrave;.
+                  L'incontro avvenne durante una lezione di progettazione di tecnologie e software per il web. La professoressa assegn&ograve; loro un progetto di gruppo: 
                   sviluppare un sito web innovativo. La passione comune per la musica elettrica li spinse a lavorare insieme, dando inizio a una collaborazione che avrebbe cambiato le loro vite...
                 </p>
                 
                 <div class="button-container ">
-                  <button style="margin-left: auto;">Scopri di più</button>
+                  <button style="margin-left: auto;">Scopri di pi&ugrave;</button>
               </div>
             </div>
             
@@ -63,8 +62,6 @@
         </div>
         </div>
         
-    
-
         <!--separatore-->
         <div class="panel2">
           <div class="contenitore">
@@ -135,28 +132,17 @@
                   Con un design elegante e moderno,
                   le PureTune combinano tecnologia avanzata e comfort superiore, rendendole l'articolo dell'anno per tutti gli appassionati di musica.
                 </p>
-                <h3>A partire da: 100€</h3>
-                <button class="button1">Scopri di più</button>
+                <h3>A partire da: 100&euro;</h3>
+                <button class="button1">Scopri di pi&ugrave;</button>
             </div>
         </div>
     </div>
   </div>
 
-  <!--separatore
-  <div class="panel2">
-    <div class="contenitore">
-      <h2 class="watch fade-in titolo">
-        Nuovi Arrivi
-      </h2>
-    </div>
-    </div>-->
-
-      <jsp:include page="./fragments/header.jsp"></jsp:include>
+ <jsp:include page="./fragments/footer.jsp"></jsp:include>
 
         <!--JAVA CODE-->
         <script>
-
-            
             //elements
             var elements_to_watch = document.querySelectorAll('.watch');
             
@@ -185,6 +171,5 @@
                 observer.observe(element);
             });
         </script>
-        <jsp:include page="./fragments/footer.jsp"></jsp:include>
     </body>
 </html>

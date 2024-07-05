@@ -26,7 +26,7 @@ body, html{
     left: 0;
     object-fit: cover;
     opacity: 0.5;
-    z-index: 0;
+    z-index: -1;
 }
 .section{
     position: relative;
@@ -58,39 +58,6 @@ body, html{
     opacity: 1;
 }
 
-/*TENDINA */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 10%;
-  background-color: #1d1d1f;
-  border: 1px solid #444;
-  border-radius: 5px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  z-index: 9999;
-}
-.dropdown-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.dropdown-menu li {
-  border-bottom: 1px solid #444;
-}
-.dropdown-menu li:last-child {
-  border-bottom: none;
-}
-.dropdown-menu a {
-  color: #fff;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-.dropdown-menu a:hover {
-  background-color: #333;
-}
-/*FINE TENDINA*/
 .panel{
     height: auto;
     width: 100%;
@@ -136,10 +103,6 @@ body, html{
     padding-right: 15%;
     padding-left: 5%;
 }
-
-/*fine*/
-/*nav 2*/
-
 
 .header{
     background-color: #000;
@@ -243,8 +206,6 @@ h1{
     border-radius: 50px;
     margin-top: 20px;
 }
-
-/*prova*/
 
 /*separatore*/
 .panel2{
