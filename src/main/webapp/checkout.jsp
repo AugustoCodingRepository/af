@@ -35,7 +35,7 @@ if (total == null) {
                     <h3 class="title">Informazioni di spedizione</h3>
 
                     <div class="inputBox">
-                        <span>Nome Cognome :</span> <input type="text"
+                        <span>Nome e Cognome :</span> <input type="text"
                             placeholder="john deo" id="nome" name="nome" required>
                     </div>
                     <div class="inputBox">
