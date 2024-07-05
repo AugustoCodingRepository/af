@@ -58,7 +58,7 @@
                     professoressa assegn&ograve; loro un progetto di gruppo: sviluppare un
                     sito web innovativo. La passione comune per la musica elettrica li
                     spinse a lavorare insieme, dando inizio a una collaborazione che
-                    avrebbe cambiato le loro vite...</p>
+                    avrebbe cambiato le loro vite......</p>
 
                 <div class="button-container ">
                     <button style="margin-left: auto;">Scopri di pi&ugrave;</button>
