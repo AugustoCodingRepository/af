@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 
-@WebServlet("./EffettuaOrdineServlet")
+@WebServlet("/EffettuaOrdineServlet")
 public class EffettuaOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = -5807495226920968083L;
 
@@ -49,7 +49,7 @@ public class EffettuaOrdineServlet extends HttpServlet {
                 throw new ServletException(e);
             }
         } else {
-            response.sendRedirect("./LoginAndRegistration.jsp");
+        	response.sendRedirect("LoginAndRegistration.jsp");
         }
     }
 }
