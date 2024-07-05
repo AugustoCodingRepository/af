@@ -26,7 +26,7 @@ if (total == null) {
     <jsp:include page="./fragments/header.jsp" />
     <div class="container">
 
-        <form id="payment" action="/EffettuaOrdineServlet" method="post">
+        <form id="payment" action="./EffettuaOrdineServlet" method="post">
 
             <div class="row">
 
@@ -130,7 +130,7 @@ if (total == null) {
                 name="paymentSaved"> Vuoi la fattura? Puoi richiederla nella
             sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
 
-            <input type="button" value="Procedi all'acquisto" class="submit-btn" onclick="document.getElementById('payment').submit();">
+            <input type="button" value="Procedi all'acquisto" class="submit-btn" onclick="validateAndSubmitForm();">
 
         </form>
     </div>
@@ -160,32 +160,25 @@ if (total == null) {
             }
         }
 
-        document
-            .getElementById('payment')
-            .addEventListener(
-                'submit',
-                function(event) {
-                    var isChecked = document
-                        .getElementById('paymentSave').checked;
+        function validateAndSubmitForm() {
+            var isChecked = document.getElementById('paymentSave').checked;
+            if (isChecked) {
+                document.getElementById('paymentSaved').value = 'true';
+            } else {
+                document.getElementById('paymentSaved').value = 'false';
+            }
 
-                    if (isChecked) {
-                        document.getElementById('paymentSaved').value = 'true';
-                    } else {
-                        document.getElementById('paymentSaved').value = 'false';
-                    }
+            // Assicurati che il metodo di pagamento sia selezionato
+            var paymentMethod = document.getElementById('PaymentBy').value;
+            if (paymentMethod === 'none') {
+                alert('Seleziona un metodo di pagamento');
+                return; // Prevenire l'invio del form se non è selezionato un metodo di pagamento
+            }
 
-                    // Assicurati che il metodo di pagamento sia selezionato
-                    var paymentMethod = document.getElementById('PaymentBy').value;
-                    if (paymentMethod === 'none') {
-                        alert('Seleziona un metodo di pagamento');
-                        event.preventDefault(); // Prevenire l'invio del form se non è selezionato un metodo di pagamento
-                        return;
-                    }
+            // Se tutto è corretto, invia il form manualmente
+            document.getElementById('payment').submit();
+        }
 
-                    // Se tutto è corretto, invia il form manualmente
-                    this.submit();
-                });
-        
         paypal.Buttons({
             createOrder: function(data, actions) {
                 // Usa il valore totale passato dal server-side

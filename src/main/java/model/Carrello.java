@@ -1,13 +1,14 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
 public class Carrello {
-    private Collection<ProdottoCarrello> cart;
+    private ArrayList<ProdottoCarrello> cart;
 
     public Carrello() {
-        cart = new LinkedList<>();
+        cart = new ArrayList<>();
     }
 
     public void addProduct(Prodotto p) {
@@ -28,7 +29,7 @@ public class Carrello {
         cart.removeIf(pq -> pq.getProdotto().equals(p));
     }
 
-    public Collection<ProdottoCarrello> getProductsInCart() {
+    public ArrayList<ProdottoCarrello> getProductsInCart() {
         return cart;
     }
     

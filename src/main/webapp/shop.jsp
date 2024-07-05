@@ -20,8 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./CSS/shopcss.css">
 <!-- font awesome -->
-<script src="https://kit.fontawesome.com/dbed6b6114.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
 <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
