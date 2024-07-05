@@ -1,11 +1,8 @@
+/* Stili di base per il footer */
 .footer {
     background-color: #000;
     color: #fff;
     padding: 20px 0;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
 }
 
 .footer-container {
@@ -76,6 +73,7 @@
     border-top: 1px solid #444;
 }
 
+/* Media query per dispositivi con larghezza massima di 768px (modalità smartphone) */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -87,12 +85,14 @@
     }
 
     .footer-section {
-        margin-bottom: 20px;
+        flex: 1 1 auto; /* Forza una colonna singola su dispositivi mobili */
         text-align: center;
+        margin-bottom: 10px;
     }
 
     .social-icons {
         justify-content: center;
+        margin-bottom: 20px;
     }
 
     .footer-bottom {
