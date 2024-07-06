@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 <link rel="stylesheet" href="./CSS/shopcss.css">
+<link rel="stylesheet" href="./CSS/stileRecens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
@@ -35,12 +38,48 @@
 				<div class="description"></div>
 			</div>
 		</div>
+		
+		
+		
+	
+	<!-- RECENSIONI -->
+		<section id="testimonials">
 
-		<div class="title">Similar product</div>
-		<div class="listProduct"></div>
-	</div>
-
-
+        <!-- Testimonial Box Container -->
+        <div class="testimonial-box-container">
+            <!-- Testimonial Box -->
+            <div class="testimonial-box">
+                <!-- Box Top -->
+                <div class="box-top">
+                    <!-- Profile -->
+                    <div class="profile">
+                        <!-- Profile Image -->
+                        <div class="profile-img">
+                            <img src="p1.jpg" alt="Profile Image">
+                        </div>
+                        <!-- Name and Email -->
+                        <div class="name-user">
+                            <strong>Federica Iuliano</strong>
+                            <span>fedeiuli@gmail.com</span>
+                        </div>
+                    </div>
+                    <!-- Reviews -->
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <!-- Client Comment -->
+                <div class="client-comment">
+                    <p>Yuki è un cagnolino carino</p>
+                </div>
+            </div>
+        </div>
+    </section>
+		
 
 	<script>
         let products = null;
@@ -82,6 +121,7 @@
     }
 
     </script>
+    	</div>
 	<jsp:include page="./fragments/footer.jsp" />
 </body>
 </html>
