@@ -9,7 +9,7 @@
             Home Page
         </title>
         <link href="./CSS/index.css" rel="stylesheet" type="text/css">
-        <link REL="icon" HREF="./IMG/Finale" TYPE="image/gif">
+        <link rel="icon" type="image/png" href="IMG/Finale.png">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     </head>
