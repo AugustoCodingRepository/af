@@ -27,12 +27,12 @@ public class EffettuaOrdineServlet extends HttpServlet {
                 Date deliveryDate = new Date(calendar.getTimeInMillis());
 
                 // Recupera il parametro "Total"
-                String totalString = request.getParameter("totaleOrdine");
+                String totalString = request.getParameter("Amount");
                 System.out.println("Total string from request: " + totalString);
-
+                double total = 0;
                 // Verifica che totalString non sia null o vuoto prima di parsare
-                if (totalString != null && !totalString.trim().isEmpty()) {
-                    double total = Double.parseDouble(totalString.trim());
+                if (totalString != null) {
+                   total= Double.parseDouble(totalString);
                     Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, total);
 
                     //-- TRANSAZIONE --//
@@ -48,26 +48,20 @@ public class EffettuaOrdineServlet extends HttpServlet {
                         String yearExpStr = request.getParameter("yearExp");
 
                         // Verifica che i parametri necessari non siano nulli o vuoti
-                        if (paymentBy != null && !paymentBy.trim().isEmpty() &&
-                                paypalEmail != null && !paypalEmail.trim().isEmpty() &&
-                                cardNumberStr != null && !cardNumberStr.trim().isEmpty() &&
-                                cvvExpStr != null && !cvvExpStr.trim().isEmpty() &&
-                                monthExpStr != null && !monthExpStr.trim().isEmpty() &&
-                                yearExpStr != null && !yearExpStr.trim().isEmpty()) {
-
+                        
                             // Converti i parametri necessari
-                            long cardNumber = Long.parseLong(cardNumberStr.trim());
-                            int cvvExp = Integer.parseInt(cvvExpStr.trim());
-                            int monthExp = Integer.parseInt(monthExpStr.trim());
-                            int yearExp = Integer.parseInt(yearExpStr.trim());
+                            long cardNumber = Long.parseLong(cardNumberStr);
+                            int cvvExp = Integer.parseInt(cvvExpStr);
+                            int monthExp = Integer.parseInt(monthExpStr);
+                            int yearExp = Integer.parseInt(yearExpStr);
 
                             // Crea l'oggetto MetodoDiPagamento
                             MetodoDiPagamento paymentMethod = new MetodoDiPagamento(paymentBy, user.getUser_ID(), paypalEmail, monthExp, yearExp, cardNumber, cvvExp);
                             MetodoDiPagamentoDAO.insert(paymentMethod);
                         } else {
-                            throw new ServletException("Uno o più parametri per il metodo di pagamento sono assenti o vuoti.");
+                            throw new ServletException("Uno o più parametri per il metodo di pagamento sono assenti, vuoti o non sono numeri.");
                         }
-                    }
+                    
 
                     OrdineDAO.insert(ordine, user);
                     TransazioneDAO.insert(transazione);
