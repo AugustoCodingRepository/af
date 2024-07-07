@@ -1,3 +1,4 @@
+/* Header styles */
 .header {
     background-color: #000;
     position: fixed;
@@ -48,26 +49,9 @@
     align-items: center;
 }
 
-/*
-.icon-hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.icon-hamburger span {
-    height: 2px;
-    width: 25px;
-    background: #fff;
-    margin: 4px 0;
-    display: block;
-}
-*/
-
 .logo {
     width: 60px;
-    height: auto; /* Mantiene le proporzioni */
+    height: auto;
     cursor: pointer;
 }
 
@@ -115,10 +99,31 @@
     background-color: #333;
 }
 
+/* Hide mobile-only links by default */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
+}
+
 /* Desktop styles */
 @media (min-width: 769px) {
     .header__menu {
+        display: flex !important; /* Assicuriamoci che il menu principale sia visibile */
+    }
+
+    .header__icons {
         display: flex;
+    }
+
+    .dropdown-menu {
+        display: none; /* Assicuriamoci che il menu a tendina sia nascosto */
+    }
+
+    .mobile-only {
+        display: none !important; /* Assicuriamoci che i link mobile-only siano nascosti */
     }
 }
 
@@ -134,16 +139,15 @@
     }
 
     .header__menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        background-color: #1d1d1f;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease;
+        display: none; /* Assicuriamoci che il menu principale sia nascosto */
+    }
+
+    .mobile-only {
+        display: block !important; /* Assicuriamoci che i link mobile-only siano visibili */
+    }
+
+    .desktop-only {
+        display: none !important; /* Assicuriamoci che i link desktop-only siano nascosti */
     }
 
     .header__menu li {
@@ -156,10 +160,6 @@
         padding: 15px;
         margin: 0;
         font-size: 20px;
-    }
-
-    .icon-hamburger {
-        display: flex;
     }
 
     .menu-open .header__menu {
