@@ -24,7 +24,7 @@
                 </h1>
             </div>
         <div class="section watch in-page">
-            <h1 class="title" style="margin-left: 25%;">FATTI TRASPORTARE DALLE NOSTRE FREQUENZE</h1>
+            <h1 class="title" style="margin-left: 25%;">FATTI TRASPORTARE  DALLE NOSTRE FREQUENZE</h1>
         </div>
         <div class="section watch in-page">
             <h1 class="title" style="margin-left: 33%;">ALTA FREQUENZA</h1>

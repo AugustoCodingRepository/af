@@ -69,7 +69,7 @@ if (favorites != null) {
 		</div>
 		<!-- RECENSIONI -->
 		<section id="testimonials">
-
+	<h1>RECENSIONI:</h1>
         <!-- Testimonial Box Container -->
         <div class="testimonial-box-container">
             <!-- Testimonial Box -->
@@ -84,22 +84,20 @@ if (favorites != null) {
                         </div>
                         <!-- Name and Email -->
                         <div class="name-user">
-                            <strong>Federica Iuliano</strong>
-                            <span>fedeiuli@gmail.com</span>
+                            <strong><%=r.getUsername() %></strong>
+                            <span><%=p.getProduct_Name()%></span>
                         </div>
                     </div>
                     <!-- Reviews -->
                     <div class="reviews">
+                    <% foSSr(int i=0; i<r.getValutazione(); i++){ %>
                         <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                    <% }%>
                     </div>
                 </div>
                 <!-- Client Comment -->
                 <div class="client-comment">
-                    <p>Yuki è un cagnolino carino</p>
+                    <p><%=r.getDescrizione() %></p>
                 </div>
             </div>
         </div>
