@@ -87,7 +87,7 @@ if (total == null) {
                     <div id="creditCardFields" style="display: none;">
                         <div class="inputBox">
                             <span>Nome sulla carta :</span> <input type="text"
-                                placeholder="mr. john deo" id="cardName" name="cardName"
+                                value="" id="cardName" name="cardName"
                                 required>
                         </div>
                         <div class="inputBox">
@@ -96,8 +96,8 @@ if (total == null) {
                                 name="cardNumber" required>
                         </div>
                         <div class="inputBox">
-                            <span>Mese Scadenza :</span> <input type="text"
-                                placeholder="january" id="monthExp" name="monthExp" required>
+                            <span>Mese Scadenza :</span> <input type="number"
+                                placeholder="01" id="monthExp" name="monthExp" min=01 max=12 required>
                         </div>
 
                         <div class="flex">
@@ -106,7 +106,7 @@ if (total == null) {
                                     placeholder="2022" id="yearExp" name="yearExp" required>
                             </div>
                             <div class="inputBox">
-                                <span>CVV :</span> <input type="text" placeholder="1234"
+                                <span>CVV :</span> <input type="number" placeholder="123" max=999 min=001
                                     id="cvvExp" name="cvvExp" required>
                             </div>
                         </div>
@@ -117,6 +117,7 @@ if (total == null) {
                             <span>Indirizzo email PayPal :</span> <input type="email"
                                 placeholder="example@paypal.com" id="paypalEmail"
                                 name="paypalEmail" required>
+                                <input type="hidden" name="totaleOrdine" value=<%=request.getParameter("total") %>/>
                         </div>
                         <div class="paypal-button-container" id="paypal-button-container"></div>
                     </div>

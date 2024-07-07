@@ -1,76 +1,80 @@
-package control;
+@Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    User user = (User) request.getSession().getAttribute("currentSessionUser");
+    Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
 
-import model.*;
+    if (user != null && carrello != null) {
+        try {
+            //-- ORDINE --//
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DATE, 5);
+            Date deliveryDate = new Date(calendar.getTimeInMillis());
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.util.Calendar;
+            // Recupera il parametro "Total"
+            String totalString = request.getParameter("totaleOrdine");
+            System.out.println("Total string from request: " + totalString);
 
-@WebServlet("/EffettuaOrdineServlet")
-public class EffettuaOrdineServlet extends HttpServlet {
-	private static final long serialVersionUID = -5807495226920968083L;
+            // Verifica che totalString non sia null o vuoto prima di parsare
+            if (totalString != null && !totalString.trim().isEmpty()) {
+                double total = Double.parseDouble(totalString.trim());
+                Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, total);
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    User user = (User) request.getSession().getAttribute("currentSessionUser");
-	    Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
+                //-- TRANSAZIONE --//
+                Transazione transazione = new Transazione(ordine.getOrder_ID(), user.getUser_ID(), "APPROVATA");
 
-	    if (user != null && carrello != null) {
-	        try {
-	            //-- ORDINE --//
-	            Calendar calendar = Calendar.getInstance();
-	            calendar.add(Calendar.DATE, 5);
-	            Date deliveryDate = new Date(calendar.getTimeInMillis());
+                //-- SALVA IL METODO DI PAGAMENTO --//
+                if ("true".equals(request.getParameter("paymentSave"))) {
+                    String paymentBy = request.getParameter("PaymentBy");
+                    String paypalEmail = request.getParameter("paypalEmail");
+                    String cardNumberStr = request.getParameter("cardNumber");
+                    String cvvExpStr = request.getParameter("cvvExp");
+                    String monthExpStr = request.getParameter("monthExp");
+                    String yearExpStr = request.getParameter("yearExp");
 
-	            // Recupera il parametro "Total"
-	            String totalString = request.getParameter("Total");
-	            double total = 0;
+                    // Verifica che i parametri necessari non siano nulli o vuoti
+                    if (paymentBy != null && !paymentBy.trim().isEmpty() &&
+                            paypalEmail != null && !paypalEmail.trim().isEmpty() &&
+                            cardNumberStr != null && !cardNumberStr.trim().isEmpty() &&
+                            cvvExpStr != null && !cvvExpStr.trim().isEmpty() &&
+                            monthExpStr != null && !monthExpStr.trim().isEmpty() &&
+                            yearExpStr != null && !yearExpStr.trim().isEmpty()) {
 
-	            // Verifica che totalString non sia null o vuoto prima di parsare
-	            if (totalString != null && !totalString.trim().isEmpty()) {
-	                total = Double.parseDouble(totalString.trim());
-	            } else {
-	                throw new ServletException("Il parametro 'Total' è assente o vuoto.");
-	            }
+                        // Converti i parametri necessari
+                        long cardNumber = Long.parseLong(cardNumberStr.trim());
+                        int cvvExp = Integer.parseInt(cvvExpStr.trim());
+                        int monthExp = Integer.parseInt(monthExpStr.trim());
+                        int yearExp = Integer.parseInt(yearExpStr.trim());
 
-	            Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, total);
+                        // Crea l'oggetto MetodoDiPagamento
+                        MetodoDiPagamento paymentMethod = new MetodoDiPagamento(paymentBy, user.getUser_ID(), paypalEmail, monthExp, yearExp, cardNumber, cvvExp);
+                        MetodoDiPagamentoDAO.insert(paymentMethod);
+                    } else {
+                        throw new ServletException("Uno o più parametri per il metodo di pagamento sono assenti o vuoti.");
+                    }
+                }
 
-	            //-- TRANSAZIONE --//
-	            Transazione transazione = new Transazione(ordine.getOrder_ID(), user.getUser_ID(), "APPROVATA");
+                OrdineDAO.insert(ordine, user);
+                TransazioneDAO.insert(transazione);
 
-	            //-- SALVA IL METODO DI PAGAMENTO --//
-	            if ("true".equals(request.getParameter("paymentSave"))) {
-	                MetodoDiPagamento paymentMethod = new MetodoDiPagamento(
-	                    request.getParameter("PaymentBy"),
-	                    user.getUser_ID(),
-	                    request.getParameter("paypalEmail"),
-	                    Integer.parseInt(request.getParameter("monthExp")),
-	                    Integer.parseInt(request.getParameter("yearExp")),
-	                    Long.parseLong(request.getParameter("cardNumber")),
-	                    Integer.parseInt(request.getParameter("cvvExp"))
-	                );
-	                MetodoDiPagamentoDAO.insert(paymentMethod);
-	            }
+                // Dopo aver effettuato l'ordine, svuota il carrello
+                carrello.delCart();
 
-	            OrdineDAO.insert(ordine, user);
-	            TransazioneDAO.insert(transazione);
+                response.sendRedirect("ordine.jsp");
 
-	            // Dopo aver effettuato l'ordine, svuota il carrello
-	            carrello.delCart();
+            } else {
+                throw new ServletException("Il parametro 'totaleOrdine' è assente o vuoto.");
+            }
 
-	            response.sendRedirect("ordine.jsp");
-
-	        } catch (NumberFormatException e) {
-	            throw new ServletException("Errore durante la conversione del parametro 'Total' in double.", e);
-	        } catch (SQLException e) {
-	            throw new ServletException("Errore di database durante l'inserimento dell'ordine.", e);
-	        }
-	    } else {
-	        response.sendRedirect("LoginAndRegistration.jsp");
-	    }
-	}
+        } catch (NumberFormatException e) {
+            throw new ServletException("Errore durante la conversione del parametro 'Total' in double.", e);
+        } catch (SQLException e) {
+            throw new ServletException("Errore di database durante l'inserimento dell'ordine.", e);
+        } catch (Exception e) {
+            // Aggiungi del logging per identificare la causa dell'eccezione
+            e.printStackTrace();
+            throw new ServletException("Errore durante l'elaborazione dell'ordine.", e);
+        }
+    } else {
+        response.sendRedirect("LoginAndRegistration.jsp");
+    }
 }
