@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatti</title>
-    <link rel="stylesheet" href="stileCont.css">
+    <link rel="stylesheet" href="./CSS/contatti.css">
+    <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
 <body>
-
+	<jsp:include page="./fragments/header.jsp"></jsp:include>
     <div class="contact-wrapper">
         <section class="contact">
             <div class="contact__info">
@@ -44,8 +45,8 @@
                 </form>
             </div>
             </div>
+            <jsp:include page="./fragments/footer.jsp"></jsp:include>
         </section>
     </div>
-
 </body>
 </html>

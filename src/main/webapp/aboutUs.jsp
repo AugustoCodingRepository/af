@@ -9,6 +9,7 @@
     <script src="./JS/effects.js" defer></script>
 </head>
 <body>
+	<jsp:include page="./fragments/header.jsp"></jsp:include>
 
 <div class="about-section">
 
@@ -74,7 +75,7 @@
     </div>
   </div>
 </div>
-
+	<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>
 
