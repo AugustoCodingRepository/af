@@ -29,6 +29,7 @@ if (favorites != null) {
 	integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
 	crossorigin="anonymous" />
 <link rel="stylesheet" href="./CSS/detail.css">
+<link rel="stylesheet" href="./CSS/stileRecens.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
 	rel='stylesheet'>
 <link rel="icon" type="image/png" href="IMG/Finale.png">
@@ -66,7 +67,46 @@ if (favorites != null) {
 				</form>
 			</div>
 		</div>
+		<!-- RECENSIONI -->
+		<section id="testimonials">
+
+        <!-- Testimonial Box Container -->
+        <div class="testimonial-box-container">
+            <!-- Testimonial Box -->
+            <div class="testimonial-box">
+                <!-- Box Top -->
+                <div class="box-top">
+                    <!-- Profile -->
+                    <div class="profile">
+                        <!-- Profile Image -->
+                        <div class="profile-img">
+                            <img src="p1.jpg" alt="Profile Image">
+                        </div>
+                        <!-- Name and Email -->
+                        <div class="name-user">
+                            <strong>Federica Iuliano</strong>
+                            <span>fedeiuli@gmail.com</span>
+                        </div>
+                    </div>
+                    <!-- Reviews -->
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <!-- Client Comment -->
+                <div class="client-comment">
+                    <p>Yuki è un cagnolino carino</p>
+                </div>
+            </div>
+        </div>
+    </section>
+		
 	</section>
+	
 	<script src="./JS/detailPage.js" defer></script>
 	<jsp:include page="./fragments/footer.jsp" />
 </body>

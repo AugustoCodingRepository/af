@@ -104,8 +104,8 @@ label,
 .add label,
 .add span {
   background: none;
-  border: 1px solid #C1908B;
-  color: #C1908B;
+  border: 1px solid white;
+  color:#C1908B;
   text-align: center;
   line-height: 25px;
 }
@@ -121,7 +121,7 @@ button {
   padding: 10px;
   border: none;
   outline: none;
-  background: #C1908B;
+  background: white;
   color: white;
   margin-top: 20%;
   border-radius: 30px;
