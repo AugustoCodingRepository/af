@@ -1,4 +1,4 @@
-<!DOCTYPE htlm>
+<!DOCTYPE html>
 <html >
     <head>
         <meta charset="UTF-8">
@@ -14,21 +14,21 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     </head>
 
-    <body> 
+    <body>  
         
         <jsp:include page="./fragments/header.jsp"></jsp:include>
             <!--SCROLL CON VIDEO2-->
-            <div class="section watch in-page"> 
-                <video class="video-bg" src="./IMG/video.mp4" autoplay muted loop></video>      
-                <h1 class="title">UNA NUOVA ERA<br>SUONI SENZA CONFINI
-                </h1>
-            </div>
-        <div class="section watch in-page">
-            <h1 class="title" style="margin-left: 25%;">FATTI TRASPORTARE  DALLE NOSTRE FREQUENZE</h1>
-        </div>
-        <div class="section watch in-page">
-            <h1 class="title" style="margin-left: 33%;">ALTA FREQUENZA</h1>
-        </div>
+                <video class="video-bg" src="video.mp4" autoplay muted loop></video>      
+                <div class="section watch"> 
+                  <video class="video-bg" src="./IMG/video.mp4" autoplay muted loop></video>      
+                  <h1 class="title">UNA NUOVA ERA<br>SUONI SENZA CONFINI</h1>
+              </div>
+              <div class="section watch">
+                  <h1 class="title" style="margin-left: 25%;">FATTI TRASPORTARE  DALLE NOSTRE FREQUENZE</h1>
+              </div>
+              <div class="section watch">
+                  <h1 class="title" style="margin-left: 33%;">ALTA FREQUENZA</h1>
+              </div>
         
         <!--separatore-->
         <div class="panel2">
@@ -94,7 +94,7 @@
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Amplificatori</h3>
               </div>
-            </a>
+            </a> 
             <a class="card" href="#">
               <div class="card__background" style="background-image: url(./IMG/Chitarra.jpg)"></div>
               <div class="card__content">

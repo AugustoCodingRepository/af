@@ -36,9 +36,11 @@
                 </div>
             </div>
         </div>
+        <!--  
         <div class="footer-bottom">
             <p>&copy; 2024 Il Tuo Sito. Tutti i diritti riservati.</p>
         </div>
+        -->
     </footer>
 </body>
 </html>

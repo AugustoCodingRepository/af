@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+
+main{
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+}
+
+/* Stile per il modulo di inserimento */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+/* Stelle per la valutazione */
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating input[type="radio"] {
+    display: none;
+}
+
+.rating label {
+    font-size: 24px;
+    color: #ccc; /* Colore delle stelle vuote */
+    cursor: pointer;
+}
+
+.rating label:before {
+    content: "\2606"; /* Codice Unicode per la stella vuota */
+}
+
+.rating input[type="radio"]:checked ~ label:before {
+    content: "\2605"; /* Codice Unicode per la stella piena */
+    color: #ffc107; /* Colore delle stelle piene */
+}
+
+/* Inverti l'ordine di visualizzazione delle stelle */
+.rating {
+    flex-direction: row-reverse; /* Inverti l'ordine delle stelle */
+    margin-right: 20vh;
+}
+
+.rating label {
+    order: 1; /* Ristabilisci l'ordine naturale per le stelle */
+}
