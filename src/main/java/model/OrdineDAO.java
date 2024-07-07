@@ -2,28 +2,58 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OrdineDAO {
 
     public static void insert(Ordine ordine, User user) throws SQLException {
         if (user != null) {
-            try (Connection connection = ConnectToDB.getConnection();
-                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?)")) {
+            try (Connection connection = ConnectToDB.getConnection()) {
+                connection.setAutoCommit(false); // Start transaction
 
-                statement.setInt(1, ordine.getUser_ID());
-                statement.setDate(2, ordine.getOrder_Data());
-                statement.setDate(3, ordine.getDelivery_Data());
-                statement.setDouble(4, ordine.getCost());
-                statement.setString(5, convertToJsonString(ordine.getProdottiAcquistati()));
+                // Insert into Ordine table
+                String insertOrdineSQL = "INSERT INTO Ordine (User_ID, Order_Data, Delivery_Data, Cost) VALUES (?, ?, ?, ?)";
+                try (PreparedStatement statement = connection.prepareStatement(insertOrdineSQL, Statement.RETURN_GENERATED_KEYS)) {
+                    statement.setInt(1, ordine.getUser_ID());
+                    statement.setDate(2, ordine.getOrder_Data());
+                    statement.setDate(3, ordine.getDelivery_Data());
+                    statement.setDouble(4, ordine.getCost());
 
-                statement.executeUpdate();
-                System.out.println("Ordine registrato");
+                    statement.executeUpdate();
+
+                    // Get the generated order_id
+                    try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
+                        if (generatedKeys.next()) {
+                            int orderId = generatedKeys.getInt(1);
+                            // Insert products into prodotto_ordine table
+                            insertProductsForOrder(connection, orderId, ordine.getProducts());
+                        } else {
+                            throw new SQLException("Failed to get generated order ID.");
+                        }
+                    }
+                }
+
+                connection.commit(); // Commit transaction
+                System.out.println("Ordine registrato con successo.");
+            } catch (SQLException e) {
+                System.out.println("Errore durante l'inserimento dell'ordine: " + e.getMessage());
+                throw e;
             }
         } else {
             throw new SQLException("Solo gli utenti registrati possono effettuare un ordine.");
+        }
+    }
+
+    @SuppressWarnings("unused")
+	private static void insertProductsForOrder(Connection connection, int orderId, List<Integer> products) throws SQLException {
+        String insertProdottiOrdineSQL = "INSERT INTO prodotto_ordine (order_id, product_id) VALUES (?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(insertProdottiOrdineSQL)) {
+            for (int productId : products) {
+                statement.setInt(1, orderId);
+                statement.setInt(2, productId);
+                statement.addBatch();
+            }
+            statement.executeBatch();
         }
     }
 
@@ -40,7 +70,7 @@ public class OrdineDAO {
                         resultSet.getDate("Order_Data"),
                         resultSet.getDate("Delivery_Data"),
                         resultSet.getDouble("Cost"),
-                        convertJsonStringToArrayList(resultSet.getString("ProductList"))
+                        getProductsForOrder(resultSet.getInt("Order_ID"), connection)
                 );
                 ordini.add(ordine);
             }
@@ -62,7 +92,7 @@ public class OrdineDAO {
                                 resultSet.getDate("Order_Data"),
                                 resultSet.getDate("Delivery_Data"),
                                 resultSet.getDouble("Cost"),
-                                convertJsonStringToArrayList(resultSet.getString("ProductList"))
+                                getProductsForOrder(resultSet.getInt("Order_ID"), connection)
                         );
                         ordini.add(ordine);
                     }
@@ -86,7 +116,7 @@ public class OrdineDAO {
                             resultSet.getDate("Order_Data"),
                             resultSet.getDate("Delivery_Data"),
                             resultSet.getDouble("Cost"),
-                            convertJsonStringToArrayList(resultSet.getString("ProductList"))
+                            getProductsForOrder(resultSet.getInt("Order_ID"), connection)
                     );
                 }
             }
@@ -94,33 +124,17 @@ public class OrdineDAO {
         return ordine;
     }
 
-    // Metodo per convertire una lista di Integer in una stringa JSON
-    private static String convertToJsonString(Collection<Integer> list) {
-        if (list == null) {
-            return "[]";
-        }
-        // Converte la lista di Integer in una stringa JSON
-        return "[" + list.stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining(",")) + "]";
-    }
-
-    // Metodo per convertire una stringa JSON in una lista di Integer
-    private static Collection<Integer> convertJsonStringToArrayList(String json) {
-        Collection<Integer> list = new ArrayList<>();
-        if (json == null || json.trim().isEmpty()) {
-            return list;
-        }
-        // Rimuove le parentesi quadre e suddivide la stringa
-        String[] items = json.replace("[", "").replace("]", "").split(",");
-        for (String item : items) {
-            try {
-                list.add(Integer.parseInt(item.trim()));
-            } catch (NumberFormatException e) {
-                // Ignora l'elemento se non è un numero valido
-                e.printStackTrace();
+    private static List<Integer> getProductsForOrder(int orderId, Connection connection) throws SQLException {
+        List<Integer> productList = new ArrayList<>();
+        String selectProdottiOrdineSQL = "SELECT product_id FROM prodotto_ordine WHERE order_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(selectProdottiOrdineSQL)) {
+            statement.setInt(1, orderId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    productList.add(resultSet.getInt("product_id"));
+                }
             }
         }
-        return list;
+        return productList;
     }
 }
