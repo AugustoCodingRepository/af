@@ -130,6 +130,27 @@
 	</div>
 
 	<script src="./JS/shopScript.js" defer></script>
+	<script>
+    window.onload = function() {
+        // Ottieni il parametro categoria dall'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoria = urlParams.get('categoria');
+
+        // Se categoria è definito e non è vuoto, imposta la selezione nel menu a tendina
+        if (categoria) {
+            const categoryDropdown = document.getElementById('categories');
+            if (categoryDropdown) {
+                for (let i = 0; i < categoryDropdown.options.length; i++) {
+                    if (categoryDropdown.options[i].value === categoria) {
+                        categoryDropdown.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+    };
+</script>
+	
 	<jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>

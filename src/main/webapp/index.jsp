@@ -88,28 +88,28 @@
         <!--Card-->
         <div class="panel">
           <div class="card-grid">
-            <a class="card" href="#">
+            <a class="card" href="./shop.jsp?categoria=Amplificatori">
               <div class="card__background" style="background-image: url(./IMG/Amplificatore.jpeg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Amplificatori</h3>
               </div>
             </a> 
-            <a class="card" href="#">
+            <a class="card" href="./shop.jsp?categoria=Chitarre Elettriche">
               <div class="card__background" style="background-image: url(./IMG/Chitarra.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Chitarre elettriche</h3>
               </div>
             </a>
-            <a class="card" href="#">
+            <a class="card" href="./shop.jsp?categoria=Tastiere">
               <div class="card__background" style="background-image: url(./IMG/Tastiera.jpg)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Tastiere</h3>
               </div>
             </li>
-            <a class="card" href="#">
+            <a class="card" href="./shop.jsp?categoria=Mixer">
               <div class="card__background" style="background-image: url(./IMG/Mixer.jfif)"></div>
               <div class="card__content">
                 <p class="card__category">Categoria</p>
@@ -147,7 +147,7 @@
                   le PureTune combinano tecnologia avanzata e comfort superiore, rendendole l'articolo dell'anno per tutti gli appassionati di musica.
                 </p>
                 <h3>A partire da: 100&euro;</h3>
-                <button class="button1">Scopri di pi&ugrave;</button>
+                <a href="./shop.jsp?categoria=Cuffie"><button class="button1">Scopri di pi&ugrave;</button></a>
             </div>
         </div>
     </div>

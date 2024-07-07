@@ -17,19 +17,19 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                 </div>
                 <div class="contact__details">
-                    <img src="map.png" alt="Location Icon">
+                    <img src="./IMG/map.png" alt="Location Icon">
                     <h3>Indirizzo:  </h3>
                 </br>
                 <p>Via Giovanni Paolo II, 132, 84084 Fisciano SA</p>
                 </div>
                 <div class="contact__details">
-                    <img src="tel.png" alt="Phone Icon">
+                    <img src="./IMG/tel.png" alt="Phone Icon">
                     <h3>Telefono:  </h3>
                     <br>
                     <p>081 2727002</p>
                 </div>
                 <div class="contact__details">
-                    <img src="mail.png" alt="Email Icon">
+                    <img src="./IMG/mail.png" alt="Email Icon">
                     <h3>Email:</h3>
                     <br>
                     <p>altafrequenza27@gmail.com</p>
@@ -45,8 +45,11 @@
                 </form>
             </div>
             </div>
-            <jsp:include page="./fragments/footer.jsp"></jsp:include>
+            
         </section>
     </div>
+    <footer class="footer">
+        <jsp:include page="./fragments/footer.jsp"></jsp:include>
+    </footer>
 </body>
 </html>

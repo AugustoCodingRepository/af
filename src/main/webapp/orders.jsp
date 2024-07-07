@@ -1,7 +1,8 @@
-<%@page import="model.*" import="java.util.*"%>
+<%@ page import="model.*" %>
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% List<Ordine> orders = OrdineDAO.getAll(); %>
+<% List<Ordine> orders = OrdineDAO.selectAllOrdini(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +35,10 @@
         for (Ordine o : orders) {
     %>
 			<tr>
-				<td scope="row"><%= o.getOrder_ID()  %></td>
-				<td><%= o.getUser_ID() %></td>
-				<td><%= o.getOrder_Data() %></td>
-				<td><%= o.getDelivery_Data() %></td>
+				<td scope="row"><%= o.getOrderID()  %></td>
+				<td><%= o.getUserID() %></td>
+				<td><%= o.getOrderDate() %></td>
+				<td><%= o.getDeliveryDate() %></td>
 				<td><%= o.getCost() %></td>
 			</tr>
 			<% }
