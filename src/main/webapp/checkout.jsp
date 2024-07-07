@@ -3,26 +3,26 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script src="https://www.paypal.com/sdk/js?client-id=AYjJGkGaetC60H2yZ0JXPurBl-jy2OxgCyV0J7bK1TWOcpUdQtjhm1nksG2-qG6CCQ2HwU4dkWJdRjPC&currency=EUR"></script>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="IMG/Finale.png">
+    <script src="https://www.paypal.com/sdk/js?client-id=AYjJGkGaetC60H2yZ0JXPurBl-jy2OxgCyV0J7bK1TWOcpUdQtjhm1nksG2-qG6CCQ2HwU4dkWJdRjPC&currency=EUR"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="IMG/Finale.png">
 
-<!-- custom css file link  -->
-<link rel="stylesheet" href="./CSS/checkout.css">
-<%
-Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
-String total = request.getParameter("PaymentAmount");
-log(total + "totale1");
-if (total == null) {
-    total = "0.00"; // Imposta un valore predefinito se il totale non è presente
-}
-%>
-<script>
-    // Passa il valore totale al client-side
-    var totalAmount = "<%= total %>";
-</script>
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./CSS/checkout.css">
+    <%
+    Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+    String total = request.getParameter("PaymentAmount");
+    log(total + "totale1");
+    if (total == null) {
+        total = "0.00"; // Imposta un valore predefinito se il totale non è presente
+    }
+    %>
+    <script>
+        // Passa il valore totale al client-side
+        var totalAmount = "<%= total %>";
+    </script>
 </head>
 <body>
     <jsp:include page="./fragments/header.jsp" />
@@ -37,32 +37,30 @@ if (total == null) {
                     <h3 class="title">Informazioni di spedizione</h3>
 
                     <div class="inputBox">
-                        <span>Nome e Cognome :</span> <input type="text"
-                            placeholder="john deo" id="nome" name="nome" required>
+                        <span>Nome e Cognome :</span> 
+                        <input type="text" placeholder="john deo" id="nome" name="nome" required>
                     </div>
                     <div class="inputBox">
-                        <span>Email :</span> <input type="email"
-                            placeholder="example@example.com" id="email" name="email"
-                            required>
+                        <span>Email :</span> 
+                        <input type="email" placeholder="example@example.com" id="email" name="email" required>
                     </div>
                     <div class="inputBox">
-                        <span>Indirizzo :</span> <input type="text"
-                            placeholder="room - street - locality" id="indirizzo"
-                            name="indirizzo" required>
+                        <span>Indirizzo :</span> 
+                        <input type="text" placeholder="room - street - locality" id="indirizzo" name="indirizzo" required>
                     </div>
                     <div class="inputBox">
-                        <span>Città:</span> <input type="text" placeholder="mumbai"
-                            id="citta" name="citta" required>
+                        <span>Città:</span> 
+                        <input type="text" placeholder="mumbai" id="citta" name="citta" required>
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
-                            <span>Stato :</span> <input type="text" placeholder="india"
-                                id="stato" name="stato" required>
+                            <span>Stato :</span> 
+                            <input type="text" placeholder="india" id="stato" name="stato" required>
                         </div>
                         <div class="inputBox">
-                            <span>CAP :</span> <input type="text" placeholder="123 456"
-                                id="cap" name="cap" required>
+                            <span>CAP :</span> 
+                            <input type="text" placeholder="123 456" id="cap" name="cap" required>
                         </div>
                     </div>
 
@@ -75,51 +73,47 @@ if (total == null) {
                     <div class="inputBox">
                         <span>Seleziona il metodo di pagamento:</span>
                         <button type="button" onclick="selectPayment('creditCard')">
-                            <img src="./IMG/visa.png">
+                            <img src="./IMG/visa.png" alt="Visa">
                         </button>
                         <button type="button" onclick="selectPayment('paypal')">
-                            <img src="./IMG/paypal.jpg">
+                            <img src="./IMG/paypal.jpg" alt="PayPal">
                         </button>
                         <button type="button" onclick="selectPayment('creditCard')">
-                            <img src="./IMG/mastercard.png">
+                            <img src="./IMG/mastercard.png" alt="Mastercard">
                         </button>
                         <input type="hidden" value="none" id="PaymentBy" name="PaymentBy">
                     </div>
 
                     <div id="creditCardFields" style="display: none;">
                         <div class="inputBox">
-                            <span>Nome sulla carta :</span> <input type="text"
-                                value="" id="cardName" name="cardName"
-                                required>
+                            <span>Nome sulla carta :</span> 
+                            <input type="text" value="" id="cardName" name="cardName" required>
                         </div>
                         <div class="inputBox">
-                            <span>Numero carta :</span> <input type="number"
-                                placeholder="1111-2222-3333-4444" id="cardNumber"
-                                name="cardNumber" required>
+                            <span>Numero carta :</span> 
+                            <input type="number" placeholder="1111-2222-3333-4444" id="cardNumber" name="cardNumber" required>
                         </div>
                         <div class="inputBox">
-                            <span>Mese Scadenza :</span> <input type="number"
-                                placeholder="01" id="monthExp" name="monthExp" min=01 max=12 required>
+                            <span>Mese Scadenza :</span> 
+                            <input type="number" placeholder="01" id="monthExp" name="monthExp" min="01" max="12" required>
                         </div>
 
                         <div class="flex">
                             <div class="inputBox">
-                                <span>Anno Scadenza :</span> <input type="number"
-                                    placeholder="2022" id="yearExp" name="yearExp" required>
+                                <span>Anno Scadenza :</span> 
+                                <input type="number" placeholder="2022" id="yearExp" name="yearExp" required>
                             </div>
                             <div class="inputBox">
-                                <span>CVV :</span> <input type="number" placeholder="123" max=999 min=001
-                                    id="cvvExp" name="cvvExp" required>
+                                <span>CVV :</span> 
+                                <input type="number" placeholder="123" max="999" min="001" id="cvvExp" name="cvvExp" required>
                             </div>
                         </div>
                     </div>
 
                     <div id="paypalFields" style="display: none;">
                         <div class="inputBox">
-                            <span>Indirizzo email PayPal :</span> <input type="email"
-                                placeholder="example@paypal.com" id="paypalEmail"
-                                name="paypalEmail" required>
-                               
+                            <span>Indirizzo email PayPal :</span> 
+                            <input type="email" placeholder="example@paypal.com" id="paypalEmail" name="paypalEmail" required>
                         </div>
                         <div class="paypal-button-container" id="paypal-button-container"></div>
                     </div>
@@ -127,18 +121,16 @@ if (total == null) {
                 </div>
 
             </div>
-            <input type="checkbox" id="paymentSave">Vuoi salvare il tuo
-            metodo di pagamento?<br>
-            <br> <input type="hidden" value="none" id="paymentSaved"
-                name="paymentSaved"> Vuoi la fattura? Puoi richiederla nella
-            sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
+            <input type="checkbox" id="paymentSave">Vuoi salvare il tuo metodo di pagamento?<br>
+            <br> 
+            <input type="hidden" value="none" id="paymentSaved" name="paymentSaved"> 
+            Vuoi la fattura? Puoi richiederla nella sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
 			<input type="hidden" name="Amount" value="<%=total%>">
             <input type="button" value="Procedi all'acquisto" class="submit-btn" onclick="validateAndSubmitForm();">
 
         </form>
     </div>
 
-    <script>
     <script>
     function selectPayment(method) {
         if (method === 'creditCard') {
@@ -160,7 +152,7 @@ if (total == null) {
             document.getElementById('yearExp').disabled = true;
             document.getElementById('cvvExp').disabled = true;
             document.getElementById('paypalEmail').disabled = false;
-            document.getElementById('PaymentBy').value = 'PayPal';
+            document.getElementById('PaymentBy').value = 'paypal'; // Usare 'paypal' coerentemente
         }
     }
 
@@ -178,11 +170,6 @@ if (total == null) {
             alert('Seleziona un metodo di pagamento');
             return; // Prevenire l'invio del form se non è selezionato un metodo di pagamento
         }
-
-        // Setta il costo nel carrello
-        var total = "<%= total %>";
-        cart.setCosto(total);
-        
 
         // Se tutto è corretto, invia il form manualmente
         document.getElementById('payment').submit();
@@ -204,14 +191,12 @@ if (total == null) {
                 alert('Transaction completed by ' + details.payer.name.given_name);
                 // Aggiungi qui il codice per gestire il pagamento completato
                 document.getElementById('paypalEmail').value = details.payer.email_address;
-                // Setta il costo nel carrello
-                cart.setCosto(totalAmount);
                 // Submit the form
                 document.getElementById('payment').submit();
             });
         }
     }).render('#paypal-button-container'); // Renderizza il pulsante PayPal
-</script>
+    </script>
     <jsp:include page="./fragments/footer.jsp" />
 </body>
 </html>
