@@ -1,3 +1,4 @@
+<%@page import="java.io.Console"%>
 <%@ page import="java.util.*,model.*,control.*"%>
 <!DOCTYPE html>
 <html lang="it">
@@ -118,6 +119,7 @@ if (total == null) {
                                 placeholder="example@paypal.com" id="paypalEmail"
                                 name="paypalEmail" required>
                                 <input type="hidden" name="totaleOrdine" value="<%=request.getParameter("total") %>"/>
+                                <%  %>
                         </div>
                         <div class="paypal-button-container" id="paypal-button-container"></div>
                     </div>
