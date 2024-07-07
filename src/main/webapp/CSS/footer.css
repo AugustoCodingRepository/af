@@ -3,6 +3,7 @@
     background-color: #000;
     color: #fff;
     padding: 20px 0;
+    position: relative; /* Assicurati che il footer non sia posizionato assolutamente o fissamente */
 }
 
 .footer-container {
@@ -73,7 +74,18 @@
     border-top: 1px solid #444;
 }
 
-/* Media query per dispositivi con larghezza massima di 768px (modalit√† smartphone) */
+/* Stili aggiuntivi per evitare sovrapposizioni */
+.container {
+    min-height: calc(100vh - 100px); /* Altezza minima: 100% altezza viewport meno l'altezza del footer */
+    padding-bottom: 50px; /* Aggiungi spazio per evitare che il footer copra il contenuto */
+    position: relative;
+}
+
+#testimonials {
+    margin-bottom: 100px; /* Aggiungi margine inferiore sufficiente */
+}
+
+/* Media query per dispositivi con larghezza massima di 768px (modalit‡ smartphone) */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;

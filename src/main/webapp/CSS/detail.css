@@ -1,20 +1,20 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  background: #C1908B;
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
-  max-width: 100%;
+	flex:1;
+	  max-width: 100%;
   margin: auto;
   height: 100vh;
   background: white;
   box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.3);
+ padding-bottom: 150px; /* Aggiungi spazio sufficiente per evitare che il footer copra il contenuto */
+    position: relative;
+    min-height: calc(100vh - 200px); /* Altezza minima per la container */
 }
 
 .left, .right {
