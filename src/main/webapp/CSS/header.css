@@ -109,7 +109,7 @@
 }
 
 /* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
     .header__menu {
         display: flex !important; /* Assicuriamoci che il menu principale sia visibile */
     }
@@ -124,6 +124,55 @@
 
     .mobile-only {
         display: none !important; /* Assicuriamoci che i link mobile-only siano nascosti */
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .header__content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .header__logo {
+        padding: 10px 0;
+        height: auto;
+    }
+
+    .header__menu {
+        display: none; /* Nascondi il menu principale */
+    }
+
+    .mobile-only {
+        display: block !important; /* Mostra i link mobile-only */
+    }
+
+    .desktop-only {
+        display: none !important; /* Nascondi i link desktop-only */
+    }
+
+    .header__menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #444;
+    }
+
+    .header__menu li a {
+        padding: 15px;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .menu-open .header__menu {
+        height: 100vh;
+    }
+
+    .header__icons {
+        width: auto;
+    }
+
+    .menu-icon {
+        display: block; /* Mostra l'icona del menu a tendina extra */
     }
 }
 
