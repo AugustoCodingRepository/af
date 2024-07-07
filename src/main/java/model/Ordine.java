@@ -1,82 +1,78 @@
 package model;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.Date;
 
 public class Ordine {
-	public static int cont=0;
-    private int Order_ID; 
-    private int User_ID;
-    private Date Order_Data;
-    private Date Delivery_Data;
-    private Double Cost;
-    private List<Integer> prodottiAcquistati;
+    private int orderID;
+    private int userID;
+    private Date orderDate;
+    private Date deliveryDate;
+    private double cost;
+    private String productList; // Consideriamo di usare una stringa per l'elenco dei prodotti
 
-	public Ordine(int orderID, int userID, Date orderDate, Date deliveryDate, Double cost, List<Integer> prodottiAcquistati) {
-		this.Order_ID = orderID;
-        this.User_ID = userID;
-        this.Order_Data = (Date) orderDate;
-        this.Delivery_Data = (Date) deliveryDate;
-        this.Cost = cost;
-        this.setProdottiAcquistati(prodottiAcquistati);
-	}
-	
-	public Ordine( int userID, Date orderDate, Date deliveryDate, Double cost, List<Integer> prodottiAcquistati) {
-        this.User_ID = userID;
-        this.Order_Data = (Date) orderDate;
-        this.Delivery_Data = (Date) deliveryDate;
-        this.Cost = cost;
-        this.setProdottiAcquistati(prodottiAcquistati);
-	}
-
-	public int getOrder_ID() {
-        return Order_ID;
+    // Costruttore
+    public Ordine(int orderID, int userID, Date orderDate, Date deliveryDate, double cost, String productList) {
+        this.orderID = orderID;
+        this.userID = userID;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.cost = cost;
+        this.productList = productList;
+    }
+    public Ordine(int userID, Date orderDate, Date deliveryDate, double cost, String productList) {
+        this.userID = userID;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+        this.cost = cost;
+        this.productList = productList;
     }
 
-    public void setOrder_ID(int Order_ID) {
-        this.Order_ID = Order_ID;
+    // Metodi getter e setter
+    public int getOrderID() {
+        return orderID;
     }
 
-    public int getUser_ID() {
-        return User_ID;
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
     }
 
-    public void setUser_ID(int User_ID) {
-        this.User_ID = User_ID;
+    public int getUserID() {
+        return userID;
     }
 
-    public Date getOrder_Data() {
-        return Order_Data;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public void setOrder_Data(Date Order_Data) {
-        this.Order_Data = Order_Data;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public Date getDelivery_Data() {
-        return Delivery_Data;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public void setDelivery_Data(Date Delivery_Data) {
-        this.Delivery_Data = Delivery_Data;
+    public Date getDeliveryDate() {
+        return deliveryDate;
     }
 
-	public Double getCost() {
-		return Cost;
-	}
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
 
-	public void setCost(Double cost) {
-		this.Cost = cost;
-	}
+    public double getCost() {
+        return cost;
+    }
 
-	public List<Integer> getProdottiAcquistati() {
-		return prodottiAcquistati;
-	}
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 
-	public void setProdottiAcquistati(List<Integer> prodottiAcquistati) {
-		this.prodottiAcquistati = prodottiAcquistati;
-	}
-    
+    public String getProductList() {
+        return productList;
+    }
+
+    public void setProductList(String productList) {
+        this.productList = productList;
+    }
 }

@@ -49,9 +49,9 @@ public class EffettuaOrdineServlet extends HttpServlet {
 
                 // Preparazione dei prodotti per l'ordine
                 Collection<ProdottoCarrello> prodotti = carrello.getProductsInCart();
-                List<Integer> prodottiAcquistati = null;
+                String prodottiAcquistati = "";
                 for (ProdottoCarrello p : prodotti) {
-                    prodottiAcquistati.add(p.getProdotto().getProduct_ID());
+                    prodottiAcquistati = p.getProdotto().getProduct_ID()+"-";
                 }
 
                 // Creazione e inserimento dell'ordine

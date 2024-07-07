@@ -1,7 +1,7 @@
 <%@page import="model.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% List<Ordine> orders = OrdineDAO.getAll(); %>
+<% List<Ordine> orders = OrdineDAO.selectAllOrdini(); %>
 <!DOCTYPE html>
 <html>
 <head>
