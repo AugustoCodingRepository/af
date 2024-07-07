@@ -11,12 +11,12 @@ public class OrdineDAO {
     public static void insert(Ordine ordine, User user) throws SQLException {
         if (user != null) {
             try (Connection connection = ConnectToDB.getConnection();
-                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?, ?)")) {
+                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (Order_ID, User_ID, Order_Data, Delivery_Data, Cost, product_list) VALUES (?, ?, ?, ?, ?, ?)")) {
                 statement.setInt(1, ordine.getOrder_ID());
                 statement.setInt(2, ordine.getUser_ID());
                 statement.setDate(3, ordine.getOrder_Data());
                 statement.setDate(4, ordine.getDelivery_Data());
-                statement.setString(5, ordine.getCost());
+                statement.setDouble(5, ordine.getCost());
                 statement.setArray(6, connection.createArrayOf("VARCHAR", ordine.getProdottiAcquistati().toArray()));
                 statement.executeUpdate();
                 System.out.println("Ordine registrato");
@@ -38,8 +38,8 @@ public class OrdineDAO {
                         resultSet.getInt("User_ID"),
                         resultSet.getDate("Order_Data"),
                         resultSet.getDate("Delivery_Data"),
-                        resultSet.getString("Cost"),
-                        convertArrayToArrayList(resultSet.getArray("ProductList"))
+                        resultSet.getDouble("Cost"),
+                        convertArrayToArrayList(resultSet.getArray("product_list"))
                 );
                 ordini.add(ordine);
             }
@@ -60,8 +60,8 @@ public class OrdineDAO {
                                 resultSet.getInt("User_ID"),
                                 resultSet.getDate("Order_Data"),
                                 resultSet.getDate("Delivery_Data"),
-                                resultSet.getString("Cost"),
-                                convertArrayToArrayList(resultSet.getArray("ProductList"))
+                                resultSet.getDouble("Cost"),
+                                convertArrayToArrayList(resultSet.getArray("product_list"))
                         );
                         ordini.add(ordine);
                     }
@@ -84,8 +84,8 @@ public class OrdineDAO {
                             resultSet.getInt("User_ID"),
                             resultSet.getDate("Order_Data"),
                             resultSet.getDate("Delivery_Data"),
-                            resultSet.getString("Cost"),
-                            convertArrayToArrayList(resultSet.getArray("ProductList"))
+                            resultSet.getDouble("Cost"),
+                            convertArrayToArrayList(resultSet.getArray("product_list"))
                     );
                 }
             }

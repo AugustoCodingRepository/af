@@ -13,7 +13,7 @@
 <link href="CSS/catalogoAndCarrello.css" rel="stylesheet">
 <link rel="icon" type="image/png" href="IMG/Finale.png">
 </head>
-<body>
+<body><br><br><br>
 	<jsp:include page="./fragments/header.jsp" />
 	<h1 align="center">
 		Utenti (<%= users.size() %>)
