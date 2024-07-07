@@ -94,7 +94,7 @@
                 <p class="card__category">Categoria</p>
                 <h3 class="card__heading">Amplificatori</h3>
               </div>
-            </a>
+            </a> 
             <a class="card" href="#">
               <div class="card__background" style="background-image: url(./IMG/Chitarra.jpg)"></div>
               <div class="card__content">
