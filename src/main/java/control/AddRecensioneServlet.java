@@ -15,7 +15,7 @@ public class AddRecensioneServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletExceptions, IOException {
+            throws IOException {
         // Ottiene i dati dalla richiesta
         String userName = request.getParameter("userName");
         int valutazione = Integer.parseInt(request.getParameter("valutazione"));
