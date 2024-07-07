@@ -16,7 +16,7 @@
     display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 20px; 
 }
 
 .footer-logo img {
