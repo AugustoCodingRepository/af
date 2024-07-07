@@ -1,20 +1,22 @@
 /* Stili di base per il footer */
 .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    position: relative; /* Assicurati che il footer non sia posizionato assolutamente o fissamente */
+  height: auto;
+  width: 100%;
+  background: #1f1f1f;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 .footer-logo img {
