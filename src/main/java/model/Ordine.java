@@ -3,6 +3,7 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Ordine {
 	public static int cont=0;
@@ -11,9 +12,9 @@ public class Ordine {
     private Date Order_Data;
     private Date Delivery_Data;
     private Double Cost;
-    private Collection<Integer> prodottiAcquistati;
+    private List<Integer> prodottiAcquistati;
 
-	public Ordine(int orderID, int userID, Date orderDate, Date deliveryDate, Double cost, Collection<Integer> prodottiAcquistati) {
+	public Ordine(int orderID, int userID, Date orderDate, Date deliveryDate, Double cost, List<Integer> prodottiAcquistati) {
 		this.Order_ID = orderID;
         this.User_ID = userID;
         this.Order_Data = (Date) orderDate;
@@ -22,7 +23,7 @@ public class Ordine {
         this.setProdottiAcquistati(prodottiAcquistati);
 	}
 	
-	public Ordine( int userID, Date orderDate, Date deliveryDate, Double cost, Collection<Integer> prodottiAcquistati) {
+	public Ordine( int userID, Date orderDate, Date deliveryDate, Double cost, List<Integer> prodottiAcquistati) {
         this.User_ID = userID;
         this.Order_Data = (Date) orderDate;
         this.Delivery_Data = (Date) deliveryDate;
@@ -70,13 +71,12 @@ public class Ordine {
 		this.Cost = cost;
 	}
 
-	public Collection<Integer> getProdottiAcquistati() {
+	public List<Integer> getProdottiAcquistati() {
 		return prodottiAcquistati;
 	}
 
-	public void setProdottiAcquistati(Collection<Integer> prodottiAcquistati) {
+	public void setProdottiAcquistati(List<Integer> prodottiAcquistati) {
 		this.prodottiAcquistati = prodottiAcquistati;
 	}
-    
     
 }

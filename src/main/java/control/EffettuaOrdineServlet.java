@@ -11,12 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 
 @WebServlet("/EffettuaOrdineServlet")
 public class EffettuaOrdineServlet extends HttpServlet {
     private static final long serialVersionUID = -5807495226920968083L;
 
-    @Override
+    @SuppressWarnings("null")
+	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentSessionUser");
         Carrello carrello = (Carrello) request.getSession().getAttribute("carrello");
@@ -47,7 +49,7 @@ public class EffettuaOrdineServlet extends HttpServlet {
 
                 // Preparazione dei prodotti per l'ordine
                 Collection<ProdottoCarrello> prodotti = carrello.getProductsInCart();
-                Collection<Integer> prodottiAcquistati = new ArrayList<>();
+                List<Integer> prodottiAcquistati = null;
                 for (ProdottoCarrello p : prodotti) {
                     prodottiAcquistati.add(p.getProdotto().getProduct_ID());
                 }
