@@ -60,14 +60,6 @@ CREATE TABLE `ordine` (
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-
-CREATE TABLE `preferenza` (
-  `Product_ID` int NOT NULL,
-  `User_ID` int NOT NULL,
-  PRIMARY KEY (`Product_ID`,`User_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
 DROP TABLE IF EXISTS `prodotto`;
 CREATE TABLE `prodotto` (
   `Product_ID` int NOT NULL AUTO_INCREMENT,
@@ -90,9 +82,13 @@ CREATE TABLE `prodotto` (
 DROP TABLE IF EXISTS `recensione`;
 CREATE TABLE `recensione` (
   `Recensione_ID` int NOT NULL AUTO_INCREMENT,
+  'UserName' varchar(20) NOT NULL,
   `Valutazione` int DEFAULT NULL,
   `Descrizione` varchar(512) DEFAULT '',
+  'User_ID' int not null,
+  Product_ID int not null,
   PRIMARY KEY (`Recensione_ID`),
+  FOREIGN KEY ('User_ID') REFERENCES 'utente' ('User_ID'),
   CONSTRAINT `recensione_chk_1` CHECK (((`Valutazione` >= 0) and (`Valutazione` <= 5)))
 ) ;
 
