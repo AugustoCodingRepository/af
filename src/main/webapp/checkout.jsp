@@ -13,9 +13,10 @@
 <link rel="stylesheet" href="./CSS/checkout.css">
 <%
 Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
-String total = request.getParameter("total");
-if (total == null) {
-    total = "0.00"; // Imposta un valore predefinito se il totale non è presente
+Double total = Double.parseDouble(request.getParameter("PaymentAmount"));
+log(total + "totale1");
+if (total == 0) {
+    total = 0.00; // Imposta un valore predefinito se il totale non è presente
 }
 %>
 <script>
@@ -118,8 +119,7 @@ if (total == null) {
                             <span>Indirizzo email PayPal :</span> <input type="email"
                                 placeholder="example@paypal.com" id="paypalEmail"
                                 name="paypalEmail" required>
-                                <input type="hidden" name="totaleOrdine" value="<%=request.getParameter("total") %>"/>
-                                <%  %>
+                               
                         </div>
                         <div class="paypal-button-container" id="paypal-button-container"></div>
                     </div>
@@ -132,7 +132,7 @@ if (total == null) {
             <br> <input type="hidden" value="none" id="paymentSaved"
                 name="paymentSaved"> Vuoi la fattura? Puoi richiederla nella
             sezione 'I miei ordini' selezionando l'ordine e cliccando 'Fattura'.<br>
-
+			<input type="hidden" name="Amount" value="<%=total%>">
             <input type="button" value="Procedi all'acquisto" class="submit-btn" onclick="validateAndSubmitForm();">
 
         </form>
@@ -178,8 +178,12 @@ if (total == null) {
                 return; // Prevenire l'invio del form se non è selezionato un metodo di pagamento
             }
 
+            // Aggiungi il valore total come attributo "Amount" alla richiesta
+            var form = document.getElementById('payment');
+            
+
             // Se tutto è corretto, invia il form manualmente
-            document.getElementById('payment').submit();
+            form.submit();
         }
 
         paypal.Buttons({

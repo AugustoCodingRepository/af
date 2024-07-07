@@ -71,7 +71,7 @@ if (cart != null) {
         <input type="text" class="form-control border-0 gift-card" placeholder="discount code/gift card" value="Il totale da pagare per il tuo ordine è di <%=total %> euro" style="text-align:center; font-weight: 900;" disabled>
     </div>
     <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
-    <a href="./checkout.jsp" id="checkoutLink"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" id="payButton" type="button">Proceed to Pay</button></a>
+    <a href="./checkout.jsp?" id="checkoutLink"><button class="btn btn-warning btn-block btn-lg ml-2 pay-button" id="payButton" type="button">Proceed to Pay</button></a>
 </div>
 
 </div>
@@ -145,7 +145,7 @@ if (cart != null) {
 		        totalField.value = "Il totale da pagare per il tuo ordine è di " + total.toFixed(2) + " euro";
 
 		        // Imposta il link di checkout con il valore totale
-		        checkoutLink.href = "./checkout.jsp?total=" + total.toFixed(2);
+		        checkoutLink.href = "./checkout.jsp?PaymentAmount=" + total.toFixed(2);
 		    }
 
 		    quantities.forEach(function(input) {
