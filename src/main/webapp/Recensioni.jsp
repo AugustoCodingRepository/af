@@ -10,8 +10,13 @@
 <body>
 	<jsp:include page="./fragments/header.jsp"></jsp:include>
 	
+<<<<<<< HEAD
+    <main>
+        <form action="./AddRecensioneServlet" method="post">
+=======
     <main> 
         <form action="./AddRecensione" method="post">
+>>>>>>> branch 'main' of https://github.com/AugustoCodingRepository/af.git
             <div class="form-group">
             <h1 id="intes">Aggiungi una recensione</h1>
                 <label for="userName">Nome Utente:</label>
