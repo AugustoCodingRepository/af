@@ -31,12 +31,10 @@ public class EffettuaOrdineServlet extends HttpServlet {
                 // Recupera il parametro "Amount"
                 Double totalString = carrello.getCosto();
                 // Recupera il parametro "Total"
-                String totalString = request.getParameter("Amount");
+                
                 System.out.println("Total string from request: " + totalString);
-                double total = 0;
-                // Verifica che totalString non sia null o vuoto prima di parsare
-                if (totalString != null) {
-                   total= Double.parseDouble(totalString);
+                
+                
                     
 
                 
