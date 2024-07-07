@@ -136,6 +136,7 @@
 
     .header__logo {
         padding: 10px 0;
+        height: auto;
     }
 
     .header__menu {
