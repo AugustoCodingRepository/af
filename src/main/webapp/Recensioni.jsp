@@ -11,7 +11,7 @@
 	<jsp:include page="./fragments/header.jsp"></jsp:include>
 	
     <main>
-        <form action="./AddRecensione" method="post">
+        <form action="/AddRecensione" method="post">
             <div class="form-group">
             <h1 id="intes">Aggiungi una recensione</h1>
                 <label for="userName">Nome Utente:</label>
