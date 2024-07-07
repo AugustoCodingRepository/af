@@ -33,7 +33,7 @@ public class EffettuaOrdineServlet extends HttpServlet {
                 // Verifica che totalString non sia null o vuoto prima di parsare
                 if (totalString != null) {
                    total= Double.parseDouble(totalString);
-                    Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, total);
+                    Ordine ordine = new Ordine(user.getUser_ID(), new Date(System.currentTimeMillis()), deliveryDate, total, carrello.getProductsInCart());
 
                     //-- TRANSAZIONE --//
                     Transazione transazione = new Transazione(ordine.getOrder_ID(), user.getUser_ID(), "APPROVATA");

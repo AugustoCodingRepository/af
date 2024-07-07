@@ -105,3 +105,27 @@ CREATE TABLE `transazione` (
   FOREIGN KEY (`Order_ID`) REFERENCES `ordine` (`Order_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO categoria (Nome)
+VALUES
+('Amplificatori'),
+('Tastiere'),
+('Chitarre Elettriche'),
+('Cuffie'),
+('Mixer')
+
+INSERT INTO prodotto (Product_Name,Brand,Model,Quantity,Price,IVA,Categoria_ID,Descrizione, imgProduct)
+VALUES
+('CHITARRA ELETTRICA G250 TAB','Alta Frequenza','Serie G',10,279.00,10,3,"La nuova G250 in tiglio, con manico in acero e tastiera in jatoba, dispone inoltre di una configurazione dei pickup HSS con push-pull per splittare l’humbucker, che fornisce un'ampia varietà di suoni per coprire praticamente qualsiasi stile musicale. Quattro bellissime finiture, tutte da scoprire!", null),
+
+('CHITARRA ELETTRICA G110 OPSB','Alta Frequenza','Serie G',10,199.00,10,3,"La G110, entry-level della serie, dispone di ponte tremolo 6-viti e di una configurazione pickup HSS, per un'ampia varietà di suoni adatta a qualsiasi stile musicale, offrendo la grande suonabilità per la quale la serie G è nota!", null),
+
+('CHITARRA ELETTRICA G110 OPBC','Alta Frequenza','Serie G',10,199.00,10,3,"La G110, entry-level della serie, dispone di ponte tremolo 6-viti e di una configurazione pickup HSS, per un'ampia varietà di suoni adatta a qualsiasi stile musicale, offrendo la grande suonabilità per la quale la serie G è nota!", null),
+
+('CHITARRA ELETTRICA G25a0 SVM','Alta Frequenza','Serie G',10,279.00,10,3,"La nuova G250 in tiglio, con manico in acero e tastiera in jatoba, dispone inoltre di una configurazione dei pickup HSS con push-pull per splittare l’humbucker, che fornisce un'ampia varietà di suoni per coprire praticamente qualsiasi stile musicale.", null),
+
+('CHITARRA ELETTRICAS-300 SUNBURST','Alta Frequenza','Serie Starter',10,149.00,10,3,"Dalla classica forma stratocaster, questa s 300 ha configurazione S/S/S, due toni un volume e selettore a 5 posizioni. Corpo in Ontano, manico in Acero, tastiera in South American Rouparà (Parinari Campestris) a 22 tasti. Disponibile in più colorazioni.", null),
+
+('CHITARRA ELETTRICA S-300 CREAM','Alta Frequenza','Serie Starter',10,149.00,10,3,"Dalla classica forma stratocaster, questa s 300 ha configurazione S/S/S, due toni un volume e selettore a 5 posizioni. Corpo in Ontano, manico in Acero, tastiera in South American Rouparà (Parinari Campestris) a 22 tasti. Disponibile in più colorazioni.", null)
+
