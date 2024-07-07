@@ -48,6 +48,7 @@
     align-items: center;
 }
 
+/*
 .icon-hamburger {
     display: none;
     flex-direction: column;
@@ -62,6 +63,7 @@
     margin: 4px 0;
     display: block;
 }
+*/
 
 .logo {
     width: 60px;
