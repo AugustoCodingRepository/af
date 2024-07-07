@@ -2,6 +2,8 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 public class OrdineDAO {
@@ -14,7 +16,7 @@ public class OrdineDAO {
                 statement.setInt(2, ordine.getUser_ID());
                 statement.setDate(3, ordine.getOrder_Data());
                 statement.setDate(4, ordine.getDelivery_Data());
-                statement.setDouble(5, ordine.getCost());
+                statement.setString(5, ordine.getCost());
                 statement.setArray(6, connection.createArrayOf("VARCHAR", ordine.getProdottiAcquistati().toArray()));
                 statement.executeUpdate();
                 System.out.println("Ordine registrato");
@@ -36,7 +38,7 @@ public class OrdineDAO {
                         resultSet.getInt("User_ID"),
                         resultSet.getDate("Order_Data"),
                         resultSet.getDate("Delivery_Data"),
-                        resultSet.getDouble("Cost"),
+                        resultSet.getString("Cost"),
                         convertArrayToArrayList(resultSet.getArray("ProductList"))
                 );
                 ordini.add(ordine);
@@ -58,7 +60,7 @@ public class OrdineDAO {
                                 resultSet.getInt("User_ID"),
                                 resultSet.getDate("Order_Data"),
                                 resultSet.getDate("Delivery_Data"),
-                                resultSet.getDouble("Cost"),
+                                resultSet.getString("Cost"),
                                 convertArrayToArrayList(resultSet.getArray("ProductList"))
                         );
                         ordini.add(ordine);
@@ -82,7 +84,7 @@ public class OrdineDAO {
                             resultSet.getInt("User_ID"),
                             resultSet.getDate("Order_Data"),
                             resultSet.getDate("Delivery_Data"),
-                            resultSet.getDouble("Cost"),
+                            resultSet.getString("Cost"),
                             convertArrayToArrayList(resultSet.getArray("ProductList"))
                     );
                 }
@@ -91,13 +93,13 @@ public class OrdineDAO {
         return ordine;
     }
 
-    private static ArrayList<String> convertArrayToArrayList(Array array) throws SQLException {
+    private static Collection<Integer> convertArrayToArrayList(Array array) throws SQLException {
         if (array == null) {
             return null;
         }
-        String[] data = (String[]) array.getArray();
-        ArrayList<String> list = new ArrayList<>(data.length);
-        for (String s : data) {
+        int[] data = (int[]) array.getArray();
+        Collection<Integer> list = new ArrayList<>(data.length);
+        for (Integer s : data) {
             list.add(s);
         }
         return list;

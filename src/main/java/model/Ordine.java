@@ -10,24 +10,23 @@ public class Ordine {
     private int User_ID;
     private Date Order_Data;
     private Date Delivery_Data;
-    private double Cost;
-    private Collection<String> prodottiAcquistati;
+    private Double Cost;
+    private Collection<Integer> prodottiAcquistati;
 
-    public Ordine(int User_ID, Date Order_Data, Date Delivery_Data, double cost) {
-        this.Order_ID = cont++;
-        this.User_ID = User_ID;
-        this.Order_Data = Order_Data;
-        this.Delivery_Data = Delivery_Data;
-        this.Cost = cost;
-        
-    }
-
-	public Ordine(int orderID, int userID, java.util.Date orderDate, java.util.Date deliveryDate, double cost2, Collection<String> prodottiAcquistati) {
+	public Ordine(int orderID, int userID, Date orderDate, Date deliveryDate, Double cost, Collection<Integer> prodottiAcquistati) {
 		this.Order_ID = orderID;
         this.User_ID = userID;
         this.Order_Data = (Date) orderDate;
         this.Delivery_Data = (Date) deliveryDate;
-        this.Cost = cost2;
+        this.Cost = cost;
+        this.setProdottiAcquistati(prodottiAcquistati);
+	}
+	
+	public Ordine( int userID, Date orderDate, Date deliveryDate, Double cost, Collection<Integer> prodottiAcquistati) {
+        this.User_ID = userID;
+        this.Order_Data = (Date) orderDate;
+        this.Delivery_Data = (Date) deliveryDate;
+        this.Cost = cost;
         this.setProdottiAcquistati(prodottiAcquistati);
 	}
 
@@ -63,19 +62,19 @@ public class Ordine {
         this.Delivery_Data = Delivery_Data;
     }
 
-	public double getCost() {
+	public Double getCost() {
 		return Cost;
 	}
 
-	public void setCost(double cost) {
+	public void setCost(Double cost) {
 		this.Cost = cost;
 	}
 
-	public Collection<String> getProdottiAcquistati() {
+	public Collection<Integer> getProdottiAcquistati() {
 		return prodottiAcquistati;
 	}
 
-	public void setProdottiAcquistati(Collection<String> prodottiAcquistati) {
+	public void setProdottiAcquistati(Collection<Integer> prodottiAcquistati) {
 		this.prodottiAcquistati = prodottiAcquistati;
 	}
     

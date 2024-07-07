@@ -13,10 +13,10 @@
 <link rel="stylesheet" href="./CSS/checkout.css">
 <%
 Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
-Double total = Double.parseDouble(request.getParameter("PaymentAmount"));
+String total = request.getParameter("PaymentAmount");
 log(total + "totale1");
-if (total == 0) {
-    total = 0.00; // Imposta un valore predefinito se il totale non è presente
+if (total == null) {
+    total = "0.00"; // Imposta un valore predefinito se il totale non è presente
 }
 %>
 <script>
@@ -139,72 +139,79 @@ if (total == 0) {
     </div>
 
     <script>
-        function selectPayment(method) {
-            if (method === 'creditCard') {
-                document.getElementById('creditCardFields').style.display = 'block';
-                document.getElementById('paypalFields').style.display = 'none';
-                document.getElementById('cardName').disabled = false;
-                document.getElementById('cardNumber').disabled = false;
-                document.getElementById('monthExp').disabled = false;
-                document.getElementById('yearExp').disabled = false;
-                document.getElementById('cvvExp').disabled = false;
-                document.getElementById('paypalEmail').disabled = true;
-                document.getElementById('PaymentBy').value = 'creditCard';
-            } else if (method === 'paypal') {
-                document.getElementById('creditCardFields').style.display = 'none';
-                document.getElementById('paypalFields').style.display = 'block';
-                document.getElementById('cardName').disabled = true;
-                document.getElementById('cardNumber').disabled = true;
-                document.getElementById('monthExp').disabled = true;
-                document.getElementById('yearExp').disabled = true;
-                document.getElementById('cvvExp').disabled = true;
-                document.getElementById('paypalEmail').disabled = false;
-                document.getElementById('PaymentBy').value = 'PayPal';
-            }
+    <script>
+    function selectPayment(method) {
+        if (method === 'creditCard') {
+            document.getElementById('creditCardFields').style.display = 'block';
+            document.getElementById('paypalFields').style.display = 'none';
+            document.getElementById('cardName').disabled = false;
+            document.getElementById('cardNumber').disabled = false;
+            document.getElementById('monthExp').disabled = false;
+            document.getElementById('yearExp').disabled = false;
+            document.getElementById('cvvExp').disabled = false;
+            document.getElementById('paypalEmail').disabled = true;
+            document.getElementById('PaymentBy').value = 'creditCard';
+        } else if (method === 'paypal') {
+            document.getElementById('creditCardFields').style.display = 'none';
+            document.getElementById('paypalFields').style.display = 'block';
+            document.getElementById('cardName').disabled = true;
+            document.getElementById('cardNumber').disabled = true;
+            document.getElementById('monthExp').disabled = true;
+            document.getElementById('yearExp').disabled = true;
+            document.getElementById('cvvExp').disabled = true;
+            document.getElementById('paypalEmail').disabled = false;
+            document.getElementById('PaymentBy').value = 'PayPal';
+        }
+    }
+
+    function validateAndSubmitForm() {
+        var isChecked = document.getElementById('paymentSave').checked;
+        if (isChecked) {
+            document.getElementById('paymentSaved').value = 'true';
+        } else {
+            document.getElementById('paymentSaved').value = 'false';
         }
 
-        function validateAndSubmitForm() {
-            var isChecked = document.getElementById('paymentSave').checked;
-            if (isChecked) {
-                document.getElementById('paymentSaved').value = 'true';
-            } else {
-                document.getElementById('paymentSaved').value = 'false';
-            }
-
-            // Assicurati che il metodo di pagamento sia selezionato
-            var paymentMethod = document.getElementById('PaymentBy').value;
-            if (paymentMethod === 'none') {
-                alert('Seleziona un metodo di pagamento');
-                return; // Prevenire l'invio del form se non è selezionato un metodo di pagamento
-            }
-
-            // Aggiungi il valore total come attributo "Amount" alla richiesta
-            var form = document.getElementById('payment');
-            
-
-            // Se tutto è corretto, invia il form manualmente
-            form.submit();
+        // Assicurati che il metodo di pagamento sia selezionato
+        var paymentMethod = document.getElementById('PaymentBy').value;
+        if (paymentMethod === 'none') {
+            alert('Seleziona un metodo di pagamento');
+            return; // Prevenire l'invio del form se non è selezionato un metodo di pagamento
         }
 
-        paypal.Buttons({
-            createOrder: function(data, actions) {
-                // Usa il valore totale passato dal server-side
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: totalAmount // Utilizza il valore totale dinamico
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    alert('Transaction completed by ' + details.payer.name.given_name);
-                    // Aggiungi qui il codice per gestire il pagamento completato
-                });
-            }
-        }).render('#paypal-button-container'); // Renderizza il pulsante PayPal
-    </script>
+        // Setta il costo nel carrello
+        var total = "<%= total %>";
+        cart.setCosto(total);
+        
+
+        // Se tutto è corretto, invia il form manualmente
+        document.getElementById('payment').submit();
+    }
+
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            // Usa il valore totale passato dal server-side
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: totalAmount // Utilizza il valore totale dinamico
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+                // Aggiungi qui il codice per gestire il pagamento completato
+                document.getElementById('paypalEmail').value = details.payer.email_address;
+                // Setta il costo nel carrello
+                cart.setCosto(totalAmount);
+                // Submit the form
+                document.getElementById('payment').submit();
+            });
+        }
+    }).render('#paypal-button-container'); // Renderizza il pulsante PayPal
+</script>
     <jsp:include page="./fragments/footer.jsp" />
 </body>
 </html>
