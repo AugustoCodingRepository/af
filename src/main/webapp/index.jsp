@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     </head>
 
-    <body> 
+    <body>  
         
         <jsp:include page="./fragments/header.jsp"></jsp:include>
             <!--SCROLL CON VIDEO2-->
