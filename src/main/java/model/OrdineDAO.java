@@ -11,7 +11,7 @@ public class OrdineDAO {
     public static void insert(Ordine ordine, User user) throws SQLException {
         if (user != null) {
             try (Connection connection = ConnectToDB.getConnection();
-                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (User_ID, Order_Data, Delivery_Data, Cost, product_list) VALUES (?, ?, ?, ?, ?)")) {
+                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Ordine (User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?)")) {
 
                 statement.setInt(1, ordine.getUser_ID());
                 statement.setDate(2, ordine.getOrder_Data());
@@ -40,7 +40,7 @@ public class OrdineDAO {
                         resultSet.getDate("Order_Data"),
                         resultSet.getDate("Delivery_Data"),
                         resultSet.getDouble("Cost"),
-                        convertJsonStringToArrayList(resultSet.getString("product_list"))
+                        convertJsonStringToArrayList(resultSet.getString("ProductList"))
                 );
                 ordini.add(ordine);
             }
@@ -62,7 +62,7 @@ public class OrdineDAO {
                                 resultSet.getDate("Order_Data"),
                                 resultSet.getDate("Delivery_Data"),
                                 resultSet.getDouble("Cost"),
-                                convertJsonStringToArrayList(resultSet.getString("product_list"))
+                                convertJsonStringToArrayList(resultSet.getString("ProductList"))
                         );
                         ordini.add(ordine);
                     }
@@ -86,7 +86,7 @@ public class OrdineDAO {
                             resultSet.getDate("Order_Data"),
                             resultSet.getDate("Delivery_Data"),
                             resultSet.getDouble("Cost"),
-                            convertJsonStringToArrayList(resultSet.getString("product_list"))
+                            convertJsonStringToArrayList(resultSet.getString("ProductList"))
                     );
                 }
             }
