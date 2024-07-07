@@ -137,95 +137,55 @@ a {
 }
 
 /*panel ABOUT US*/
-/* Smartphone (fino a 600px) */
-@media only screen and (max-width: 600px) {
-  .about {
-    margin-top: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 1rem;
-  }
+.panel-image {
+    width: 50%;
+    object-fit: cover;
+    padding-left: 20px; /* Aggiungi spazio a sinistra */
+}
 
-  .about-img img {
-    border-radius: 0.25rem;
-    padding-left: 5%;
-  }
+.panel-description {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    text-align: left; /* Allinea tutto a sinistra */
+}
 
-  .title-big {
+.panel-description .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #34688E ;
+    border: none;
+    border-radius: 4px;
     text-align: center;
-    margin-top: 0;
-    padding-left: 5%;
-  }
-
-  .about-text p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 1rem;
-    text-align: left;
-    padding-right: 5%;
-    padding-left: 5%;
-  }
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-/* Tablet (da 601px a 1024px) */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .about {
-    margin-top: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .about-img img {
-    border-radius: 0.5rem;
-    padding-left: 10%;
-  }
-
-  .title-big {
-    text-align: left;
-    margin-top: 0;
-    padding-left: 5%;
-  }
-
-  .about-text p {
-    font-size: 1.4rem;
-    margin: 0.5rem 0 1rem;
-    text-align: left;
-    padding-right: 10%;
-    padding-left: 5%;
-  }
+.panel-description .btn:hover {
+    background-color: #3882d1;
 }
 
-/* PC (oltre 1024px) */
-@media only screen and (min-width: 1025px) {
-  .about {
-    margin-top: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-    align-items: center;
-    gap: 1.5rem;
-  }
+@media (max-width: 768px) {
+    .panel {
+        flex-direction: column;
+    }
 
-  .about-img img {
-    border-radius: 0.5rem;
-    padding-left: 15%;
-  }
+    .panel-image {
+        width: 100%;
+        padding-left: 0; /* Resetta il padding per dispositivi più piccoli */
+    }
 
-  .title-big {
-    text-align: left;
-    margin-top: 0;
-    padding-left: 5%;
-  }
-
-  .about-text p {
-    font-size: 1.5rem;
-    margin: 0.5rem 0 1.1rem;
-    text-align: left;
-    padding-right: 15%;
-    padding-left: 5%;
-  }
+    .panel-description {
+        width: 100%;
+        align-items: flex-start; /* Allinea tutto a sinistra anche sui dispositivi più piccoli */
+    }
 }
+
 
 
 /*

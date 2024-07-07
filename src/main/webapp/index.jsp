@@ -39,6 +39,19 @@
           </div>
           </div>
 
+		<!-- nuovo -->
+		<div class="panel">
+        <img src="./IMG/aboutus.png" alt="Descrizione immagine" class="panel-image">
+        <div class="panel-description">
+            <p>Augusto, Antonio, Federica e Francesco si incontrarono per la prima volta durante il loro secondo anno di universit&agrave;.
+                  L'incontro avvenne durante una lezione di progettazione di tecnologie e software per il web. La professoressa assegn&ograve; loro un progetto di gruppo: 
+                  sviluppare un sito web innovativo. La passione comune per la musica elettrica li spinse a lavorare insieme, dando inizio a una collaborazione che avrebbe cambiato le loro vite...
+                </p>
+                <a href="#" class="btn">Scopri di pi&ugrave;</a>
+                
+        </div>
+    </div>
+		<!--vecchio  
         <div class="panel">
         <div class="div-separato">
           
@@ -61,6 +74,7 @@
         </section>
         </div>
         </div>
+        -->
         
         <!--separatore-->
         <div class="panel2">
