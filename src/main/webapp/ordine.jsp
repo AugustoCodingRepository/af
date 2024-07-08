@@ -7,7 +7,7 @@ User user = (User) request.getSession().getAttribute("currentSessionUser");
 Collection<Ordine> ordini = null;
 if (user != null) {
 	OrdineDAO ordineDAO = new OrdineDAO();
-	ordini = OrdineDAO.getOrdiniByUser(user);
+	ordini = OrdineDAO.getOrderByUserId(user.getUser_ID());
 }
 %>
 
@@ -24,6 +24,7 @@ if (user != null) {
 <title>I tuoi ordini</title>
 </head>
 <body>
+<br>
 	<jsp:include page="./fragments/header.jsp" />
 	<%
 	if (user == null) {
@@ -43,6 +44,8 @@ if (user != null) {
 				<th scope="col">Data Ordine</th>
 				<th scope="col">Data Consegna</th>
 				<th scope="col">Costo</th>
+				<th scope="col">Dettaglio</th>
+				<th scope="col">Fattura</th>
 			</tr>
 		</thead>
 		<tbody class="table-body-custom">
@@ -50,10 +53,12 @@ if (user != null) {
 			for (Ordine o : ordini) {
 			%>
 			<tr>
-				<td scope="row"><%=o.getOrder_ID()%></td>
-				<td><%=o.getOrder_Data()%></td>
-				<td><%=o.getDelivery_Data()%></td>
+				<td scope="row"><%=o.getOrderID()%></td>
+				<td><%=o.getOrderDate()%></td>
+				<td><%=o.getDeliveryDate()%></td>
 				<td><%=o.getCost()%></td>
+				<td><a href="./DettaglioOrder?Order_ID=<%=o.getOrderID()%>">Più info</a>
+				<td><a href="./FatturaServlet?Order_ID=<%=o.getOrderID()%>">Fattura</a>
 			</tr>
 			<%
 			}

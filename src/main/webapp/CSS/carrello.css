@@ -22,16 +22,27 @@ body {
 }
 
 .pay-button {
+   background-color: #34688E;
   color: #fff;
+  text-decoration: none;
 }
 
 .pay-button:hover {
+  background-color: #34688E; /* Mantiene il colore rosa al passaggio del mouse */
   color: #fff;
+  text-decoration: none;
 }
 
 .pay-button:focus {
+  background-color: #34688E; /* Mantiene il colore rosa al clic */
   color: #fff;
   box-shadow: none;
+  text-decoration: none;
+}
+
+.pay-button:active{
+	color:#fff;
+  background-color: #34688E;
 }
 
 .text-grey {

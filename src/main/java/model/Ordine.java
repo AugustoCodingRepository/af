@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Ordine {
     private int orderID;
@@ -74,5 +76,26 @@ public class Ordine {
 
     public void setProductList(String productList) {
         this.productList = productList;
+    }
+    
+    public static List<Integer> convertStringToArrayList(String s){
+        // Creiamo un ArrayList per contenere i numeri
+        List<Integer> numbersList = new ArrayList<>();
+        
+        // Dividiamo la stringa usando il trattino come separatore
+        String[] numbers = s.split("-");
+        
+        // Iteriamo attraverso l'array di stringhe risultante
+        for (String number : numbers) {
+            // Convertiamo ogni stringa in un intero e la aggiungiamo all'ArrayList
+            try {
+                numbersList.add(Integer.parseInt(number));
+            } catch (NumberFormatException e) {
+                // Gestiamo il caso in cui la stringa non sia un numero valido
+                System.out.println("Errore: '" + number + "' non è un numero valido.");
+            }
+        }
+        
+        return numbersList;
     }
 }

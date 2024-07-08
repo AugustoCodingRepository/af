@@ -19,7 +19,7 @@ User user = (User) request.getSession().getAttribute("currentSessionUser");
 
 	<div class="container">
 		<jsp:include page="./fragments/header.jsp" />
-		<h1 class="heading">our services</h1>
+		<br><br><br>
 
 		<div class="box-container">
 

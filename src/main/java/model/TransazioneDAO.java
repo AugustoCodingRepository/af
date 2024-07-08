@@ -37,18 +37,13 @@ public class TransazioneDAO {
 
         try (Connection con = ConnectToDB.getConnection();
              PreparedStatement statement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-
+        	System.out.println(transazione.getOrderId());
             statement.setInt(1, transazione.getOrderId());
             statement.setInt(2, transazione.getUserId());
             statement.setString(3, transazione.getEsito());
 
             rowInserted = statement.executeUpdate() > 0;
 
-            try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    transazione.setTransactionId(generatedKeys.getInt(1));
-                }
-            }
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;

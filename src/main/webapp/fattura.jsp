@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html lang="it">
 <%
-Ordine ordine = OrdineDAO.getOrderByID(Integer.parseInt(request.getParameter("Order_ID")));
-User user = UserDAO.getUserByID(ordine.getUser_ID());
-ArrayList<String> prodotti = ordine.getProdottiAcquistati();
+Ordine ordine = OrdineDAO.selectOrdine(Integer.parseInt(request.getParameter("Order_ID")));
+User user = UserDAO.getUserByID(ordine.getUserID());
+String pList = ordine.getProductList();
+List<Integer> prodotti = Ordine.convertStringToArrayList(pList);
 double totaleNetto = 0;
 double totaleConIva = 0;
 double prezzoCorrente = 0;
@@ -41,7 +42,7 @@ double totaleIva = 0;
 													<div>
 														<p class="whitespace-nowrap text-slate-400 text-right">Data</p>
 														<p
-															class="whitespace-nowrap font-bold text-main text-right"><%=ordine.getOrder_Data()%></p>
+															class="whitespace-nowrap font-bold text-main text-right"><%=ordine.getOrderDate()%></p>
 													</div>
 												</td>
 												<td class="pl-4">
@@ -49,7 +50,7 @@ double totaleIva = 0;
 														<p class="whitespace-nowrap text-slate-400 text-right">Fattura
 															#</p>
 														<p
-															class="whitespace-nowrap font-bold text-main text-right"><%=ordine.getOrder_ID()%></p>
+															class="whitespace-nowrap font-bold text-main text-right"><%=ordine.getOrderID()%></p>
 													</div>
 												</td>
 											</tr>
@@ -111,18 +112,18 @@ double totaleIva = 0;
 					</thead>
 					<tbody>
 						<%
-						for (String pid : prodotti) {
+						for (int pid : prodotti) {
 							int i = 0;
-							Prodotto p = ProdottoDAO.getProductByID(pid);
+							Prodotto p = ProdottoDAO.getProductByID(String.valueOf(pid));
 						%>
 						<tr>
 							<td class="border-b py-3 pl-3"><%=i++%></td>
 							<td class="border-b py-3 pl-2"><%=p.getProduct_Name()%></td>
-							<td class="border-b py-3 pl-2 text-right">€<%=p.getPrice()%></td>
+							<td class="border-b py-3 pl-2 text-right">&euro;<%=p.getPrice()%></td>
 							<td class="border-b py-3 pl-2 text-center"><%=p.getIVA()%>%</td>
 							<td class="border-b py-3 pl-2 text-right"><%=p.getPrice()%></td>
 							<%
-							totaleNetto = +p.getPrice();
+							totaleNetto =+p.getPrice();
 							%>
 							<td class="border-b py-3 pl-2 pr-3 text-right"><%=(p.getPrice() + (p.getIVA() * p.getPrice()))%></td>
 							<%
@@ -150,7 +151,7 @@ double totaleIva = 0;
 															</td>
 															<td class="border-b p-3 text-right">
 																<div class="whitespace-nowrap font-bold text-main">
-																	€<%=totaleNetto%></div>
+																	&euro;<%=totaleNetto%></div>
 															</td>
 														</tr>
 														<tr>
@@ -160,7 +161,7 @@ double totaleIva = 0;
 															</td>
 															<td class="p-3 text-right">
 																<div class="whitespace-nowrap font-bold text-main">
-																	€<%=totaleIva%></div>
+																	&euro;<%=totaleIva%></div>
 															</td>
 														</tr>
 														<tr>
@@ -169,7 +170,7 @@ double totaleIva = 0;
 															</td>
 															<td class="bg-main p-3 text-right">
 																<div class="whitespace-nowrap font-bold text-white">
-																	€<%=totaleConIva%></div>
+																	&euro;<%=totaleConIva%></div>
 															</td>
 														</tr>
 													</tbody>
@@ -190,7 +191,7 @@ double totaleIva = 0;
 				<p>Account numero: 78976</p>
 				<p>
 					Pagamento numero:
-					<%=ordine.getOrder_ID()%></p>
+					<%=ordine.getOrderID()%></p>
 			</div>
 
 			<div class="px-14 py-10 text-sm text-neutral-700">

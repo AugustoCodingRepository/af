@@ -54,7 +54,6 @@ CREATE TABLE `ordine` (
   `Order_Data` date NOT NULL,
   `Delivery_Data` date NOT NULL,
   `Cost` int NOT NULL,
-  `product_list` json NOT NULL,
   PRIMARY KEY (`Order_ID`),
   KEY `User_ID` (`User_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
@@ -105,6 +104,14 @@ CREATE TABLE `transazione` (
   FOREIGN KEY (`Order_ID`) REFERENCES `ordine` (`Order_ID`),
   FOREIGN KEY (`User_ID`) REFERENCES `utente` (`User_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE prodotto_ordine (
+    Product_ID INT,
+    Order_ID INT,
+    PRIMARY KEY (Product_ID, Order_ID),
+    FOREIGN KEY (Product_ID) REFERENCES prodotto(Product_ID),
+    FOREIGN KEY (Order_ID) REFERENCES ordine(Order_ID)
+);
 
 
 INSERT INTO categoria (Nome)

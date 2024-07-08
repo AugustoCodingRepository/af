@@ -3,12 +3,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class OrdineDAO {
-
+	
+	private static final String SELECT_ORDINE_BY_USER_ID = "SELECT * FROM ordine WHERE User_ID=?";
     private static final String INSERT_ORDINE_SQL = "INSERT INTO ordine (User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?)";
     private static final String SELECT_ORDINE_BY_ID = "SELECT * FROM ordine WHERE Order_ID=?";
     private static final String SELECT_ALL_ORDINI = "SELECT * FROM ordine";
@@ -19,19 +21,32 @@ public class OrdineDAO {
     }
 
     // Metodo per inserire un nuovo ordine nel database
-    public static void insertOrdine(Ordine ordine) throws SQLException {
+    public static int insertOrdine(Ordine ordine, User user) throws SQLException {
+        String INSERT_ORDINE_SQL = "INSERT INTO ordine (User_ID, Order_Data, Delivery_Data, Cost, ProductList) VALUES (?, ?, ?, ?, ?)";
+
         try (Connection connection = ConnectToDB.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ORDINE_SQL)) {
-            preparedStatement.setInt(1, ordine.getUserID());
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_ORDINE_SQL, Statement.RETURN_GENERATED_KEYS)) { // Modifica qui
+            preparedStatement.setInt(1, user.getUser_ID());
             preparedStatement.setDate(2, new java.sql.Date(ordine.getOrderDate().getTime()));
             preparedStatement.setDate(3, new java.sql.Date(ordine.getDeliveryDate().getTime()));
             preparedStatement.setDouble(4, ordine.getCost());
             preparedStatement.setString(5, ordine.getProductList());
-            preparedStatement.executeUpdate();
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        int pk = generatedKeys.getInt(1);
+                        System.out.println(pk + "inOrderDAO");
+                        return pk;
+                    }
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
         }
+        return 0;
     }
 
     // Metodo per selezionare un ordine dal database tramite Order_ID
@@ -58,7 +73,7 @@ public class OrdineDAO {
     }
 
     // Metodo per selezionare tutti gli ordini presenti nel database
-    public static List<Ordine> selectAllOrdini() {
+    public static List<Ordine> selectAll() {
         List<Ordine> ordini = new ArrayList<>();
         try (Connection connection = ConnectToDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_ORDINI)) {
@@ -78,6 +93,7 @@ public class OrdineDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ordine non recuperato");
         }
         return ordini;
     }
@@ -109,4 +125,27 @@ public class OrdineDAO {
         }
         return rowUpdated;
     }
+    
+    public static List<Ordine> getOrderByUserId(int userId) {
+        List<Ordine> ordini = new ArrayList<>();
+        try (Connection connection = ConnectToDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ORDINE_BY_USER_ID)) {
+            preparedStatement.setInt(1, userId);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int orderID = rs.getInt("Order_ID");
+                Date orderDate = rs.getDate("Order_Data");
+                Date deliveryDate = rs.getDate("Delivery_Data");
+                Double cost = rs.getDouble("Cost");
+                String productList = rs.getString("ProductList");
+
+                ordini.add(new Ordine(orderID, userId, orderDate, deliveryDate, cost, productList));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ordini;
+    }
+
 }

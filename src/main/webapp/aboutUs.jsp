@@ -1,81 +1,58 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Alta Frequenza</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="./CSS/aboutUs.css">
-    <link rel="icon" type="image/png" href="IMG/Finale.png">
-    <script src="./JS/effects.js" defer></script>
 </head>
 <body>
 	<jsp:include page="./fragments/header.jsp"></jsp:include>
-
-<div class="about-section">
-
-    <div class="content">
-       <div class="title-section">
+    <header>
         <h1>About Us</h1>
-       </div>
-       
-        <p class="specialecentrale fade-in">Benvenuti in Alta Frequenza, dove la passione incontra l'innovazione nel mondo degli strumenti musicali elettrici.</p>
-       
-       <div class="title-section">
-        <h1>L'incontro</h1>
-       </div>
-      
-        <p class="specialedestra fade-in">L'incontro √® avvenuto durante una lezione di progettazione di sistemi web. Il professore assegn√≤ loro un progetto di gruppo: sviluppare un sito web innovativo. La passione comune per la musica elettronica li spinse a collaborare, dando vita a una partnership che avrebbe cambiato le loro vite.</p>
-       <div class="title-section">
-        <h1>La Visione</h1>
-       </div>
-      
-        <p class="specialesinistra fade-in">Durante una delle loro prime riunioni, i quattro amici notarono che le iniziali dei loro nomi formavano un acronimo interessante: A e A per Antonio e Augusto, F e F per Francesco e Federica. Fu cos√¨ che nacque l'idea di chiamare il loro sito web "Alta Frequenza", un nome che riflette sia l'acronimo delle loro iniziali (AF) sia la loro passione per gli strumenti musicali elettrici.</p>
-       <div class="title-section">
-        <h1>Il risultato</h1>
-       </div>
-        <p class="specialedestra fade-in">Decisero di creare un sito che non solo vendesse strumenti musicali, ma fosse anche una risorsa educativa e una comunit√† per musicisti. Il loro obiettivo era offrire tastiere, chitarre elettriche, mixer, amplificatori e cuffie, insieme a contenuti di alta qualit√† come recensioni, tutorial e video dimostrativi.</p>
-    </div>
-</div>
-
-<div class="about-section">
-    <div class="title-section">
-  <h1>La nostra mission</h1>
-</div>
-  <div class="row">
-      <div class="column">
-          <div class="card">
-              <img src="strumenti_Di_Qualita.png" style="width:100%">
-              <div class="container">
-                  <h2>Strumenti di qualit√†</h2>
-                  <p>In Alta Frequenza troverai solo il meglio.</p>
-                  <p> Ti forniremo tutti gli strumenti di cui avrai bisogno per dare voce alle tue passioni!</p>
-              </div>
-          </div>
-      </div>
-    <div class="column">
+    </header>
+    <section class="description">
+        <h2>La nostra storia</h2>
+        <p>
+            Augusto, Antonio, Federica e Francesco si incontrarono per la prima volta durante il loro secondo anno di universit‡. L'incontro avvenne durante una lezione di progettazione di tecnologie e software per il web. La professoressa assegnÚ loro un progetto di gruppo: sviluppare un sito web innovativo. La passione comune per la musica elettrica li spinse a lavorare insieme, dando inizio a una collaborazione che avrebbe cambiato le loro vite.
+        </p>
+    </section>
+    <section class="description">
+        <h2>Da dove nasce il nostro brand</h2>
+        <p>
+            Durante una delle loro prime riunioni, i quattro amici notarono che le iniziali dei loro nomi formavano un acronimo interessante: A e A per Antonio e Augusto, F e F per Francesco e Federica. Fu cosÏ che nacque l'idea di chiamare il loro sito web "Alta Frequenza", un nome che riflette sia l'acronimo delle loro iniziali (AF) sia la loro passione per gli strumenti musicali elettrici.
+        
+            Decisero di creare un sito che non solo vendesse strumenti musicali, ma fosse anche una risorsa educativa e una comunit‡ per musicisti. Il loro obiettivo era offrire tastiere, chitarre elettriche, mixer, amplificatori e cuffie, insieme a contenuti di alta qualit‡.
+        </p>
+    </section>
+    <section class="team">
+        <h2>Il nostro Team</h2>
         <div class="card">
-            <img src="servizio_Di_Consulenza.png" style="width:100%">
-            <div class="container">
-                <h2>Servizio di consulenza</h2>
-                <p>Non sai quale strumento sia pi√π adatto alle tue esigenze?</p>
-                <p>Ti aiutiamo noi!</p>
+            <h3>Augusto Persico - Database Developer</h3>
+            <p>
+                Augusto Ë uno sviluppatore che si Ë interfcciato soprattutto nella gestione di tutto ciÚ che riguarda il lato back-end, ovvero: database, Java e JSP. 
+                La sua competenza in Java e JSP gli consente di creare soluzioni scalabili e robuste, garantendo al contempo un'integrazione fluida con l'infrastruttura esistente.
+            </p>    
             </div>
-        </div>
-    </div>
-
-    <div class="column">
         <div class="card">
-            <img src="assistenza_Post_Vendita.png" style="width:100%">
-            <div class="container">
-                <h2>Assistenza post vendita</h2>
-                <p>Alta frequenza non √® solo vendita, ma √® una grande famiglia</p>
-                <p>In caso di problemi, non disperare! Siamo sempre pronti ad aiutarti</p>
-            </div>
+            <h3>Antonio Picarella - Project Proposal and Content Specialist</h3>
+            <p>
+            Antonio Ë una sviluppatore con una passione per la proposta di progetti e la cura dei testi. La sua abilit‡ nel redigere proposte chiare e persuasive ha contribuito a ottenere finanziamenti e supporto per numerosi progetti innovativi. Inoltre, la sua attenzione ai dettagli e la capacit‡ di creare contenuti coinvolgenti garantiscono che ogni progetto sia presentato in modo professionale e accattivante.
+           </p>
         </div>
-    </div>
-  </div>
-</div>
-	<jsp:include page="./fragments/footer.jsp"></jsp:include>
+        <div class="card">
+            <h3>Federica Iuliano - Front-End Developer & Graphic Designer</h3>
+            <p>
+                Federica Ë una sviluppatrice talentuosa specializzata nella grafica e nella realizzazione di pagine HTML e CSS. Con un occhio attento al design e all'usabilit‡, Federica crea interfacce utente esteticamente piacevoli e funzionali. La sua esperienza nella combinazione di elementi grafici con codici HTML e CSS garantisce siti web moderni, reattivi e visivamente accattivanti.
+            </p>
+        </div>
+        <div class="card">
+            <h3>Francesco Di Flumeri - Responsive Web Developer</h3>
+            <p>
+                Francesco Ë uno sviluppatore esperto in CSS e HTML, specializzato nel rendere le pagine web completamente responsive. La sua competenza nel creare design fluidi e adattabili assicura che i siti web offrano un'esperienza utente ottimale su qualsiasi dispositivo. Con una profonda conoscenza delle tecniche di responsive design, Francesco garantisce che ogni progetto mantenga un aspetto professionale e funzionale, indipendentemente dalla dimensione dello schermo.
+            </p>
+        </div>
+    </section>
+     <jsp:include page="./fragments/footer.jsp"></jsp:include>
 </body>
 </html>
-

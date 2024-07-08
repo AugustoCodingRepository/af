@@ -1,8 +1,7 @@
-<%@ page import="model.*" %>
-<%@ page import="java.util.*" %>
+<%@page import="model.*" import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% List<Ordine> orders = OrdineDAO.selectAllOrdini(); %>
+<% List<Ordine> orders = OrdineDAO.selectAll(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +15,7 @@
 </head>
 <body>
 	<jsp:include page="./fragments/header.jsp" />
+	<br><br><br>
 	<h1 align="center">
 		Ordini (<%= orders.size() %>)
 	</h1>

@@ -3,7 +3,7 @@
 	import="org.apache.catalina.filters.ExpiresFilter.XServletOutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="model.*, java.util.*, javax.servlet.http.HttpSession"%>
+<%@page import="model., java.util., javax.servlet.http.HttpSession"%>
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
 

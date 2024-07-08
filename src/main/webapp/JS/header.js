@@ -39,3 +39,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var userGreeting = document.getElementById('userGreeting');
+    var usernameSpan = document.getElementById('username');
+    if (user) {
+        usernameSpan.textContent = user.username; // Sostituisci 'username' con il campo appropriato dell'oggetto User
+        userGreeting.style.display = 'block'; // Mostra il saluto
+    } else {
+        userGreeting.style.display = 'none'; // Nascondi il saluto se l'utente non è autenticato
+    }
+});

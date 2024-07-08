@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: slategray;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@ body{
 }
 
 .container{
-    background-color: slategray;
+    background-color: #fff;
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -33,15 +33,15 @@ body{
 }
 
 .container a{
-    color: #ccc;
+    color: #fff;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
 .container button {
-    background-color: goldenrod;
-    color: whitesmoke;
+    background-color: #34688E;
+    color: #fff;
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
@@ -55,11 +55,11 @@ body{
 
 .container button.hidden {
     background-color: transparent;
-    border-color: slategray;
+    border-color: #fff;
 }
 
 .container form{
-    background-color:slategray;
+    background-color:#fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +141,7 @@ body{
 .toggle{
     background-color: slategray;
     height: 100%;
-    background: linear-gradient(to right, goldenrod, goldenrod);
+    background: linear-gradient(to right, #34688E, #2c2c2c);
     color: #fff;
     position: relative;
     left: -100%;

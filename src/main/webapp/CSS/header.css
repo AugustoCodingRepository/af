@@ -224,3 +224,7 @@
         display: block; /* Mostra l'icona del menu a tendina extra */
     }
 }
+
+#username{
+	margin-top: auto;
+}

@@ -21,10 +21,9 @@
             <div class="footer-section">
                 <h4>Link Utili</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Chi Siamo</a></li>
-                    <li><a href="#">Servizi</a></li>
-                    <li><a href="#">Contatti</a></li>
+                    <li><a href="./index.jsp">Home</a></li>
+                    <li><a href="./aboutUs.jsp">Chi Siamo</a></li>
+                    <li><a href="./contatti.jsp">Contatti</a></li>
                 </ul>
             </div>
             <div class="footer-section">

@@ -29,25 +29,90 @@ public class UpdateUserDatas extends HttpServlet{
 		try {
 			User user = (User) request.getSession().getAttribute("currentSessionUser");
 			if(user!=null) {
-			if(UserDAO.UpdateUser(
-					user.getUser_ID(),
-					request.getParameter("nome"),
-					request.getParameter("cognome"),
-					request.getParameter("via"),
-					Integer.parseInt(request.getParameter("civico")),
-					Integer.parseInt(request.getParameter("cap")),
-					request.getParameter("citta"),
-					request.getParameter("provincia"),
-					request.getParameter("nazione"),
-					request.getParameter("telefono")
-					)){
+				String nome = request.getParameter("nome");
+				String cognome = request.getParameter("cognome");
+				String via = request.getParameter("via");
+				String civicoStr = request.getParameter("civico");
+				String capStr = request.getParameter("cap");
+				String citta = request.getParameter("citta");
+				String provincia = request.getParameter("provincia");
+				String nazione = request.getParameter("nazione");
+				String telefono = request.getParameter("telefono");
+
+				int civico = 0;
+				int cap = 0;
+
+				// Controllo per il campo "nome"
+				if (nome == null || nome.isEmpty()) {
+				    nome = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "cognome"
+				if (cognome == null || cognome.isEmpty()) {
+				    cognome = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "via"
+				if (via == null || via.isEmpty()) {
+				    via = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "civico"
+				if (civicoStr == null || civicoStr.isEmpty()) {
+				    civico = 0;
+				} else {
+				    civico = Integer.parseInt(civicoStr);
+				}
+
+				// Controllo per il campo "cap"
+				if (capStr == null || capStr.isEmpty()) {
+				    cap = 0;
+				} else {
+				    cap = Integer.parseInt(capStr);
+				}
+
+				// Controllo per il campo "citta"
+				if (citta == null || citta.isEmpty()) {
+				    citta = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "provincia"
+				if (provincia == null || provincia.isEmpty()) {
+				    provincia = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "nazione"
+				if (nazione == null || nazione.isEmpty()) {
+				    nazione = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				// Controllo per il campo "telefono"
+				if (telefono == null || telefono.isEmpty()) {
+				    telefono = ""; // Assegna un valore predefinito o gestisci diversamente
+				}
+
+				if (UserDAO.UpdateUser(
+				        user.getUser_ID(),
+				        nome,
+				        cognome,
+				        via,
+				        civico,
+				        cap,
+				        citta,
+				        provincia,
+				        nazione,
+				        telefono));
+				    // Codice per la gestione del successo dell'update
 				
-				RequestDispatcher view = request.getRequestDispatcher("./myDatas.jsp");
+
+				
+
+				RequestDispatcher view = request.getRequestDispatcher("./iMieiDati.jsp");
 				view.forward(request, response);
 			}else{
 				RequestDispatcher view = request.getRequestDispatcher("./index.jsp");
 				view.forward(request, response);
-			}}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
